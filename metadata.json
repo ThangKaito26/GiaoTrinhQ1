@@ -1,0 +1,6 @@
+{
+  "name": "Giáo Trình Tiếng Trung Q1 - Sách Điện Tử & AI Học Tập",
+  "description": "Sách điện tử tương tác Giáo Trình Tiếng Trung Quyển 1 với hiệu ứng lật trang thực tế, phát âm thanh từng câu và hội thoại, đánh dấu từ vựng, từ điển ngữ cảnh trực quan và bảng điều khiển AI sửa lỗi thông minh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

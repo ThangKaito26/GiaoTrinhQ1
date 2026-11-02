@@ -1,0 +1,1490 @@
+{
+  "book_id": "q1",
+  "book_title": "GIÁO TRÌNH TIẾNG TRUNG QUYỂN 1",
+  "total_lessons": 13,
+  "lessons": [
+    {
+      "lesson_id": "q1_b01",
+      "lesson_num": 1,
+      "lesson_title": "第一课 Dì yī kè： 你好! Nǐ hǎo! / Bài 1: Xin chào!",
+      "exercises": [
+        {
+          "exercise_id": "q1_b01_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Thanh Minh, Chào bạn! Bạn khỏe không?",
+          "answer_hanzi": "清明，你好！你身体好吗？",
+          "answer_pinyin": "Qīngmíng, nǐ hǎo! Nǐ shēntǐ hǎo ma?",
+          "vocab_grammar_notes": "清明 (Qīngmíng: Thanh Minh), 你好 (nǐ hǎo: chào bạn), 身体好吗 (shēntǐ hǎo ma: sức khỏe tốt không/khỏe không)"
+        },
+        {
+          "exercise_id": "q1_b01_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Em trai của bạn khỏe không?",
+          "answer_hanzi": "你弟弟身体好吗？",
+          "answer_pinyin": "Nǐ dìdi shēntǐ hǎo ma?",
+          "vocab_grammar_notes": "你弟弟 (nǐ dìdi: em trai bạn), 身体好吗 (shēntǐ hǎo ma: khỏe không)"
+        },
+        {
+          "exercise_id": "q1_b01_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi rất khỏe, em trai của tôi cũng khỏe, còn bạn?",
+          "answer_hanzi": "我身体很好，我弟弟也很好，你呢？",
+          "answer_pinyin": "Wǒ shēntǐ hěn hǎo, wǒ dìdi yě hěn hǎo, nǐ ne?",
+          "vocab_grammar_notes": "很好 (hěn hǎo: rất khỏe), 也很好 (yě hěn hǎo: cũng rất khỏe), 你呢 (nǐ ne: còn bạn thì sao)"
+        },
+        {
+          "exercise_id": "q1_b01_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Chúng tôi đều khỏe.",
+          "answer_hanzi": "我们都很好。",
+          "answer_pinyin": "Wǒmen dōu hěn hǎo.",
+          "vocab_grammar_notes": "我们 (wǒmen: chúng tôi), 都 (dōu: đều), 很好 (hěn hǎo: rất khỏe)"
+        },
+        {
+          "exercise_id": "q1_b01_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Các bạn đến không?",
+          "answer_hanzi": "你们来吗？",
+          "answer_pinyin": "Nǐmen lái ma?",
+          "vocab_grammar_notes": "你们 (nǐmen: các bạn), 来 (lái: đến), 吗 (ma: không)"
+        },
+        {
+          "exercise_id": "q1_b01_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Chúng tôi cũng không đến.",
+          "answer_hanzi": "我们也不来。",
+          "answer_pinyin": "Wǒmen yě bù lái.",
+          "vocab_grammar_notes": "也不来 (yě bù lái: cũng không đến)"
+        },
+        {
+          "exercise_id": "q1_b01_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ba mẹ của tôi rất khỏe? Còn ba mẹ của bạn?",
+          "answer_hanzi": "我爸爸妈妈身体很好，你爸爸妈妈呢？",
+          "answer_pinyin": "Wǒ bàba māmā shēntǐ hěn hǎo, nǐ bàba māmā ne?",
+          "vocab_grammar_notes": "爸爸妈妈 (bàba māmā: ba mẹ), 呢 (ne: trợ từ ngữ khí hỏi tỉnh lược)"
+        },
+        {
+          "exercise_id": "q1_b01_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Chị gái của tôi cũng đến.",
+          "answer_hanzi": "我姐姐也来。",
+          "answer_pinyin": "Wǒ jiějie yě lái.",
+          "vocab_grammar_notes": "姐姐 (jiějie: chị gái), 也来 (yě lái: cũng đến)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b02",
+      "lesson_num": 2,
+      "lesson_title": "第二课 Dì èr kè： 我身体很好！ Wǒ shēn tǐ hěn hǎo! / Bài 2: Sức khỏe tôi rất tốt!",
+      "exercises": [
+        {
+          "exercise_id": "q1_b02_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Vương Minh, Chào buổi sáng!",
+          "answer_hanzi": "王明，早上好！",
+          "answer_pinyin": "Wáng Míng, zǎoshang hǎo!",
+          "vocab_grammar_notes": "王明 (Wáng Míng: Vương Minh), 早上好 (zǎoshang hǎo: chào buổi sáng)"
+        },
+        {
+          "exercise_id": "q1_b02_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Sức khỏe của bạn tốt không?",
+          "answer_hanzi": "你身体好吗？",
+          "answer_pinyin": "Nǐ shēntǐ hǎo ma?",
+          "vocab_grammar_notes": "身体 (shēntǐ: sức khỏe, thân thể), 好吗 (hǎo ma: tốt không)"
+        },
+        {
+          "exercise_id": "q1_b02_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Sức khỏe tôi rất tốt!",
+          "answer_hanzi": "我身体很好！",
+          "answer_pinyin": "Wǒ shēntǐ hěn hǎo!",
+          "vocab_grammar_notes": "我身体很好 (Wǒ shēntǐ hěn hǎo: sức khỏe tôi rất tốt)"
+        },
+        {
+          "exercise_id": "q1_b02_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Các bạn hôm nay đến không?",
+          "answer_hanzi": "你们今天来吗？",
+          "answer_pinyin": "Nǐmen jīntiān lái ma?",
+          "vocab_grammar_notes": "今天 (jīntiān: hôm nay), 来吗 (lái ma: đến không)"
+        },
+        {
+          "exercise_id": "q1_b02_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ngày 16 chúng tôi đều đến, bạn đến không?",
+          "answer_hanzi": "十六号我们都来，你来吗？",
+          "answer_pinyin": "Shíliù hào wǒmen dōu lái, nǐ lái ma?",
+          "vocab_grammar_notes": "十六号 (shíliù hào: ngày 16), 都来 (dōu lái: đều đến)"
+        },
+        {
+          "exercise_id": "q1_b02_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Xin lỗi, hôm nay tôi không đến, ngày 29 tôi đến.",
+          "answer_hanzi": "对不起，今天我不来，二十九号我来。",
+          "answer_pinyin": "Duìbuqǐ, jīntiān wǒ bù lái, èrshíjiǔ hào wǒ lái.",
+          "vocab_grammar_notes": "对不起 (duìbuqǐ: xin lỗi), 二十九号 (èrshíjiǔ hào: ngày 29)"
+        },
+        {
+          "exercise_id": "q1_b02_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn không đến, tôi cũng không đến.",
+          "answer_hanzi": "你不来，我也不来。",
+          "answer_pinyin": "Nǐ bù lái, wǒ yě bù lái.",
+          "vocab_grammar_notes": "不来 (bù lái: không đến), 也不来 (yě bù lái: cũng không đến)"
+        },
+        {
+          "exercise_id": "q1_b02_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Đừng khách sáo. Tạm biệt.",
+          "answer_hanzi": "不客气。再见。",
+          "answer_pinyin": "Bù kèqi. Zàijiàn.",
+          "vocab_grammar_notes": "不客气 (bù kèqi: đừng khách sáo), 再见 (zàijiàn: tạm biệt)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b03",
+      "lesson_num": 3,
+      "lesson_title": "第三课 Dì sān kè ： 今天你工作累吗？ Jīntiān nǐ gōngzuò lèi ma? / Bài 3: Hôm nay bạn làm việc mệt không?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b03_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm nay bạn đến không?",
+          "answer_hanzi": "今天你来吗？",
+          "answer_pinyin": "Jīntiān nǐ lái ma?",
+          "vocab_grammar_notes": "今天 (jīntiān: hôm nay), 来吗 (lái ma: đến không)"
+        },
+        {
+          "exercise_id": "q1_b03_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm qua anh trai tôi không đến, ngày mai anh trai tôi đến.",
+          "answer_hanzi": "昨天我哥哥没来，明天我哥哥来。",
+          "answer_pinyin": "Zuótiān wǒ gēge méi lái, míngtiān wǒ gēge lái.",
+          "vocab_grammar_notes": "昨天 (zuótiān: hôm qua), 没来 (méi lái: đã không đến - quá khứ dùng 没), 明天 (míngtiān: ngày mai)"
+        },
+        {
+          "exercise_id": "q1_b03_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ngày mai chị gái và em gái tôi rất bận.",
+          "answer_hanzi": "明天我姐姐和妹妹都很忙。",
+          "answer_pinyin": "Míngtiān wǒ jiějie hé mèimei dōu hěn máng.",
+          "vocab_grammar_notes": "姐姐和妹妹 (jiějie hé mèimei: chị gái và em gái), 很忙 (hěn máng: rất bận)"
+        },
+        {
+          "exercise_id": "q1_b03_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm nay bạn bận không? Công việc tôi rất bận, cũng rất mệt.",
+          "answer_hanzi": "今天你忙吗？我的工作很忙，也很累。",
+          "answer_pinyin": "Jīntiān nǐ máng ma? Wǒ de gōngzuò hěn máng, yě hěn lèi.",
+          "vocab_grammar_notes": "忙 (máng: bận), 工作 (gōngzuò: công việc), 累 (lèi: mệt)"
+        },
+        {
+          "exercise_id": "q1_b03_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Công việc ba mẹ bạn bận không?",
+          "answer_hanzi": "你爸爸妈妈工作忙吗？",
+          "answer_pinyin": "Nǐ bàba māmā gōngzuò máng ma?",
+          "vocab_grammar_notes": "爸爸妈妈工作忙吗 (bàba māmā gōngzuò máng ma)"
+        },
+        {
+          "exercise_id": "q1_b03_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm nay là ngày 26 tháng 8 năm 2019 .",
+          "answer_hanzi": "今天是二零一九年八月二十六号。",
+          "answer_pinyin": "Jīntiān shì èr líng yī jiǔ nián bā yuè èrshíliù hào.",
+          "vocab_grammar_notes": "Quy tắc thời gian: Năm + Tháng + Ngày (年 -> 月 -> 号)"
+        },
+        {
+          "exercise_id": "q1_b03_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ngày 15 tháng 9 năm nay ba tôi đến.",
+          "answer_hanzi": "今年九月十五号我爸爸来。",
+          "answer_pinyin": "Jīnnián jiǔ yuè shíwǔ hào wǒ bàba lái.",
+          "vocab_grammar_notes": "今年 (jīnnián: năm nay), 九月十五号 (jiǔ yuè shíwǔ hào: ngày 15 tháng 9)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b04",
+      "lesson_num": 4,
+      "lesson_title": "第四课： 你是哪儿国人？ Nǐ shì nǎr guó rén? / Bài 4: Bạn là người nước nào?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b04_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi tên là Minh Sơn!",
+          "answer_hanzi": "我叫明山！",
+          "answer_pinyin": "Wǒ jiào Míngshān!",
+          "vocab_grammar_notes": "叫 (jiào: tên là), 明山 (Míngshān: Minh Sơn)"
+        },
+        {
+          "exercise_id": "q1_b04_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Quen biết bạn, tôi cũng rất vui.",
+          "answer_hanzi": "认识你，我也很高兴。",
+          "answer_pinyin": "Rènshi nǐ, wǒ yě hěn gāoxìng.",
+          "vocab_grammar_notes": "认识 (rènshi: quen biết), 高兴 (gāoxìng: vui mừng)"
+        },
+        {
+          "exercise_id": "q1_b04_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi quen biết anh trai của bạn.",
+          "answer_hanzi": "我认识你的哥哥。",
+          "answer_pinyin": "Wǒ rènshi nǐ de gēge.",
+          "vocab_grammar_notes": "你的哥哥 (nǐ de gēge: anh trai của bạn)"
+        },
+        {
+          "exercise_id": "q1_b04_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Anh ấy tên gì, anh ấy là bác sĩ phải không?.",
+          "answer_hanzi": "他叫什么名字？他是大夫吗？",
+          "answer_pinyin": "Tā jiào shénme míngzì? Tā shì dàifu ma?",
+          "vocab_grammar_notes": "什么名字 (shénme míngzì: tên gì), 大夫/医生 (dàifu/yīshēng: bác sĩ)"
+        },
+        {
+          "exercise_id": "q1_b04_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi họ Nguyễn, tên là Hoàng Minh.",
+          "answer_hanzi": "我姓阮，叫黄明。",
+          "answer_pinyin": "Wǒ xìng Ruǎn, jiào Huáng Míng.",
+          "vocab_grammar_notes": "姓 (xìng: mang họ), 阮 (Ruǎn: họ Nguyễn), 黄明 (Huáng Míng: Hoàng Minh)"
+        },
+        {
+          "exercise_id": "q1_b04_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Thầy giáo, ông họ gì?.",
+          "answer_hanzi": "老师，您贵姓？",
+          "answer_pinyin": "Lǎoshī, nín guìxìng?",
+          "vocab_grammar_notes": "您贵姓 (nín guìxìng: quý danh/họ của ngài - cách hỏi lịch sự)"
+        },
+        {
+          "exercise_id": "q1_b04_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn có quen biết họ không?",
+          "answer_hanzi": "你认识他们吗？",
+          "answer_pinyin": "Nǐ rènshi tāmen ma?",
+          "vocab_grammar_notes": "他们 (tāmen: bọn họ, họ)"
+        },
+        {
+          "exercise_id": "q1_b04_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi quen biết họ, họ đều là công nhân viên.",
+          "answer_hanzi": "我认识他们，他们都是职员。",
+          "answer_pinyin": "Wǒ rènshi tāmen, tāmen dōu shì zhíyuán.",
+          "vocab_grammar_notes": "职员 (zhíyuán: nhân viên, công nhân viên)"
+        },
+        {
+          "exercise_id": "q1_b04_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Thầy giáo của tôi là người Mỹ, không phải người Việt Nam.",
+          "answer_hanzi": "我的老师是美国人，不是越南人。",
+          "answer_pinyin": "Wǒ de lǎoshī shì Měiguó rén, bù shì Yuènán rén.",
+          "vocab_grammar_notes": "美国人 (Měiguó rén: người Mỹ), 越南人 (Yuènán rén: người Việt Nam)"
+        },
+        {
+          "exercise_id": "q1_b04_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm nay tôi không vui lắm.",
+          "answer_hanzi": "今天我不太高兴。",
+          "answer_pinyin": "Jīntiān wǒ bù tài gāoxìng.",
+          "vocab_grammar_notes": "不太 + Tính từ (bù tài: không... lắm), 高兴 (gāoxìng: vui)"
+        },
+        {
+          "exercise_id": "q1_b04_ex11",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn của tôi là người Thái Lan, cô ấy tên Tiểu Hoàng.",
+          "answer_hanzi": "我的朋友是泰国人，她叫小黄。",
+          "answer_pinyin": "Wǒ de péngyou shì Tàiguó rén, tā jiào Xiǎo Huáng.",
+          "vocab_grammar_notes": "泰国人 (Tàiguó rén: người Thái Lan), 小黄 (Xiǎo Huáng: Tiểu Hoàng)"
+        },
+        {
+          "exercise_id": "q1_b04_ex12",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Em trai của tôi là bác sĩ của bệnh viện này.",
+          "answer_hanzi": "我弟弟是这家医院的大夫。",
+          "answer_pinyin": "Wǒ dìdi shì zhè jiā yīyuàn de dàifu.",
+          "vocab_grammar_notes": "这家医院 (zhè jiā yīyuàn: bệnh viện này), 大夫/医生 (dàifu/yīshēng: bác sĩ)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b05",
+      "lesson_num": 5,
+      "lesson_title": "第五课 Dì wǔ kè：你去哪儿 Nǐ qù nǎr? / Bài 5: Bạn đi đâu?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b05_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm qua tôi đến nhà của thầy Trương!",
+          "answer_hanzi": "昨天我去张老师的家！",
+          "answer_pinyin": "Zuótiān wǒ qù Zhāng lǎoshī de jiā!",
+          "vocab_grammar_notes": "张老师 (Zhāng lǎoshī: thầy Trương), 家 (jiā: nhà)"
+        },
+        {
+          "exercise_id": "q1_b05_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi giới thiệu 1 chút, đây là bạn của tôi.",
+          "answer_hanzi": "我介绍一下，这是我的朋友。",
+          "answer_pinyin": "Wǒ jièshào yīxià, zhè shì wǒ de péngyou.",
+          "vocab_grammar_notes": "介绍一下 (jièshào yīxià: giới thiệu một chút)"
+        },
+        {
+          "exercise_id": "q1_b05_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Kia là anh trai của tôi, anh ấy tên là Vương Nam.",
+          "answer_hanzi": "那是我的哥哥，他叫王南。",
+          "answer_pinyin": "Nà shì wǒ de gēge, tā jiào Wáng Nán.",
+          "vocab_grammar_notes": "那 (nà: kia, đó), 王南 (Wáng Nán: Vương Nam)"
+        },
+        {
+          "exercise_id": "q1_b05_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm nay bạn đi siêu thị không?",
+          "answer_hanzi": "今天你去超市吗？",
+          "answer_pinyin": "Jīntiān nǐ qù chāoshì ma?",
+          "vocab_grammar_notes": "超市 (chāoshì: siêu thị)"
+        },
+        {
+          "exercise_id": "q1_b05_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi không đi siêu thị, tôi đi tiệm internet.",
+          "answer_hanzi": "我不去超市，我去网吧。",
+          "answer_pinyin": "Wǒ bù qù chāoshì, wǒ qù wǎngba.",
+          "vocab_grammar_notes": "网吧 (wǎngba: quán net/tiệm internet)"
+        },
+        {
+          "exercise_id": "q1_b05_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ngày mai bạn đến nhà của Tiểu Bảo không?",
+          "answer_hanzi": "明天你来小宝的家吗？",
+          "answer_pinyin": "Míngtiān nǐ lái Xiǎo Bǎo de jiā ma?",
+          "vocab_grammar_notes": "小宝 (Xiǎo Bǎo: Tiểu Bảo)"
+        },
+        {
+          "exercise_id": "q1_b05_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn đi đâu? Ba mẹ của bạn có ở nhà không?",
+          "answer_hanzi": "你去哪儿？你的爸爸妈妈在家吗？",
+          "answer_pinyin": "Nǐ qù nǎr? Nǐ de bàba māmā zài jiā ma?",
+          "vocab_grammar_notes": "哪儿 (nǎr: đâu), 在家 (zài jiā: ở nhà)"
+        },
+        {
+          "exercise_id": "q1_b05_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi không quen chị gái của anh ta, tôi quen em trai của anh ta.",
+          "answer_hanzi": "我不认识他的姐姐，我认识他的弟弟。",
+          "answer_pinyin": "Wǒ bù rènshi tā de jiějie, wǒ rènshi tā de dìdi.",
+          "vocab_grammar_notes": "不认识 (bù rènshi: không quen biết)"
+        },
+        {
+          "exercise_id": "q1_b05_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Đây là em trai của tôi, là công nhân của công ty này.",
+          "answer_hanzi": "这是我的弟弟，是这家公司的工人。",
+          "answer_pinyin": "Zhè shì wǒ de dìdi, shì zhè jiā gōngsī de gōngrén.",
+          "vocab_grammar_notes": "这家公司 (zhè jiā gōngsī: công ty này), 工人 (gōngrén: công nhân)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b06",
+      "lesson_num": 6,
+      "lesson_title": "第六课Dì liù kè： 今天是星期几？ Jīn tiān shì xīng qī jǐ? / Bài 6: Hôm nay là thứ mấy?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b06_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Sinh nhật của chị gái tôi là ngày 18 tháng 2.",
+          "answer_hanzi": "我姐姐的生日是二月十八号。",
+          "answer_pinyin": "Wǒ jiějie de shēngrì shì èr yuè shíbā hào.",
+          "vocab_grammar_notes": "生日 (shēngrì: sinh nhật), 二月十八号 (èr yuè shíbā hào: ngày 18 tháng 2)"
+        },
+        {
+          "exercise_id": "q1_b06_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "SN của Tiểu Bảo là ngày 9 tháng 12, thứ 3 tuần sau là sinh nhật của anh ấy.",
+          "answer_hanzi": "小宝的生日是十二月九号，下星期二是他生日。",
+          "answer_pinyin": "Xiǎo Bǎo de shēngrì shì shí'èr yuè jiǔ hào, xià xīngqī'èr shì tā shēngrì.",
+          "vocab_grammar_notes": "下星期二 (xià xīngqī'èr: thứ 3 tuần sau)"
+        },
+        {
+          "exercise_id": "q1_b06_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Chúng tôi về kí túc xá công ty nghỉ ngơi, được không?",
+          "answer_hanzi": "我们回公司宿舍休息，好吗？",
+          "answer_pinyin": "Wǒmen huí gōngsī sùshè xiūxi, hǎo ma?",
+          "vocab_grammar_notes": "公司宿舍 (gōngsī sùshè: ký túc xá công ty), 休息 (xiūxi: nghỉ ngơi)"
+        },
+        {
+          "exercise_id": "q1_b06_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Thứ sáu tuần trước bạn có đi làm không? Bạn có tăng ca không?",
+          "answer_hanzi": "上星期五你上班吗？你加班吗？",
+          "answer_pinyin": "Shàng xīngqīwǔ nǐ shàngbān ma? Nǐ jiābān ma?",
+          "vocab_grammar_notes": "上星期五 (shàng xīngqīwǔ: thứ 6 tuần trước), 加班 (jiābān: tăng ca)"
+        },
+        {
+          "exercise_id": "q1_b06_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi và Minh Thiện đều đi làm ca ngày, không làm ca đêm.",
+          "answer_hanzi": "我和明善都上白班，不上夜班。",
+          "answer_pinyin": "Wǒ hé Míngshàn dōu shàng báibān, bù shàng yèbān.",
+          "vocab_grammar_notes": "白班 (báibān: ca ngày), 夜班 (yèbān: ca đêm), 明善 (Míngshàn: Minh Thiện)"
+        },
+        {
+          "exercise_id": "q1_b06_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Sáng mai tôi và bạn đi cửa hàng mua đồ, được không?",
+          "answer_hanzi": "明天早上我和你去商店买东西，好吗？",
+          "answer_pinyin": "Míngtiān zǎoshang wǒ hé nǐ qù shāngdiàn mǎi dōngxi, hǎo ma?",
+          "vocab_grammar_notes": "商店 (shāngdiàn: cửa hàng), 买东西 (mǎi dōngxi: mua sắm đồ)"
+        },
+        {
+          "exercise_id": "q1_b06_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tối hôm qua tôi ở nhà lên mạng và xem ti vi.",
+          "answer_hanzi": "昨天晚上我在家上网和看电视。",
+          "answer_pinyin": "Zuótiān wǎnshang wǒ zài jiā shàngwǎng hé kàn diànshì.",
+          "vocab_grammar_notes": "上网 (shàngwǎng: lên mạng), 看电视 (kàn diànshì: xem ti vi)"
+        },
+        {
+          "exercise_id": "q1_b06_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Người kia không phải là bác sĩ, anh ấy là công nhân viên.",
+          "answer_hanzi": "那个人不是大夫，他是职员。",
+          "answer_pinyin": "Nàge rén bù shì dàifu, tā shì zhíyuán.",
+          "vocab_grammar_notes": "职员 (zhíyuán: nhân viên)"
+        },
+        {
+          "exercise_id": "q1_b06_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Buổi tối tôi thường đọc sách và nghe nhạc.",
+          "answer_hanzi": "晚上我常常看书和听音乐。",
+          "answer_pinyin": "Wǎnshang wǒ chángcháng kànshū hé tīng yīnyuè.",
+          "vocab_grammar_notes": "常常 (chángcháng: thường thường), 听音乐 (tīng yīnyuè: nghe nhạc)"
+        },
+        {
+          "exercise_id": "q1_b06_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Thứ ba tuần này bạn đi thăm bà ngoại của anh ấy không?.",
+          "answer_hanzi": "这星期二你去看看他的外婆吗？",
+          "answer_pinyin": "Zhè xīngqī'èr nǐ qù kànkan tā de wàipó ma?",
+          "vocab_grammar_notes": "这星期二 (zhè xīngqī'èr: thứ ba tuần này), 外婆 (wàipó: bà ngoại)"
+        },
+        {
+          "exercise_id": "q1_b06_ex11",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Đây là cửa hàng của ba bạn phải không, cửa hàng này bán gì?",
+          "answer_hanzi": "这是你爸爸的商店吗？这家商店卖什么？",
+          "answer_pinyin": "Zhè shì nǐ bàba de shāngdiàn ma? Zhè jiā shāngdiàn mài shénme?",
+          "vocab_grammar_notes": "卖什么 (mài shénme: bán cái gì)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b07",
+      "lesson_num": 7,
+      "lesson_title": "第七课Dì qī kè： 你在哪家公司工作？ Nǐ zài nǎ jiā gōngsī gōngzuò? / Bài 7: Bạn làm việc ở công ty nào?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b07_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm nay là thứ 5, vậy ngày mai là thứ mấy?",
+          "answer_hanzi": "今天是星期四，那么明天是星期几？",
+          "answer_pinyin": "Jīntiān shì xīngqīsì, nàme míngtiān shì xīngqījǐ?",
+          "vocab_grammar_notes": "星期四 (xīngqīsì: thứ 5), 那么 (nàme: vậy thì, thế thì)"
+        },
+        {
+          "exercise_id": "q1_b07_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tối nay chúng ta đến quán bar nghe nhạc được không?",
+          "answer_hanzi": "今天晚上我们去酒吧听音乐，好吗？",
+          "answer_pinyin": "Jīntiān wǎnshang wǒmen qù jiǔbā tīng yīnyuè, hǎo ma?",
+          "vocab_grammar_notes": "酒吧 (jiǔbā: quán bar), 听音乐 (tīng yīnyuè: nghe nhạc)"
+        },
+        {
+          "exercise_id": "q1_b07_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi giới thiệu 1 chút, đây là chị gái tôi, cô ấy là nhân viên của công ty này?",
+          "answer_hanzi": "我介绍一下，这是我姐姐，她是这家公司的职员吗？",
+          "answer_pinyin": "Wǒ jièshào yīxià, zhè shì wǒ jiějie, tā shì zhè jiā gōngsī de zhíyuán ma?",
+          "vocab_grammar_notes": "介绍一下 (jièshào yīxià: giới thiệu chút)"
+        },
+        {
+          "exercise_id": "q1_b07_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn có bạn gái chưa? Bạn gái bạn làm công việc gì?",
+          "answer_hanzi": "你有女朋友了吗？你女朋友做什么工作？",
+          "answer_pinyin": "Nǐ yǒu nǚ péngyou le ma? Nǐ nǚ péngyou zuò shénme gōngzuò?",
+          "vocab_grammar_notes": "女朋友 (nǚ péngyou: bạn gái), 做什么工作 (zuò shénme gōngzuò)"
+        },
+        {
+          "exercise_id": "q1_b07_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi có bạn trai rồi, anh ấy là phiên dịch của phó giám đốc",
+          "answer_hanzi": "我有男朋友了，他是副经理的翻译。",
+          "answer_pinyin": "Wǒ yǒu nán péngyou le, tā shì fù jīnglǐ de fānyì.",
+          "vocab_grammar_notes": "副经理 (fù jīnglǐ: phó giám đốc), 翻译 (fānyì: phiên dịch)"
+        },
+        {
+          "exercise_id": "q1_b07_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn quen biết nhân viên kia không? Anh ấy tên gì?",
+          "answer_hanzi": "你认识那个职员吗？他叫什么名字？",
+          "answer_pinyin": "Nǐ rènshi nàge zhíyuán ma? Tā jiào shénme míngzì?",
+          "vocab_grammar_notes": "那个职员 (nàge zhíyuán: nhân viên kia)"
+        },
+        {
+          "exercise_id": "q1_b07_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Người nhân viên này là bạn của tôi, anh ấy tên Trần Vương.",
+          "answer_hanzi": "这位职员是我的朋友，他叫陈王。",
+          "answer_pinyin": "Zhè wèi zhíyuán shì wǒ de péngyou, tā jiào Chén Wáng.",
+          "vocab_grammar_notes": "陈王 (Chén Wáng: Trần Vương)"
+        },
+        {
+          "exercise_id": "q1_b07_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi có rất nhiều bạn bè làm việc ở KCN Phước Đông.",
+          "answer_hanzi": "我有很多朋友在福东工业区工作。",
+          "answer_pinyin": "Wǒ yǒu hěn duō péngyou zài Fúdōng gōngyèqū gōngzuò.",
+          "vocab_grammar_notes": "福东工业区 (Fúdōng gōngyèqū: KCN Phước Đông)"
+        },
+        {
+          "exercise_id": "q1_b07_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn thân của tôi là chủ quản của công ty này.",
+          "answer_hanzi": "我的好朋友是这家公司的主管。",
+          "answer_pinyin": "Wǒ de hǎo péngyou shì zhè jiā gōngsī de zhǔguǎn.",
+          "vocab_grammar_notes": "主管 (zhǔguǎn: chủ quản)"
+        },
+        {
+          "exercise_id": "q1_b07_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn đang học tiếng Hàn phải không",
+          "answer_hanzi": "你正在学习韩语，是不是？",
+          "answer_pinyin": "Nǐ zhèngzài xuéxí hányǔ, shì bù shì?",
+          "vocab_grammar_notes": "正在 (zhèngzài: đang), 韩语 (hányǔ: tiếng Hàn)"
+        },
+        {
+          "exercise_id": "q1_b07_ex11",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Đây là điện thoại của Tiểu Minh, không phải điện thoại của tôi.",
+          "answer_hanzi": "这是小明的手机，不是我的手机。",
+          "answer_pinyin": "Zhè shì Xiǎo Míng de shǒujī, bù shì wǒ de shǒujī.",
+          "vocab_grammar_notes": "小明 (Xiǎo Míng: Tiểu Minh), 手机 (shǒujī: điện thoại di động)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b08",
+      "lesson_num": 8,
+      "lesson_title": "第八课Dì bā kè：你喜欢什么运动？ Nǐ xǐ huān shénme yùn dòng? / Bài 8: Bạn thích môn thể thao nào?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b08_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "8h tôi đi đến công ty làm việc.",
+          "answer_hanzi": "八点我去公司上班。",
+          "answer_pinyin": "Bā diǎn wǒ qù gōngsī shàngbān.",
+          "vocab_grammar_notes": "八点 (bā diǎn: 8 giờ), 上班 (shàngbān: đi làm)"
+        },
+        {
+          "exercise_id": "q1_b08_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ngày mai là chủ nhật, mấy giờ bạn thức dậy?",
+          "answer_hanzi": "明天是星期天，你几点起床？",
+          "answer_pinyin": "Míngtiān shì xīngqītiān, nǐ jǐ diǎn qǐchuáng?",
+          "vocab_grammar_notes": "星期天 (xīngqītiān: chủ nhật), 几点 (jǐ diǎn: mấy giờ), 起床 (qǐchuáng: thức dậy)"
+        },
+        {
+          "exercise_id": "q1_b08_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "12 giờ kém 10 phút chúng ta cùng nhau đến nhà ăn ăn cơm?",
+          "answer_hanzi": "十二点差十分我们一起去食堂吃饭，好吗？",
+          "answer_pinyin": "Shí'èr diǎn chà shí fēn wǒmen yīqǐ qù shítáng chī fàn, hǎo ma?",
+          "vocab_grammar_notes": "差十分 (chà shí fēn: kém 10 phút), 食堂 (shítáng: nhà ăn)"
+        },
+        {
+          "exercise_id": "q1_b08_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm qua mấy giờ bạn ăn cơm tối?",
+          "answer_hanzi": "昨天你几点吃晚饭？",
+          "answer_pinyin": "Zuótiān nǐ jǐ diǎn chī wǎnfàn?",
+          "vocab_grammar_notes": "晚饭 (wǎnfàn: cơm tối)"
+        },
+        {
+          "exercise_id": "q1_b08_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Buổi tối tôi không ăn cơm, tôi cùng em gái tôi chạy bộ.",
+          "answer_hanzi": "晚上我不吃饭，我和妹妹一起跑步。",
+          "answer_pinyin": "Wǎnshang wǒ bù chī fàn, wǒ hé mèimei yīqǐ pǎobù.",
+          "vocab_grammar_notes": "跑步 (pǎobù: chạy bộ)"
+        },
+        {
+          "exercise_id": "q1_b08_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tối thứ bảy tôi cùng chị gái tôi đi cửa hàng mua đồ.",
+          "answer_hanzi": "星期六晚上我和姐姐去商店买东西。",
+          "answer_pinyin": "Xīngqīliù wǎnshang wǒ hé jiějie qù shāngdiàn mǎi dōngxi.",
+          "vocab_grammar_notes": "星期六晚上 (xīngqīliù wǎnshang: tối thứ bảy)"
+        },
+        {
+          "exercise_id": "q1_b08_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Trưa nay 11 giờ 45 tôi ngủ trưa, 13 giờ tôi thức dậy",
+          "answer_hanzi": "今天中午十一点四十五分我睡午觉，十三点我起床。",
+          "answer_pinyin": "Jīntiān zhōngwǔ shíyī diǎn sìshíwǔ fēn wǒ shuì wǔjiào, shísān diǎn wǒ qǐchuáng.",
+          "vocab_grammar_notes": "睡午觉 (shuì wǔjiào: ngủ trưa), 十三点 (shísān diǎn: 13 giờ / 1h chiều)"
+        },
+        {
+          "exercise_id": "q1_b08_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn thích môn thể thao nào?",
+          "answer_hanzi": "你喜欢什么运动？",
+          "answer_pinyin": "Nǐ xǐhuān shénme yùndòng?",
+          "vocab_grammar_notes": "运动 (yùndòng: thể thao, vận động)"
+        },
+        {
+          "exercise_id": "q1_b08_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi thích chơi game, bơi lội và bóng đá.",
+          "answer_hanzi": "我喜欢玩游戏、游泳和踢足球。",
+          "answer_pinyin": "Wǒ xǐhuān wán yóuxì, yóuyǒng hé tī zúqiú.",
+          "vocab_grammar_notes": "玩游戏 (wán yóuxì: chơi game), 游泳 (yóuyǒng: bơi lội), 踢足球 (tī zúqiú: đá bóng)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b09",
+      "lesson_num": 9,
+      "lesson_title": "第九课Dì jiǔ kè： 你住在哪儿？ Nǐ zhù zài nǎr? / Bài 9: Bạn sống ở đâu?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b09_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi ở lầu ba kí túc xá công ty. Nhà của bạn ở đâu?",
+          "answer_hanzi": "我住在公司宿舍三楼。你的家在哪儿？",
+          "answer_pinyin": "Wǒ zhù zài gōngsī sùshè sān lóu. Nǐ de jiā zài nǎr?",
+          "vocab_grammar_notes": "三楼 (sān lóu: lầu 3, tầng 3), 住在 (zhù zài: sống ở/ở tại)"
+        },
+        {
+          "exercise_id": "q1_b09_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Nhà anh ấy ở huyện Dương Minh Châu, tỉnh Tây Ninh, bên trái trường học Dương Minh Châu.",
+          "answer_hanzi": "他的家在西宁省杨明珠县，在杨明珠学校的左边。",
+          "answer_pinyin": "Tā de jiā zài Xīníng shěng Yángmíngzhū xiàn, zài Yángmíngzhū xuéxiào de zuǒbiān.",
+          "vocab_grammar_notes": "西宁省 (Xīníng shěng: tỉnh Tây Ninh), 杨明珠县 (Yángmíngzhū xiàn: huyện Dương Minh Châu), 左边 (zuǒbiān: bên trái)"
+        },
+        {
+          "exercise_id": "q1_b09_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Buổi tối bạn thường đi công viên bên trái chợ Hòa Thành chơi không?",
+          "answer_hanzi": "晚上你常常去和城市场左边的公园玩儿吗？",
+          "answer_pinyin": "Wǎnshang nǐ chángcháng qù Héchéng shìchǎng zuǒbiān de gōngyuán wánr ma?",
+          "vocab_grammar_notes": "和城市场 (Héchéng shìchǎng: chợ Hòa Thành), 公园 (gōngyuán: công viên)"
+        },
+        {
+          "exercise_id": "q1_b09_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Siêu thị Trảng Bàng ở đâu? Tôi muốn đi siêu thị mua đồ.",
+          "answer_hanzi": "展榜超市在哪儿？我想去超市买东西。",
+          "answer_pinyin": "Zhǎnbǎng chāoshì zài nǎr? Wǒ xiǎng qù chāoshì mǎi dōngxi.",
+          "vocab_grammar_notes": "展榜 (Zhǎnbǎng: Trảng Bàng), 想去 (xiǎng qù: muốn đi)"
+        },
+        {
+          "exercise_id": "q1_b09_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi cũng không biết đường, anh Quốc thường đi, bạn hỏi anh ấy đi.",
+          "answer_hanzi": "我也不知道路，阿国常常去，你去问他吧。",
+          "answer_pinyin": "Wǒ yě bù zhīdào lù, Ā Guó chángcháng qù, nǐ qù wèn tā ba.",
+          "vocab_grammar_notes": "不知道路 (bù zhīdào lù: không biết đường), 问他吧 (wèn tā ba: hỏi anh ấy đi)"
+        },
+        {
+          "exercise_id": "q1_b09_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ở đối diện chợ Trảng bàng, bên phải bưu điện Trảng Bàng.",
+          "answer_hanzi": "在展榜市场的对面，展榜邮局的右边。",
+          "answer_pinyin": "Zài Zhǎnbǎng shìchǎng de duìmiàn, Zhǎnbǎng yóujú de yòubiān.",
+          "vocab_grammar_notes": "对面 (duìmiàn: đối diện), 邮局 (yóujú: bưu điện), 右边 (yòubiān: bên phải)"
+        },
+        {
+          "exercise_id": "q1_b09_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn tôi là người Trung Quốc, bây giờ anh ấy ở khách sạn Phước Đông, chủ nhật tuần sau anh ấy về Trung Quốc rồi.",
+          "answer_hanzi": "我的朋友是中国人，现在他住在福东宾馆，下星期天他回中国了。",
+          "answer_pinyin": "Wǒ de péngyou shì Zhōngguó rén, xiànzài tā zhù zài Fúdōng bīnguǎn, xià xīngqītiān tā huí Zhōngguó le.",
+          "vocab_grammar_notes": "福东宾馆 (Fúdōng bīnguǎn: khách sạn Phước Đông), 回中国 (huí Zhōngguó: về Trung Quốc)"
+        },
+        {
+          "exercise_id": "q1_b09_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn biết đánh bóng chuyền không? Ngày mai chúng ta cùng nhau đến trường học đánh bóng chuyền.",
+          "answer_hanzi": "你会打排球吗？明天我们一起去学校打排球吧。",
+          "answer_pinyin": "Nǐ huì dǎ páiqiú ma? Míngtiān wǒmen yīqǐ qù xuéxiào dǎ páiqiú ba.",
+          "vocab_grammar_notes": "打排球 (dǎ páiqiú: đánh bóng chuyền), 会 (huì: biết thông qua học hỏi)"
+        },
+        {
+          "exercise_id": "q1_b09_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Thứ sáu tuần sau là sinh nhật của tôi, hoan nghênh bạn đến nhà tôi chơi.",
+          "answer_hanzi": "下星期五是我的生日，欢迎你来我家玩儿。",
+          "answer_pinyin": "Xià xīngqīwǔ shì wǒ de shēngrì, huānyíng nǐ lái wǒ jiā wánr.",
+          "vocab_grammar_notes": "欢迎 (huānyíng: hoan nghênh, chào mừng), 来我家玩儿 (lái wǒ jiā wánr: đến nhà tôi chơi)"
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b10",
+      "lesson_num": 10,
+      "lesson_title": "第十课Dì shí kè： 你最喜欢喝什么？ Nǐ zuì xǐ huān hē shénme? / Bài 10: Bạn thích uống gì nhất?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b10_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "今天",
+          "target_word_pinyin": "Jīntiān",
+          "target_word_meaning": "Hôm nay",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Hôm nay thời tiết rất đẹp, chúng ta cùng nhau đi công viên dạo bộ và trò chuyện nhé.",
+          "answer_hanzi": "今天天气非常好，我们一起去公园散步和聊天儿吧。",
+          "answer_pinyin": "Jīntiān tiānqì fēicháng hǎo, wǒmen yīqǐ qù gōngyuán sànbù hé liáotiānr ba.",
+          "vocab_grammar_notes": "Sử dụng từ 今天 (Jīntiān) làm trạng ngữ thời gian, kết hợp cấu trúc 一起 + V + 吧."
+        },
+        {
+          "exercise_id": "q1_b10_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "上班",
+          "target_word_pinyin": "Shàng bān",
+          "target_word_meaning": "Đi làm",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tôi mỗi ngày buổi sáng bảy giờ rưỡi đến công ty đi làm, buổi chiều năm giờ tan làm.",
+          "answer_hanzi": "我每天早上七点半去公司上班，下午五点下班回家。",
+          "answer_pinyin": "Wǒ měitiān zǎoshang qī diǎn bàn qù gōngsī shàngbān, xiàwǔ wǔ diǎn xiàbān huí jiā.",
+          "vocab_grammar_notes": "Động từ ly hợp 上班 (shàngbān), đối ứng 下班 (xiàbān)."
+        },
+        {
+          "exercise_id": "q1_b10_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "喜欢",
+          "target_word_pinyin": "Xǐhuān",
+          "target_word_meaning": "Thích",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tôi rất thích học tiếng Trung, bởi vì tiếng Trung vô cùng thú vị và bổ ích.",
+          "answer_hanzi": "我非常喜欢学习汉语，因为汉语很有意思也很有用。",
+          "answer_pinyin": "Wǒ fēicháng xǐhuān xuéxí hànyǔ, yīnwèi hànyǔ hěn yǒuyìsi yě hěn yǒuyòng.",
+          "vocab_grammar_notes": "喜欢 + V: thích làm gì, kết hợp liên từ giải thích 因为 (yīnwèi)."
+        },
+        {
+          "exercise_id": "q1_b10_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "吃",
+          "target_word_pinyin": "Chī",
+          "target_word_meaning": "Ăn",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Trưa nay tôi cùng các đồng nghiệp ở nhà ăn công ty ăn cơm trưa rất vui.",
+          "answer_hanzi": "今天中午我和同事们在公司食堂吃午饭，非常开心。",
+          "answer_pinyin": "Jīntiān zhōngwǔ wǒ hé tóngshìmen zài gōngsī shítáng chī wǔfàn, fēicháng kāixīn.",
+          "vocab_grammar_notes": "Cấu trúc địa điểm trước hành động: 在 + địa điểm + 吃午饭."
+        },
+        {
+          "exercise_id": "q1_b10_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "认识",
+          "target_word_pinyin": "Rènshi",
+          "target_word_meaning": "Quen biết, nhận biết",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tôi quen biết vị giám đốc mới đến kia, ông ấy là người rất hòa đồng và nhiệt tình.",
+          "answer_hanzi": "我认识那位新来的经理，他是一个非常热情的好人。",
+          "answer_pinyin": "Wǒ rènshi nà wèi xīn lái de jīnglǐ, tā shì yī gè fēicháng rèqíng de hǎorén.",
+          "vocab_grammar_notes": "认识 (rènshi: quen biết người), 位 (wèi: lượng từ lịch sự cho người)."
+        },
+        {
+          "exercise_id": "q1_b10_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "住",
+          "target_word_pinyin": "Zhù",
+          "target_word_meaning": "Sống, ở",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tôi và bạn thân của tôi hiện nay đang sống ở ký túc xá công ty.",
+          "answer_hanzi": "我和我的好朋友现在一起住在公司的员工宿舍里。",
+          "answer_pinyin": "Wǒ hé wǒ de hǎo péngyou xiànzài yīqǐ zhù zài gōngsī de yuángōng sùshè lǐ.",
+          "vocab_grammar_notes": "住在 + Nơi chốn (zhù zài: cư trú, sinh sống tại đâu)."
+        },
+        {
+          "exercise_id": "q1_b10_ex07",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "钱",
+          "target_word_pinyin": "Qián",
+          "target_word_meaning": "Tiền",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Chiếc điện thoại di động này không đắt lắm, tôi mua nó chỉ tốn hai triệu đồng.",
+          "answer_hanzi": "这个手机不太贵，我买它只花了两百万越南盾。",
+          "answer_pinyin": "Zhège shǒujī bù tài guì, wǒ mǎi tā zhǐ huāle liǎng bǎi wàn Yuènándùn.",
+          "vocab_grammar_notes": "花钱 (huā qián: tiêu tiền), 越南盾 (Yuènándùn: Việt Nam Đồng)."
+        },
+        {
+          "exercise_id": "q1_b10_ex08",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "工作",
+          "target_word_pinyin": "Gōngzuò",
+          "target_word_meaning": "Công việc, làm việc",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Anh ấy làm việc ở một công ty Trung Quốc, mỗi ngày công việc đều rất bận rộn.",
+          "answer_hanzi": "他在一家中国公司工作，每天的工作都非常忙碌。",
+          "answer_pinyin": "Tā zài yī jiā Zhōngguó gōngsī gōngzuò, měitiān de gōngzuò dōu fēicháng mánglù.",
+          "vocab_grammar_notes": "工作 vừa là động từ (làm việc) vừa là danh từ (công việc)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b11",
+      "lesson_num": 11,
+      "lesson_title": "第十一课Dì shí yī kè：你想买什么水果？Nǐ xiǎng mǎi shénme shuǐguǒ? / Bài 11: Bạn muốn mua hoa quả gì?",
+      "exercises": [
+        {
+          "exercise_id": "q1_b11_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "水果",
+          "target_word_pinyin": "Shuǐ guǒ",
+          "target_word_meaning": "Hoa quả, trái cây",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Mẹ đi chợ mua rất nhiều hoa quả tươi ngon, có táo, cam và dưa hấu.",
+          "answer_hanzi": "妈妈去市场买了很多新鲜的水果，有苹果、橙子和西瓜。",
+          "answer_pinyin": "Māma qù shìchǎng mǎile hěn duō xīnxiān de shuǐguǒ, yǒu píngguǒ, chéngzi hé xīguā.",
+          "vocab_grammar_notes": "新鲜的水果 (xīnxiān de shuǐguǒ: hoa quả tươi ngon)."
+        },
+        {
+          "exercise_id": "q1_b11_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "卖",
+          "target_word_pinyin": "Mài",
+          "target_word_meaning": "Bán",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Cửa hàng hoa quả trước cổng trường bán hoa quả vừa tươi ngon vừa rẻ.",
+          "answer_hanzi": "学校门前的水果店卖的水果又新鲜又便宜，很多人来买。",
+          "answer_pinyin": "Xuéxiào mén qián de shuǐguǒ diàn mài de shuǐguǒ yòu xīnxiān yòu piányi, hěn duō rén lái mǎi.",
+          "vocab_grammar_notes": "Cấu trúc 又...又... (vừa... vừa...): 又新鲜又便宜."
+        },
+        {
+          "exercise_id": "q1_b11_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "怎么样",
+          "target_word_pinyin": "Zěn me yàng",
+          "target_word_meaning": "Thế nào, ra sao",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bạn cảm thấy bộ quần áo màu xanh lam này tôi mặc có đẹp không?",
+          "answer_hanzi": "你觉得这件蓝色的衣服怎么样？我穿好看不好看？",
+          "answer_pinyin": "Nǐ juéde zhè jiàn lánsè de yīfu zěnmeyàng? Wǒ chuān hǎokàn bù hǎokàn?",
+          "vocab_grammar_notes": "怎么样 đứng cuối câu hỏi ý kiến, thăm dò đánh giá."
+        },
+        {
+          "exercise_id": "q1_b11_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "短信",
+          "target_word_pinyin": "Duǎnxìn",
+          "target_word_meaning": "Tin nhắn",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tối hôm qua tôi đã gửi cho bạn một tin nhắn, bạn đã đọc được chưa?",
+          "answer_hanzi": "昨天晚上我给你发了一条短信，你看见了没有？",
+          "answer_pinyin": "Zuótiān wǎnshang wǒ gěi nǐ fāle yī tiáo duǎnxìn, nǐ kànjiàn le méiyǒu?",
+          "vocab_grammar_notes": "发短信 (fā duǎnxìn: gửi tin nhắn), lượng từ của tin nhắn là 条 (tiáo)."
+        },
+        {
+          "exercise_id": "q1_b11_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "衣服",
+          "target_word_pinyin": "Yīfu",
+          "target_word_meaning": "Quần áo",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Chủ nhật tuần trước tôi cùng chị gái đi siêu thị mua vài bộ quần áo mới.",
+          "answer_hanzi": "上星期天我和姐姐一起去超市买了几件漂亮的新衣服。",
+          "answer_pinyin": "Shàng xīngqītiān wǒ hé jiějie yīqǐ qù chāoshì mǎile jǐ jiàn piàoliang de xīn yīfu.",
+          "vocab_grammar_notes": "Lượng từ của quần áo là 件 (jiàn): 几件衣服."
+        },
+        {
+          "exercise_id": "q1_b11_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "贵",
+          "target_word_pinyin": "Guì",
+          "target_word_meaning": "Đắt",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Loại táo này quá đắt rồi, ông chủ có thể giảm giá một chút được không?",
+          "answer_hanzi": "这种苹果太贵了，老板，可以给我便宜一点儿吗？",
+          "answer_pinyin": "Zhè zhǒng píngguǒ tài guì le, lǎobǎn, kěyǐ gěi wǒ piányi yīdiǎnr ma?",
+          "vocab_grammar_notes": "太...了 (tài...le: ...quá), 便宜一点儿 (piányi yīdiǎnr: rẻ hơn một chút)."
+        },
+        {
+          "exercise_id": "q1_b11_ex07",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "热",
+          "target_word_pinyin": "Rè",
+          "target_word_meaning": "Nóng",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Thời tiết mùa hè hôm nay vô cùng nóng, chúng tôi đều muốn đi bơi.",
+          "answer_hanzi": "今天夏天的天气非常热，我们大家都想去游泳池游泳。",
+          "answer_pinyin": "Jīntiān xiàtiān de tiānqì fēicháng rè, wǒmen dàjiā dōu xiǎng qù yóuyǒngchí yóuyǒng.",
+          "vocab_grammar_notes": "天气非常热 (tiānqì fēicháng rè: thời tiết vô cùng nóng)."
+        },
+        {
+          "exercise_id": "q1_b11_ex08",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "长",
+          "target_word_pinyin": "Cháng",
+          "target_word_meaning": "Dài",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tóc của em gái tôi rất dài và đen mượt, trông vô cùng xinh đẹp.",
+          "answer_hanzi": "我妹妹的头发又黑又长，大家都很喜欢她漂亮的头发。",
+          "answer_pinyin": "Wǒ mèimei de tóufa yòu hēi yòu cháng, dàjiā dōu hěn xǐhuān tā piàoliang de tóufa.",
+          "vocab_grammar_notes": "又黑又长 (yòu hēi yòu cháng: vừa đen vừa dài)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_tong_on",
+      "lesson_num": 0,
+      "lesson_title": "BÀI NGỮ PHÁP TỔNG HỢP / Tổng ôn ngữ pháp Quyển 1",
+      "exercises": [
+        {
+          "exercise_id": "q1_to_ex01",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "1. Trợ từ ngữ khí 吧 (Ba) : Biểu thị sự thương lượng hoặc mời ai đó làm gì cùng mình",
+          "prompt_vietnamese": "Bạn ăn cơm trước đi nhé.",
+          "answer_hanzi": "你先吃饭吧。",
+          "answer_pinyin": "Nǐ xiān chī fàn ba.",
+          "vocab_grammar_notes": "吧 đặt cuối câu biểu thị lời đề nghị thân mật, gợi ý."
+        },
+        {
+          "exercise_id": "q1_to_ex02",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "1. Trợ từ ngữ khí 吧 (Ba)",
+          "prompt_vietnamese": "Tối nay chúng mình cùng đi xem phim đi.",
+          "answer_hanzi": "今晚我们去看电影吧。",
+          "answer_pinyin": "Jīn wǎn wǒmen qù kàn diànyǐng ba.",
+          "vocab_grammar_notes": "今晚 = 今天晚上, 看电影 (kàn diànyǐng: xem phim)."
+        },
+        {
+          "exercise_id": "q1_to_ex03",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "1. Trợ từ ngữ khí 吧 (Ba)",
+          "prompt_vietnamese": "Sầu riêng này đắt quá, rẻ một chút đi mà.",
+          "answer_hanzi": "这榴莲太贵了，便宜一点吧。",
+          "answer_pinyin": "Zhè liúlián tài guì le, piányi yīdiǎn ba.",
+          "vocab_grammar_notes": "榴莲 (liúlián: sầu riêng), 便宜一点吧 (mặc cả/thương lượng)."
+        },
+        {
+          "exercise_id": "q1_to_ex04",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "2. Trợ từ ngữ khí 呢 (Ne) : Dùng biểu thị sự khẳng định để xác nhận 1 sự thật/hành động đang tiếp diễn",
+          "prompt_vietnamese": "Em trai tôi đang học ở trường cấp 3 này đấy.",
+          "answer_hanzi": "我弟弟在这高中学校学习呢。",
+          "answer_pinyin": "Wǒ dìdi zài zhè gāozhōng xuéxiào xuéxí ne.",
+          "vocab_grammar_notes": "高中学校 (gāozhōng xuéxiào: trường THPT), 呢 biểu thị tiếp diễn/khẳng định."
+        },
+        {
+          "exercise_id": "q1_to_ex05",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "2. Trợ từ ngữ khí 呢 (Ne)",
+          "prompt_vietnamese": "Tôi đang rút tiền ở ngân hàng này này.",
+          "answer_hanzi": "我在这银行取钱呢。",
+          "answer_pinyin": "Wǒ zài zhè yínháng qǔ qián ne.",
+          "vocab_grammar_notes": "取钱 (qǔ qián: rút tiền)."
+        },
+        {
+          "exercise_id": "q1_to_ex06",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "2. Trợ từ ngữ khí 呢 (Ne)",
+          "prompt_vietnamese": "Tôi đang dạy tiếng Nhật ở trường học này này.",
+          "answer_hanzi": "我在这学校教日语呢。",
+          "answer_pinyin": "Wǒ zài zhè xuéxiào jiāo rìyǔ ne.",
+          "vocab_grammar_notes": "教 (jiāo: dạy học), 日语 (rìyǔ: tiếng Nhật)."
+        },
+        {
+          "exercise_id": "q1_to_ex07",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "3. Cấu trúc 太 (tài)...了 và 不太 (bù tài)...",
+          "prompt_vietnamese": "Khó quá rồi! / Tốt quá rồi!",
+          "answer_hanzi": "太难了！ / 太好了！",
+          "answer_pinyin": "Tài nán le! / Tài hǎo le!",
+          "vocab_grammar_notes": "太 + Tính từ + 了: biểu thị mức độ cao/cảm thán."
+        },
+        {
+          "exercise_id": "q1_to_ex08",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "3. Cấu trúc 太 (tài)...了 và 不太 (bù tài)...",
+          "prompt_vietnamese": "Không thích lắm / Không dễ dàng lắm.",
+          "answer_hanzi": "不太喜欢。 / 不太容易。",
+          "answer_pinyin": "Bù tài xǐhuan. / Bù tài róngyì.",
+          "vocab_grammar_notes": "不太 + Tính từ/Động từ tâm lý: không... lắm."
+        },
+        {
+          "exercise_id": "q1_to_ex09",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "4. Thời gian / Địa điểm + 见 (Jiàn)",
+          "prompt_vietnamese": "Ngày mai gặp lại nhé! Hẹn gặp ở trường học!",
+          "answer_hanzi": "明天见！学校见！",
+          "answer_pinyin": "Míngtiān jiàn! Xuéxiào jiàn!",
+          "vocab_grammar_notes": "Thời gian/Địa điểm + 见 biểu thị hẹn gặp lại."
+        },
+        {
+          "exercise_id": "q1_to_ex10",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "5. Câu hỏi chính phản (V/Adj + 不 + V/Adj? = V/Adj + 吗？)",
+          "prompt_vietnamese": "Anh ấy có phải là giám đốc Trần không?",
+          "answer_hanzi": "他是不是陈经理？（=他是陈经理吗？）",
+          "answer_pinyin": "Tā shì bù shì Chén jīnglǐ? (= Tā shì Chén jīnglǐ ma?)",
+          "vocab_grammar_notes": "Câu hỏi chính phản không dùng thêm trợ từ 吗 ở cuối."
+        },
+        {
+          "exercise_id": "q1_to_ex11",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "5. Câu hỏi chính phản",
+          "prompt_vietnamese": "Bạn trai bạn có phải đang du học ở Mỹ không?",
+          "answer_hanzi": "你男朋友是不是在美国留学？",
+          "answer_pinyin": "Nǐ nán péngyou shì bù shì zài Měiguó liúxué?",
+          "vocab_grammar_notes": "留学 (liúxué: du học)."
+        },
+        {
+          "exercise_id": "q1_to_ex12",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "5. Câu hỏi chính phản",
+          "prompt_vietnamese": "Bạn có đi đến nhà Bảo Ngọc không?",
+          "answer_hanzi": "你去不去宝玉的家？（=你去宝玉的家吗？）",
+          "answer_pinyin": "Nǐ qù bu qù Bǎoyù de jiā? (= Nǐ qù Bǎoyù de jiā ma?)",
+          "vocab_grammar_notes": "去不去 (qù bu qù: đi hay không đi)."
+        },
+        {
+          "exercise_id": "q1_to_ex13",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "7. 怎么 (zěnme) + Động từ: Thế nào, làm sao?",
+          "prompt_vietnamese": "Các bạn đi Trung Quốc bằng cách nào? / Xin hỏi, chữ Hán này viết như thế nào?",
+          "answer_hanzi": "你们怎么去中国？ / 请问，这个汉字怎么写？",
+          "answer_pinyin": "Nǐmen zěnme qù Zhōngguó? / Qǐngwèn, zhège hànzì zěnme xiě?",
+          "vocab_grammar_notes": "怎么 + V: hỏi phương thức thực hiện hành động."
+        },
+        {
+          "exercise_id": "q1_to_ex14",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "8. 再 (zài) + Động từ: Làm lại, làm thêm",
+          "prompt_vietnamese": "Ăn thêm một bát cơm nữa đi. / Nói lại một lần nữa đi.",
+          "answer_hanzi": "再吃一碗饭吧。 / 请再说一遍。",
+          "answer_pinyin": "Zài chī yī wǎn fàn ba. / Qǐng zài shuō yī biàn.",
+          "vocab_grammar_notes": "再 + V: biểu thị hành động lặp lại trong tương lai."
+        },
+        {
+          "exercise_id": "q1_to_ex15",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "9. Cấu trúc 先 (xiān)..., 再 (zài)... : Trước hết..., sau đó mới...",
+          "prompt_vietnamese": "Tôi làm bài tập trước, rồi sau đó mới đi chợ mua hoa quả.",
+          "answer_hanzi": "我先做作业，再去市场买水果。",
+          "answer_pinyin": "Wǒ xiān zuò zuòyè, zài qù shìchǎng mǎi shuǐguǒ.",
+          "vocab_grammar_notes": "先...再... biểu thị thứ tự thực hiện hành động."
+        },
+        {
+          "exercise_id": "q1_to_ex16",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "10. Cấu trúc A 给 B + Động từ + Tân ngữ: A làm gì cho B",
+          "prompt_vietnamese": "Anh ấy gọi điện thoại cho mẹ. / Hôm qua tôi đã gửi tin nhắn cho bạn.",
+          "answer_hanzi": "他给妈妈打电话。 / 昨天，我给你发短信。",
+          "answer_pinyin": "Tā gěi māma dǎ diànhuà. / Zuótiān, wǒ gěi nǐ fā duǎnxìn.",
+          "vocab_grammar_notes": "给 làm giới từ chỉ đối tượng tiếp nhận hành động."
+        },
+        {
+          "exercise_id": "q1_to_ex17",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "11. Cấu trúc A 在 + Địa điểm + Động từ: A làm gì ở đâu",
+          "prompt_vietnamese": "Tôi đợi bạn ở trường học. / Tôi làm việc ở công ty của bạn.",
+          "answer_hanzi": "我在学校等你。 / 我在你的公司工作。",
+          "answer_pinyin": "Wǒ zài xuéxiào děng nǐ. / Wǒ zài nǐ de gōngsī gōngzuò.",
+          "vocab_grammar_notes": "Trong tiếng Trung, trạng ngữ nơi chốn 在 + địa điểm đứng trước động từ."
+        },
+        {
+          "exercise_id": "q1_to_ex18",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "12. Cụm danh từ: Định ngữ + 的 + Trung tâm ngữ",
+          "prompt_vietnamese": "Bạn trai của tôi / Giáo viên rất tốt / Cuốn sách rất mới",
+          "answer_hanzi": "我的男朋友 / 很好的老师 / 很新的书",
+          "answer_pinyin": "Wǒ de nán péngyou / Hěn hǎo de lǎoshī / Hěn xīn de shū",
+          "vocab_grammar_notes": "Trung tâm ngữ đứng sau cùng, định ngữ bổ nghĩa đứng trước 的."
+        },
+        {
+          "exercise_id": "q1_to_ex19",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "13. 有(一)点儿 + Tính từ: Hơi... (biểu thị không hài lòng)",
+          "prompt_vietnamese": "Tôi hơi mệt một chút. / Tôi hơi bận một chút.",
+          "answer_hanzi": "我有点儿累。 / 我有点儿忙。",
+          "answer_pinyin": "Wǒ yǒudiǎnr lèi. / Wǒ yǒudiǎnr máng.",
+          "vocab_grammar_notes": "有点儿 đứng trước tính từ, mang sắc thái tiêu cực hoặc không vừa ý."
+        },
+        {
+          "exercise_id": "q1_to_ex20",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "14. 最 (Zuì) + Tính từ / Động từ tâm lý: ...nhất",
+          "prompt_vietnamese": "Tốt nhất / Ghét nhất",
+          "answer_hanzi": "最好 / 最讨厌",
+          "answer_pinyin": "Zuì hǎo / Zuì tǎoyàn",
+          "vocab_grammar_notes": "最 biểu thị mức độ cao nhất."
+        },
+        {
+          "exercise_id": "q1_to_ex21",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "15. Biểu đạt số lượng xấp xỉ hơn với 多 (Duō)",
+          "prompt_vietnamese": "Hơn 50 nhân viên / Năm nhân viên và một số ít lẻ / Hơn một ngày",
+          "answer_hanzi": "50多个职员 / 五个多职员 / 一天多",
+          "answer_pinyin": "50 duō gè zhíyuán / Wǔ gè duō zhíyuán / Yī tiān duō",
+          "vocab_grammar_notes": "Số tròn chục trên 10: Số + 多 + Lượng từ. Số dưới 10: Số + Lượng từ + 多."
+        },
+        {
+          "exercise_id": "q1_to_ex22",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "16. A 跟 B 一起 + Động từ: A cùng làm gì với B",
+          "prompt_vietnamese": "Tôi cùng bạn đến nhà ăn ăn cơm nhé. / Tôi thích nấu cơm cùng mẹ.",
+          "answer_hanzi": "我跟你一起去食堂吃饭吧。 / 我喜欢跟妈妈一起做饭。",
+          "answer_pinyin": "Wǒ gēn nǐ yīqǐ qù shítáng chī fàn ba. / Wǒ xǐhuan gēn māma yīqǐ zuò fàn.",
+          "vocab_grammar_notes": "跟...一起: biểu thị cùng ai làm việc gì."
+        },
+        {
+          "exercise_id": "q1_to_ex23",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "17. 正在 / 在 + Động từ (+ 呢): Đang diễn ra",
+          "prompt_vietnamese": "Bạn đang làm gì thế? / Tôi đang nghe nhạc đây này.",
+          "answer_hanzi": "你在做什么呢？ / 我正在听音乐呢。",
+          "answer_pinyin": "Nǐ zài zuò shénme ne? / Wǒ zhèngzài tīng yīnyuè ne.",
+          "vocab_grammar_notes": "正在...呢 biểu thị động tác đang tiến hành tại thời điểm nói."
+        },
+        {
+          "exercise_id": "q1_to_ex24",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "18. Phân biệt phó từ phủ định 不 (bù) và 没/没有 (méi/méiyǒu)",
+          "prompt_vietnamese": "Tôi không muốn học tiếng Nhật, tôi muốn học tiếng Trung (chủ quan dùng 不). / Tôi không học tiếng Nhật, tôi học tiếng Trung (khách quan dùng 没有).",
+          "answer_hanzi": "我不想学习日语，我想学习汉语。 / 我没有学习日语，我学习汉语。",
+          "answer_pinyin": "Wǒ bù xiǎng xuéxí rìyǔ, wǒ xiǎng xuéxí hànyǔ. / Wǒ méiyǒu xuéxí rìyǔ, wǒ xuéxí hànyǔ.",
+          "vocab_grammar_notes": "不 phủ định ý muốn chủ quan, tương lai và hiện tại; 没有 phủ định khách quan hoặc quá khứ."
+        },
+        {
+          "exercise_id": "q1_to_ex25",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "19. Phân biệt 走 (zǒu) và 去 (qù)",
+          "prompt_vietnamese": "Chúng ta đi thôi nào! / Bạn đi đâu thế?",
+          "answer_hanzi": "我们走吧！ / 你去哪儿？",
+          "answer_pinyin": "Wǒmen zǒu ba! / Nǐ qù nǎr?",
+          "vocab_grammar_notes": "走 nhấn mạnh hành động rời đi/bước đi; 去 bắt buộc gắn với đích đến cụ thể (去 + nơi chốn)."
+        },
+        {
+          "exercise_id": "q1_to_ex26",
+          "exercise_type": "luyen_tap_ngu_phap",
+          "category": "Luyện tập cấu trúc ngữ pháp",
+          "grammar_point": "20. Phân biệt 会 (huì), 知道 (zhīdào) và 认识 (rènshi)",
+          "prompt_vietnamese": "Bạn có biết người đó tên gì không? / Bạn có biết nói tiếng Trung không? / Vị bác sĩ này tôi không quen biết.",
+          "answer_hanzi": "你知道那个人叫什么名字吗？ / 你会不会说汉语？ / 这个医生我不认识。",
+          "answer_pinyin": "Nǐ zhīdào nàge rén jiào shénme míngzì ma? / Nǐ huì bu huì shuō hànyǔ? / Zhège yīshēng wǒ bù rènshi.",
+          "vocab_grammar_notes": "知道: biết thông tin; 会: biết kỹ năng qua học tập rèn luyện; 认识: quen biết người/mặt chữ."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q1_b12",
+      "lesson_num": 12,
+      "lesson_title": "第十二课 Dì shí'èr kè：我找到我的车了！Wǒ zhǎo dào wǒ de chē le ! / Bài 12: Tôi tìm được xe của tôi rồi!",
+      "exercises": [
+        {
+          "exercise_id": "q1_b12_ex01",
+          "exercise_type": "luyen_tap_doan_van",
+          "category": "Luyện tập dịch & đọc hiểu đoạn văn",
+          "title": "Đoạn văn 1: Tìm xe đạp ở trường",
+          "prompt_vietnamese": "Dịch và đọc hiểu đoạn văn tiếng Trung sang tiếng Việt:",
+          "source_hanzi": "在学校楼前边的自行车很多。美黄下课后要找她的自行车。美黄的自行车是新的。张海问她，你的自行车是什么颜色的？美黄说是白色的。张海说，那辆白色是不是你的？美黄说，我的自行车是新的，不是旧的，那辆不是我的。她还说，我的自行车在那儿呢，我找到了。",
+          "source_pinyin": "Zài xuéxiào lóu qiánbian de zìxíngchē hěn duō. Měihuáng xiàkè hòu yào zhǎo tā de zìxíngchē. Měihuáng de zìxíngchē shì xīn de. Zhāng Hǎi wèn tā, nǐ de zìxíngchē shì shénme yánsè de? Měihuáng shuō shì báisè de. Zhāng Hǎi shuō, nà liàng báisè shì bù shì nǐ de? Měihuáng shuō, wǒ de zìxíngchē shì xīn de, bù shì jiù de, nà liàng bù shì wǒ de. Tā hái shuō, wǒ de zìxíngchē zài nà'r ne, wǒ zhǎodào le.",
+          "answer_hanzi": "在学校楼前边的自行车很多。美黄下课后要找她的自行车。美黄的自行车是新的。张海问她，你的自行车是什么颜色的？美黄说是白色的。张海说，那辆白色是不是你的？美黄说，我的自行车是新的，不是旧的，那辆不是我的。她还说，我的自行车在那儿呢，我找到了。",
+          "answer_pinyin": "Zài xuéxiào lóu qiánbian de zìxíngchē hěn duō. Měihuáng xiàkè hòu yào zhǎo tā de zìxíngchē. Měihuáng de zìxíngchē shì xīn de. Zhāng Hǎi wèn tā, nǐ de zìxíngchē shì shénme yánsè de? Měihuáng shuō shì báisè de. Zhāng Hǎi shuō, nà liàng báisè shì bù shì nǐ de? Měihuáng shuō, wǒ de zìxíngchē shì xīn de, bù shì jiù de, nà liàng bù shì wǒ de. Tā hái shuō, wǒ de zìxíngchē zài nà'r ne, wǒ zhǎodào le.",
+          "sample_sentence_vietnamese": "Ở phía trước tòa nhà trường học có rất nhiều xe đạp. Mỹ Hoàng sau khi tan học phải đi tìm chiếc xe đạp của mình. Xe đạp của Mỹ Hoàng là xe mới. Trương Hải hỏi cô ấy: 'Xe đạp của bạn màu gì?' Mỹ Hoàng nói là màu trắng. Trương Hải nói: 'Chiếc màu trắng kia có phải của bạn không?' Mỹ Hoàng nói: 'Xe đạp của tôi là mới, không phải cũ, chiếc kia không phải của tôi.' Cô ấy còn nói: 'Xe đạp của tôi ở đằng kia kìa, tôi tìm thấy rồi!'",
+          "vocab_grammar_notes": "Ôn tập từ vựng: 自行车 (zìxíngchē: xe đạp), 颜色 (yánsè: màu sắc), 新 (xīn: mới), 旧 (jiù: cũ), 找到 (zhǎodào: tìm thấy)."
+        },
+        {
+          "exercise_id": "q1_b12_ex02",
+          "exercise_type": "luyen_tap_doan_van",
+          "category": "Luyện tập dịch & đọc hiểu đoạn văn",
+          "title": "Đoạn văn 2: Thư gửi bố mẹ",
+          "prompt_vietnamese": "Dịch và đọc hiểu bức thư tiếng Trung sang tiếng Việt:",
+          "source_hanzi": "爸爸妈妈：好久没有给你们写信了，你们身体好吗？我很好。你们给我寄的生日礼物很好看。谢谢！今天在宿舍举行生日晚会，我们班的同学和几个中国朋友都来参加。同学们送我很多礼物。晚会上我们一起唱歌，吃蛋糕，玩得很高兴，能住在中国跟同学们一起过生日，我觉得很快乐。祝爸爸妈妈好！",
+          "source_pinyin": "Bàba māma: Hǎojiǔ méiyǒu gěi nǐmen xiě xìn le, nǐmen shēntǐ hǎo ma? Wǒ hěn hǎo. Nǐmen gěi wǒ jì de shēngrì lǐwù hěn hǎokàn. Xièxie! Jīntiān zài sùshè jǔxíng shēngrì wǎnhuì, wǒmen bān de tóngxué hé jǐ gè Zhōngguó péngyou dōu lái cānjiā. Tóngxuémen sòng wǒ hěnduō lǐwù. Wǎnhuì shàng wǒmen yīqǐ chànggē, chī dàngāo, wán de hěn gāoxìng, néng zhù zài Zhōngguó gēn tóngxuémen yīqǐ guò shēngrì, wǒ juéde hěn kuàilè. Zhù bàba māma hǎo!",
+          "answer_hanzi": "爸爸妈妈：好久没有给你们写信了，你们身体好吗？我很好。你们给我寄的生日礼物很好看。谢谢！今天在宿舍举行生日晚会，我们班的同学和几个中国朋友都来参加。同学们送我很多礼物。晚会上我们一起唱歌，吃蛋糕，玩得很高兴，能住在中国跟同学们一起过生日，我觉得很快乐。祝爸爸妈妈好！",
+          "answer_pinyin": "Bàba māma: Hǎojiǔ méiyǒu gěi nǐmen xiě xìn le, nǐmen shēntǐ hǎo ma? Wǒ hěn hǎo. Nǐmen gěi wǒ jì de shēngrì lǐwù hěn hǎokàn. Xièxie! Jīntiān zài sùshè jǔxíng shēngrì wǎnhuì, wǒmen bān de tóngxué hé jǐ gè Zhōngguó péngyou dōu lái cānjiā. Tóngxuémen sòng wǒ hěnduō lǐwù. Wǎnhuì shàng wǒmen yīqǐ chànggē, chī dàngāo, wán de hěn gāoxìng, néng zhù zài Zhōngguó gēn tóngxuémen yīqǐ guò shēngrì, wǒ juéde hěn kuàilè. Zhù bàba māma hǎo!",
+          "sample_sentence_vietnamese": "Bố mẹ kính mến: Đã lâu rồi con không viết thư cho bố mẹ, bố mẹ sức khỏe tốt không? Con rất khỏe. Món quà sinh nhật bố mẹ gửi cho con rất đẹp. Con cảm ơn bố mẹ! Hôm nay ở ký túc xá tổ chức tiệc sinh nhật, các bạn học cùng lớp của con và mấy người bạn Trung Quốc đều đến tham gia. Các bạn tặng con rất nhiều quà. Trong buổi tiệc chúng con cùng nhau hát, ăn bánh kem, chơi rất vui. Được sống ở Trung Quốc cùng các bạn đón sinh nhật, con cảm thấy vô cùng hạnh phúc. Chúc bố mẹ luôn mạnh khỏe!",
+          "vocab_grammar_notes": "Ôn tập: 写信 (xiě xìn: viết thư), 寄 (jì: gửi), 礼物 (lǐwù: quà), 举行 (jǔxíng: tổ chức), 唱歌 (chànggē: hát), 蛋糕 (dàngāo: bánh kem), 快乐 (kuàilè: vui vẻ, hạnh phúc)."
+        },
+        {
+          "exercise_id": "q1_b12_ex03",
+          "exercise_type": "luyen_tap_viet_van",
+          "category": "Luyện tập viết đoạn văn",
+          "title": "Viết đoạn văn tự giới thiệu bản thân, sở thích, gia đình, công việc",
+          "prompt_vietnamese": "Hãy tự giới thiệu về bản thân, sở thích, gia đình và công việc của bạn bằng tiếng Trung (có chữ Hán, Pinyin và bản dịch).",
+          "sample_sentence_vietnamese": "Xin chào mọi người! Tôi tên là Nguyễn Minh, năm nay 25 tuổi, là người Việt Nam. Gia đình tôi có 4 người: bố, mẹ, em gái và tôi. Hiện tại tôi đang làm nhân viên tại một công ty ở Khu công nghiệp Phước Đông, tỉnh Tây Ninh. Hàng ngày công việc của tôi rất bận rộn nhưng cũng rất vui vẻ. Sở thích của tôi là nghe nhạc, chơi bóng đá và học tiếng Trung. Tôi rất vui được quen biết các bạn!",
+          "answer_hanzi": "大家好！我叫阮明，今年二十五岁，是越南人。我的家有四口人：爸爸、妈妈、妹妹和我。现在我在西宁省福东工业区的一家公司当职员。每天我的工作都很忙碌，但是我也很开心。我的爱好是听音乐、踢足球和学习汉语。认识大家我很高兴！",
+          "answer_pinyin": "Dàjiā hǎo! Wǒ jiào Ruǎn Míng, jīnnián èrshíwǔ suì, shì Yuènán rén. Wǒ de jiā yǒu sì kǒu rén: bàba, māma, mèimei hé wǒ. Xiànzài wǒ zài Xīníng shěng Fúdōng gōngyèqū de yī jiā gōngsī dāng zhíyuán. Měitiān wǒ de gōngzuò dōu hěn mánglù, dànshì wǒ yě hěn kāixīn. Wǒ de àihào shì tīng yīnyuè, tī zúqiú hé xuéxí hànyǔ. Rènshi dàjiā wǒ hěn gāoxìng!",
+          "vocab_grammar_notes": "Đoạn văn mẫu tổng hợp toàn bộ các chủ điểm ngữ pháp và từ vựng từ Bài 1 đến Bài 12 của Quyển 1."
+        },
+        {
+          "exercise_id": "q1_b12_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "摩托车",
+          "target_word_pinyin": "Mótuōchē",
+          "target_word_meaning": "Xe máy",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Mỗi ngày tôi đều tự mình chạy xe máy đi đến công ty làm việc.",
+          "answer_hanzi": "我每天早上都自己骑摩托车去福东工业区上班。",
+          "answer_pinyin": "Wǒ měitiān zǎoshang dōu zìjǐ qí mótuōchē qù Fúdōng gōngyèqū shàngbān.",
+          "vocab_grammar_notes": "骑摩托车 (qí mótuōchē: lái/chạy xe máy), 骑 dùng cho phương tiện 2 bánh."
+        },
+        {
+          "exercise_id": "q1_b12_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "站",
+          "target_word_pinyin": "Zhàn",
+          "target_word_meaning": "Trạm, bến, đứng",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tôi đang đứng ở trạm xe buýt phía trước trường học đợi bạn tôi đến.",
+          "answer_hanzi": "我现在站在学校门前的公共汽车站等我朋友来。",
+          "answer_pinyin": "Wǒ xiànzài zhàn zài xuéxiào mén qián de gōnggòng qìchē zhàn děng wǒ péngyou lái.",
+          "vocab_grammar_notes": "站 vừa là động từ (đứng), vừa là danh từ (trạm, bến xe)."
+        },
+        {
+          "exercise_id": "q1_b12_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "找",
+          "target_word_pinyin": "Zhǎo",
+          "target_word_meaning": "Tìm kiếm, thối tiền",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tan học xong, Mỹ Hoàng đi tìm chiếc xe đạp màu trắng mới mua của mình.",
+          "answer_hanzi": "下课以后，美黄去车棚找她刚刚买的那辆白色自行车。",
+          "answer_pinyin": "Xiàkè yǐhòu, Měihuáng qù chēpéng zhǎo tā gānggāng mǎi de nà liàng báisè zìxíngchē.",
+          "vocab_grammar_notes": "找 (zhǎo: tìm kiếm), 找到 (zhǎodào: tìm thấy)."
+        },
+        {
+          "exercise_id": "q1_b12_ex07",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "听说",
+          "target_word_pinyin": "Tīng shuō",
+          "target_word_meaning": "Nghe nói",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tôi nghe nói món ăn Việt Nam ở quán ăn kia vừa ngon vừa rất rẻ.",
+          "answer_hanzi": "我听说那家饭店做的越南菜又好吃又非常便宜。",
+          "answer_pinyin": "Wǒ tīngshuō nà jiā fàndiàn zuò de Yuènán cài yòu hǎochī yòu fēicháng piányi.",
+          "vocab_grammar_notes": "听说 đứng đầu mệnh đề để dẫn lời thông tin nghe được."
+        },
+        {
+          "exercise_id": "q1_b12_ex08",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "能",
+          "target_word_pinyin": "Néng",
+          "target_word_meaning": "Có thể (năng lực, điều kiện)",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Hôm nay tôi bị ốm rồi nên không thể cùng bạn đi xem phim được.",
+          "answer_hanzi": "今天我生病了，所以不能跟你一起去电影院看电影。",
+          "answer_pinyin": "Jīntiān wǒ shēngbìng le, suǒyǐ bù néng gēn nǐ yīqǐ qù diànyǐngyuàn kàn diànyǐng.",
+          "vocab_grammar_notes": "不能 (bù néng: không thể làm gì vì hoàn cảnh)."
+        },
+        {
+          "exercise_id": "q1_b12_ex09",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "时间",
+          "target_word_pinyin": "Shí jiān",
+          "target_word_meaning": "Thời gian",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Dạo này công việc của tôi rất bận, không có nhiều thời gian đi chơi.",
+          "answer_hanzi": "最近我的工作特别忙，所以没有很多时间出去玩儿。",
+          "answer_pinyin": "Zuìjìn wǒ de gōngzuò tèbié máng, suǒyǐ méiyǒu hěn duō shíjiān chūqù wánr.",
+          "vocab_grammar_notes": "有/没有时间 (yǒu/méiyǒu shíjiān: có/không có thời gian)."
+        },
+        {
+          "exercise_id": "q1_b12_ex10",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "颜色",
+          "target_word_pinyin": "Yán sè",
+          "target_word_meaning": "Màu sắc",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bạn thích màu sắc nào nhất, tôi thấy bạn thích màu trắng và màu xanh lam.",
+          "answer_hanzi": "你最喜欢什么颜色？我看你常常穿白色和蓝色的衣服。",
+          "answer_pinyin": "Nǐ zuì xǐhuān shénme yánsè? Wǒ kàn nǐ chángcháng chuān báisè hé lánsè de yīfu.",
+          "vocab_grammar_notes": "什么颜色 (shénme yánsè: màu sắc nào)."
+        },
+        {
+          "exercise_id": "q1_b12_ex11",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "这样",
+          "target_word_pinyin": "Zhè yàng",
+          "target_word_meaning": "Như vậy, như thế này",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Làm như vậy không tốt đâu, bạn nên nghe theo lời khuyên của thầy giáo.",
+          "answer_hanzi": "这样做不太好，你应该认真听取老师对你的意见。",
+          "answer_pinyin": "Zhèyàng zuò bù tài hǎo, nǐ yīnggāi rènzhēn tīngqǔ lǎoshī duì nǐ de yìjiàn.",
+          "vocab_grammar_notes": "这样做 (zhèyàng zuò: làm như thế này)."
+        },
+        {
+          "exercise_id": "q1_b12_ex12",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "开心",
+          "target_word_pinyin": "Kāi xīn",
+          "target_word_meaning": "Vui vẻ, hân hoan",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Được cùng bạn bè tổ chức sinh nhật và ca hát, tôi cảm thấy rất vui vẻ.",
+          "answer_hanzi": "能跟好朋友们一起过生日和唱歌，我觉得非常开心。",
+          "answer_pinyin": "Néng gēn hǎo péngyoumen yīqǐ guò shēngrì hé chànggē, wǒ juéde fēicháng kāixīn.",
+          "vocab_grammar_notes": "非常开心 (fēicháng kāixīn: vô cùng vui vẻ)."
+        },
+        {
+          "exercise_id": "q1_b12_ex13",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "记得",
+          "target_word_pinyin": "Jì dé",
+          "target_word_meaning": "Nhớ, ghi nhớ",
+          "requirement": "Dùng từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bạn còn nhớ số điện thoại và địa chỉ nhà của thầy giáo Trương không?",
+          "answer_hanzi": "你还记得张老师的手机号码和他的家庭地址吗？",
+          "answer_pinyin": "Nǐ hái jìdé Zhāng lǎoshī de shǒujī hàomǎ hé tā de jiātíng dìzhǐ ma?",
+          "vocab_grammar_notes": "还记得...吗 (hái jìdé... ma: còn nhớ... không)."
+        }
+      ]
+    }
+  ],
+  "total_exercises": 139
+}
