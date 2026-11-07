@@ -121,12 +121,17 @@ export function evaluateExerciseAnswerLocal(
     .map((s) => s.trim())
     .filter(Boolean);
 
-  // 1. Reading comprehension / Paragraph translation (Trung -> Việt)
-  if (ex.exercise_type === 'luyen_tap_doan_van' && ex.sample_sentence_vietnamese) {
+  // 1. Reading comprehension / Paragraph / Dialogue / Sentence-list translation (Trung -> Việt)
+  if (
+    (ex.exercise_type === 'luyen_tap_doan_van' ||
+      ex.exercise_type === 'luyen_dich_hoi_thoai' ||
+      ex.exercise_type === 'luyen_tap_mau_cau') &&
+    ex.sample_sentence_vietnamese
+  ) {
     if (hasChineseChars) {
       const sim = calculateSimilarity(
         normalizeChineseCanonical(userTrimmed),
-        normalizeChineseCanonical(ex.answer_hanzi)
+        normalizeChineseCanonical(ex.source_hanzi || ex.answer_hanzi)
       );
       return {
         score: sim,
@@ -153,16 +158,19 @@ export function evaluateExerciseAnswerLocal(
       .filter(Boolean);
 
     const matchedCount = userWords.filter((w) => refWords.includes(w)).length;
-    const ratio =
+    const denom =
+      refWords.length <= 4
+        ? Math.max(1, refWords.length)
+        : Math.min(refWords.length, Math.max(userWords.length, 4));
+    const wordRatio =
       refWords.length > 0
-        ? Math.min(
-            100,
-            Math.round(
-              (matchedCount / Math.min(refWords.length, Math.max(userWords.length, 5))) *
-                100
-            )
-          )
+        ? Math.min(100, Math.round((matchedCount / denom) * 100))
         : 0;
+    const dlgEval = evaluateDialogueVietnameseTranslation(
+      userTrimmed,
+      ex.sample_sentence_vietnamese
+    );
+    const ratio = Math.max(wordRatio, dlgEval.score);
 
     return {
       score: ratio,
@@ -172,7 +180,7 @@ export function evaluateExerciseAnswerLocal(
           ? `Độ chính xác: ${ratio}% — Dịch rất sát nghĩa!`
           : ratio >= 50
           ? `Độ chính xác: ${ratio}% — Đúng ý chính, xem thêm bản dịch chuẩn`
-          : `Độ chính xác: ${ratio}% — Cần bổ sung đầy đủ ý trong đoạn văn`,
+          : `Độ chính xác: ${ratio}% — Cần bổ sung đầy đủ ý của câu`,
       correctedHanzi: ex.answer_hanzi,
       correctedPinyin: ex.answer_pinyin,
       detailedFeedbackVi: `Bản dịch chuẩn: ${ex.sample_sentence_vietnamese}`,

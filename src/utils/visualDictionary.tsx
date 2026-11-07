@@ -28,9 +28,16 @@ export interface LocalWordDetails {
   sinoVietnameseHint: string;
   contextualUsageVi: string;
   hanziiUrl: string;
+  hanziiExampleUrl: string;
   collocations: { hanzi: string; pinyin: string; meaningVi: string }[];
   synonyms: { hanzi: string; pinyin: string; meaningVi: string; relation: string }[];
-  textbookExamples: { hanzi: string; pinyin: string; meaningVi: string; page: number }[];
+  textbookExamples: {
+    hanzi: string;
+    traditional: string;
+    pinyin: string;
+    meaningVi: string;
+    page?: number;
+  }[];
   imageExamples: {
     title: string;
     query: string;
@@ -209,19 +216,209 @@ const SINO_VIETNAMESE_MAP: Record<string, string> = {
  * Cleans a textbook vocabulary entry (e.g. "职员 / 员工", "(一)点儿") into a clean Chinese search keyword
  */
 export function getPrimaryHanziKeyword(hanzi: string): string {
-  const firstPart = hanzi.split('/')[0] || hanzi;
+  const firstPart = hanzi.split(/[\/，,、;；–—\-]/)[0] || hanzi;
   const cleaned = firstPart
-    .replace(/[()（）A-Za-z0-9.,!?:;…\-—\s]/g, '')
+    .replace(/[()（）A-Za-z0-9.,!?:;？!：；…\-—\s+]/g, '')
     .trim();
   return cleaned || firstPart.trim() || hanzi.trim();
 }
 
 /**
- * Concatenates a Chinese vocabulary keyword with Hanzii Chinese-Vietnamese Dictionary URL
+ * Extracts all valid Chinese word variants from a vocabulary entry's hanzi field
+ * (e.g. "出货（单）" -> ["出货单", "出货"], "这(个)星期" -> ["这个星期", "这星期"], "早/早上" -> ["早", "早上"])
+ */
+export function extractVocabKeysFromHanzi(rawHanzi: string): string[] {
+  if (!rawHanzi) return [];
+  const results = new Set<string>();
+  const cleaned = rawHanzi.replace(/[:：？?！!。.]/g, ' ');
+  const parts = cleaned
+    .split(/[\/，,、;；–—\-]/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  for (const part of parts) {
+    const withParensContent = part.replace(/[\(（\)）]/g, '');
+    const withoutParensContent = part.replace(/[\(（][^\)）]*[\)）]/g, '');
+    for (const candidate of [withParensContent, withoutParensContent]) {
+      const matches = candidate.match(/[\u4e00-\u9fa5]+/g) || [];
+      for (const m of matches) {
+        if (m.length >= 1) {
+          results.add(m);
+        }
+      }
+    }
+  }
+  return Array.from(results);
+}
+
+/**
+ * Built-in compound vocabulary dictionary for compound words appearing in dialogues,
+ * reading passages, and exercises across Quyển 1, 2, 3 whose characters may have been
+ * taught separately or in another book.
+ */
+export const SUPPLEMENTARY_COMPOUND_VOCAB: VocabItem[] = [
+  { index: 1, hanzi: '介绍', pinyin: 'Jiè shào', meaning_vi: 'Giới thiệu', type: 'động từ / danh từ', page: 22, lessonTitle: 'Bài 5 (Quyển 1)' },
+  { index: 2, hanzi: '自我介绍', pinyin: 'Zì wǒ jiè shào', meaning_vi: 'Tự giới thiệu bản thân', type: 'cụm từ', page: 1, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 3, hanzi: '自我', pinyin: 'Zì wǒ', meaning_vi: 'Tự mình, bản thân', type: 'đại từ', page: 1, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 4, hanzi: '自己', pinyin: 'Zì jǐ', meaning_vi: 'Tự mình, bản thân', type: 'đại từ', page: 1, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 5, hanzi: '一下', pinyin: 'Yī xià', meaning_vi: 'Một chút, một lát (biểu thị hành động ngắn)', type: 'bổ ngữ', page: 22, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 6, hanzi: '一下儿', pinyin: 'Yī xiàr', meaning_vi: 'Một chút, một lát', type: 'bổ ngữ', page: 22, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 7, hanzi: '你好', pinyin: 'Nǐ hǎo', meaning_vi: 'Xin chào, chào bạn', type: 'câu chào', page: 1, lessonTitle: 'Bài 1 (Quyển 1)' },
+  { index: 8, hanzi: '您好', pinyin: 'Nín hǎo', meaning_vi: 'Xin chào (kính trọng)', type: 'câu chào', page: 1, lessonTitle: 'Bài 1 (Quyển 1)' },
+  { index: 9, hanzi: '请问', pinyin: 'Qǐng wèn', meaning_vi: 'Xin hỏi', type: 'động từ', page: 12, lessonTitle: 'Bài 4 (Quyển 1)' },
+  { index: 10, hanzi: '明天', pinyin: 'Míng tiān', meaning_vi: 'Ngày mai', type: 'danh từ chỉ thời gian', page: 15, lessonTitle: 'Bài 4 (Quyển 1)' },
+  { index: 11, hanzi: '今天', pinyin: 'Jīn tiān', meaning_vi: 'Hôm nay', type: 'danh từ chỉ thời gian', page: 10, lessonTitle: 'Bài 3 (Quyển 1)' },
+  { index: 12, hanzi: '昨天', pinyin: 'Zuó tiān', meaning_vi: 'Hôm qua', type: 'danh từ chỉ thời gian', page: 15, lessonTitle: 'Bài 4 (Quyển 1)' },
+  { index: 13, hanzi: '今年', pinyin: 'Jīn nián', meaning_vi: 'Năm nay', type: 'danh từ chỉ thời gian', page: 38, lessonTitle: 'Bài 8 (Quyển 1)' },
+  { index: 14, hanzi: '明年', pinyin: 'Míng nián', meaning_vi: 'Sang năm, năm sau', type: 'danh từ chỉ thời gian', page: 38, lessonTitle: 'Bài 8 (Quyển 1)' },
+  { index: 15, hanzi: '去年', pinyin: 'Qù nián', meaning_vi: 'Năm ngoái', type: 'danh từ chỉ thời gian', page: 38, lessonTitle: 'Bài 8 (Quyển 1)' },
+  { index: 16, hanzi: '打电话', pinyin: 'Dǎ diàn huà', meaning_vi: 'Gọi điện thoại', type: 'cụm động từ', page: 30, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 17, hanzi: '吃饭', pinyin: 'Chī fàn', meaning_vi: 'Ăn cơm, dùng bữa', type: 'cụm động từ', page: 25, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 18, hanzi: '喝水', pinyin: 'Hē shuǐ', meaning_vi: 'Uống nước', type: 'cụm động từ', page: 25, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 19, hanzi: '喝茶', pinyin: 'Hē chá', meaning_vi: 'Uống trà', type: 'cụm động từ', page: 25, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 20, hanzi: '要求', pinyin: 'Yāo qiú', meaning_vi: 'Yêu cầu, đòi hỏi', type: 'động từ / danh từ', page: 2, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 21, hanzi: '标准', pinyin: 'Biāo zhǔn', meaning_vi: 'Tiêu chuẩn, chuẩn mực', type: 'danh từ / tính từ', page: 18, lessonTitle: 'Quyển 3' },
+  { index: 22, hanzi: '应约', pinyin: 'Yìng yuē', meaning_vi: 'Theo lời hẹn,赴 hẹn', type: 'động từ', page: 2, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 23, hanzi: '见到', pinyin: 'Jiàn dào', meaning_vi: 'Gặp được, nhìn thấy', type: 'động từ', page: 2, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 24, hanzi: '出生于', pinyin: 'Chū shēng yú', meaning_vi: 'Sinh ra tại / sinh năm', type: 'cụm động từ', page: 2, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 25, hanzi: '出生', pinyin: 'Chū shēng', meaning_vi: 'Sinh ra, ra đời', type: 'động từ', page: 1, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 26, hanzi: '商业', pinyin: 'Shāng yè', meaning_vi: 'Thương mại, kinh doanh', type: 'danh từ', page: 2, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 27, hanzi: '会计学', pinyin: 'Kuài jì xué', meaning_vi: 'Ngành Kế toán học', type: 'danh từ', page: 2, lessonTitle: 'Bài 1 (Quyển 3)' },
+  { index: 28, hanzi: '胡志明市', pinyin: 'Hú Zhì Míng shì', meaning_vi: 'Thành phố Hồ Chí Minh', type: 'danh từ riêng', page: 3, lessonTitle: 'Bài 13 (Quyển 2)' },
+  { index: 29, hanzi: '富国岛', pinyin: 'Fù Guó dǎo', meaning_vi: 'Đảo Phú Quốc', type: 'danh từ riêng', page: 3, lessonTitle: 'Bài 13 (Quyển 2)' },
+  { index: 30, hanzi: '福国岛', pinyin: 'Fú Guó dǎo', meaning_vi: 'Đảo Phú Quốc', type: 'danh từ riêng', page: 3, lessonTitle: 'Bài 13 (Quyển 2)' },
+  { index: 31, hanzi: '下龙湾', pinyin: 'Xià Lóng wān', meaning_vi: 'Vịnh Hạ Long', type: 'danh từ riêng', page: 25, lessonTitle: 'Quyển 2' },
+  { index: 32, hanzi: '海阳省', pinyin: 'Hǎi Yáng shěng', meaning_vi: 'Tỉnh Hải Dương', type: 'danh từ riêng', page: 4, lessonTitle: 'Bài 13 (Quyển 2)' },
+  { index: 33, hanzi: '手提行李', pinyin: 'Shǒu tí xíng lǐ', meaning_vi: 'Hành lý xách tay', type: 'cụm danh từ', page: 3, lessonTitle: 'Bài 13 (Quyển 2)' },
+  { index: 34, hanzi: '托运行李', pinyin: 'Tuō yùn xíng lǐ', meaning_vi: 'Hành lý ký gửi', type: 'cụm danh từ', page: 3, lessonTitle: 'Bài 13 (Quyển 2)' },
+  { index: 35, hanzi: '办理手续', pinyin: 'Bàn lǐ shǒu xù', meaning_vi: 'Làm thủ tục', type: 'cụm động từ', page: 3, lessonTitle: 'Bài 13 (Quyển 2)' },
+  { index: 36, hanzi: '贸易公司', pinyin: 'Mào yì gōng sī', meaning_vi: 'Công ty thương mại', type: 'cụm danh từ', page: 4, lessonTitle: 'Bài 13 (Quyển 2)' },
+  { index: 37, hanzi: '这个', pinyin: 'Zhè gè', meaning_vi: 'Cái này, chiếc này', type: 'đại từ', page: 12, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 38, hanzi: '那个', pinyin: 'Nà gè', meaning_vi: 'Cái kia, cái đó', type: 'đại từ', page: 12, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 39, hanzi: '这些', pinyin: 'Zhè xiē', meaning_vi: 'Những cái này', type: 'đại từ', page: 12, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 40, hanzi: '那些', pinyin: 'Nà xiē', meaning_vi: 'Những cái kia', type: 'đại từ', page: 12, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 41, hanzi: '这种', pinyin: 'Zhè zhǒng', meaning_vi: 'Loại này, kiểu này', type: 'đại từ', page: 20, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 42, hanzi: '这次', pinyin: 'Zhè cì', meaning_vi: 'Lần này', type: 'danh từ', page: 20, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 43, hanzi: '一次', pinyin: 'Yī cì', meaning_vi: 'Một lần', type: 'số lượng từ', page: 20, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 44, hanzi: '这批', pinyin: 'Zhè pī', meaning_vi: 'Lô hàng này, đợt này', type: 'danh từ', page: 18, lessonTitle: 'Quyển 3' },
+  { index: 45, hanzi: '天数', pinyin: 'Tiān shù', meaning_vi: 'Số ngày', type: 'danh từ', page: 35, lessonTitle: 'Quyển 3' },
+  { index: 46, hanzi: '不够', pinyin: 'Bù gòu', meaning_vi: 'Không đủ', type: 'cụm tính từ', page: 25, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 47, hanzi: '之后', pinyin: 'Zhī hòu', meaning_vi: 'Sau đó, về sau', type: 'danh từ chỉ thời gian', page: 25, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 48, hanzi: '过来', pinyin: 'Guò lái', meaning_vi: 'Qua đây, bước sang', type: 'động từ xu hướng', page: 15, lessonTitle: 'Quyển 2' },
+  { index: 49, hanzi: '过去', pinyin: 'Guò qù', meaning_vi: 'Qua đó, đi qua', type: 'động từ xu hướng', page: 15, lessonTitle: 'Quyển 2' },
+  { index: 50, hanzi: '全勤奖', pinyin: 'Quán qín jiǎng', meaning_vi: 'Tiền thưởng chuyên cần', type: 'danh từ', page: 95, lessonTitle: 'Quyển 3' },
+  { index: 51, hanzi: '服装店', pinyin: 'Fú zhuāng diàn', meaning_vi: 'Cửa hàng quần áo / thời trang', type: 'danh từ', page: 95, lessonTitle: 'Quyển 3' },
+  { index: 52, hanzi: '购物', pinyin: 'Gòu wù', meaning_vi: 'Mua sắm', type: 'động từ', page: 30, lessonTitle: 'Giáo trình Hán Ngữ Hoa Sen' },
+  { index: 53, hanzi: '打印机', pinyin: 'Dǎ yìn jī', meaning_vi: 'Máy in', type: 'danh từ', page: 68, lessonTitle: 'Quyển 3' },
+];
+
+/**
+ * Concatenates a Chinese vocabulary keyword with Hanzii Chinese-Vietnamese Dictionary URL.
+ * Uses clean HTTPS URL so all mobile and desktop browsers open the page reliably without black intent:// tabs.
  */
 export function buildHanziiDictUrl(hanzi: string): string {
   const keyword = getPrimaryHanziKeyword(hanzi);
-  return `https://hanzii.net/search/word/${encodeURIComponent(keyword)}?hl=vi`;
+  const encoded = encodeURIComponent(keyword);
+  return `https://hanzii.net/search/word/${encoded}?hl=vi`;
+}
+
+/**
+ * Concatenates a Chinese vocabulary keyword with Hanzii Example Sentences search URL
+ */
+export function buildHanziiExampleUrl(hanzi: string): string {
+  const keyword = getPrimaryHanziKeyword(hanzi);
+  const encoded = encodeURIComponent(keyword);
+  return `https://hanzii.net/search/example/${encoded}?hl=vi`;
+}
+
+const SIMP_TO_TRAD_MAP: Record<string, string> = {
+  们: '們', 这: '這', 个: '個', 国: '國', 学: '學', 习: '習', 语: '語', 汉: '漢',
+  师: '師', 生: '生', 车: '車', 机: '機', 飞: '飛', 钱: '錢', 买: '買', 卖: '賣',
+  东: '東', 书: '書', 写: '寫', 读: '讀', 听: '聽', 说: '說', 见: '見', 现: '現',
+  点: '點', 时: '時', 间: '間', 长: '長', 开: '開', 关: '關', 门: '門', 问: '問',
+  题: '題', 员: '員', 厂: '廠', 产: '產', 质: '質', 订: '訂', 单: '單', 发: '發',
+  电: '電', 话: '話', 脑: '腦', 视: '視', 欢: '歡', 谢: '謝', 对: '對', 没: '沒',
+  系: '係', 医: '醫', 药: '藥', 越: '越', 南: '南', 华: '華', 爱: '愛', 亲: '親',
+  妈: '媽', 爸: '爸', 姐: '姐', 哥: '哥', 弟: '弟', 妹: '妹', 认: '認', 识: '識',
+  高: '高', 兴: '興', 贵: '貴', 姓: '姓', 友: '友', 职: '職', 商: '商', 店: '店',
+  超: '超', 司: '司', 宿: '宿', 舍: '舍', 会: '會', 议: '議', 室: '室', 休: '休',
+  息: '息', 影: '影', 乐: '樂', 班: '班', 结: '結', 婚: '婚', 银: '銀', 行: '行',
+  业: '業', 区: '區', 翻: '翻', 译: '譯', 饭: '飯', 菜: '菜', 茶: '茶', 酒: '酒',
+  面: '麵', 条: '條', 包: '包', 鸡: '雞', 鱼: '魚', 肉: '肉', 苹: '蘋', 果: '果',
+  蕉: '蕉', 瓜: '瓜', 衣: '衣', 服: '服', 裤: '褲', 鞋: '鞋', 红: '紅', 黄: '黃',
+  蓝: '藍', 绿: '綠', 黑: '黑', 白: '白', 块: '塊', 毛: '毛', 百: '百', 千: '千',
+  万: '萬', 号: '號', 岁: '歲', 几: '幾', 谁: '誰', 哪: '哪', 儿: '兒', 样: '樣',
+  怎: '怎', 什: '什', 么: '麼', 为: '為', 因: '因', 所: '所', 虽: '雖', 然: '然',
+  但: '但', 还: '還', 经: '經', 常: '常', 已: '已', 刚: '剛', 才: '才', 准: '準',
+  备: '備', 觉: '覺', 得: '得', 喜: '喜', 运动: '運動', 运: '運', 动: '動',
+  游: '游', 泳: '泳', 球: '球', 跑: '跑', 步: '步', 旅: '旅', 馆: '館', 邮: '郵',
+  局: '局', 边: '邊', 远: '遠', 近: '近', 离: '離', 坐: '坐', 骑: '騎', 站: '站',
+  路: '路', 票: '票', 张: '張', 本: '本', 支: '支', 把: '把', 件: '件', 双: '雙',
+  套: '套', 辆: '輛', 台: '台', 种: '種', 类: '類', 级: '級', 检: '檢',
+  查: '查', 验: '驗', 报: '報', 告: '告', 计: '計', 划: '劃', 办: '辦', 法: '法',
+  处: '處', 理: '理', 决: '決', 定: '定', 通: '通', 知: '知', 联: '聯', 络: '絡',
+  签: '簽', 名: '名', 费: '費', 资: '資', 料: '料', 设: '設', 装: '裝', 修: '修',
+  改: '改', 换: '換', 退: '退', 货: '貨', 库: '庫', 进: '進', 出: '出', 入: '入',
+  总: '總', 管: '管', 组: '組', 线: '線', 达: '達', 标: '標', 规: '規', 则: '則',
+  错: '錯', 误: '誤', 责: '責', 任: '任', 务: '務', 难: '難', 易: '易', 简: '簡',
+  复: '複', 杂: '雜', 干: '乾', 净: '淨', 脏: '髒', 乱: '亂', 整: '整', 齐: '齊',
+  轻: '輕', 重: '重', 快: '快', 慢: '慢', 早: '早', 晚: '晚', 新: '新', 旧: '舊',
+  真: '真', 假: '假', 满: '滿', 意: '意', 放: '放', 心: '心', 担: '擔', 忧: '憂',
+  帮: '幫', 助: '助', 请: '請', 让: '讓', 给: '給', 找: '找', 带: '帶', 拿: '拿',
+  送: '送', 接: '接', 等: '等', 忘: '忘', 记: '記', 懂: '懂', 清: '清', 楚: '楚',
+};
+
+/**
+ * Converts a Simplified Chinese sentence to Traditional Chinese for dictionary display `[...]`
+ */
+export function toTraditionalChinese(text: string): string {
+  return Array.from(text)
+    .map((ch) => SIMP_TO_TRAD_MAP[ch] || ch)
+    .join('');
+}
+
+/**
+ * Highlights all occurrences of `keyword` (and its Traditional equivalent) in red (`text-rose-600`)
+ */
+export function renderHighlightedChineseText(
+  sentence: string,
+  keyword: string
+): React.ReactNode {
+  const cleanKw = getPrimaryHanziKeyword(keyword);
+  const tradKw = toTraditionalChinese(cleanKw);
+  const targets = Array.from(new Set([cleanKw, tradKw])).filter(Boolean);
+  if (targets.length === 0) return sentence;
+
+  const escaped = targets.map((t) =>
+    t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  );
+  const regex = new RegExp(`(${escaped.join('|')})`, 'g');
+  const parts = sentence.split(regex);
+
+  return parts.map((part, idx) =>
+    targets.includes(part) ? (
+      <span key={idx} className="text-rose-600 font-semibold">
+        {part}
+      </span>
+    ) : (
+      <React.Fragment key={idx}>{part}</React.Fragment>
+    )
+  );
+}
+
+/**
+ * Copies the Chinese keyword to the clipboard on click so if the user opens or switches
+ * to the Hanzii mobile app, Hanzii's clipboard auto-lookup immediately activates for the word.
+ */
+export function handleHanziiLinkClick(
+  e: React.MouseEvent<HTMLAnchorElement>,
+  hanzi: string
+): void {
+  e.stopPropagation();
+  const keyword = getPrimaryHanziKeyword(hanzi);
+  if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(keyword).catch(() => {});
+  }
 }
 
 /**
@@ -248,7 +445,7 @@ export function buildWebImageSearchLinks(hanzi: string) {
     {
       provider: 'Hanzii Dict',
       label: `Tra từ điển Hanzii (${keyword})`,
-      url: `https://hanzii.net/search/word/${encoded}?hl=vi`,
+      url: buildHanziiDictUrl(keyword),
     },
     {
       provider: 'Bing Ảnh',
@@ -426,14 +623,20 @@ export function buildLocalWordDetails(
 ): LocalWordDetails {
   const exact =
     allVocab.find((v) => v.hanzi === hanzi) ||
-    allVocab.find((v) => v.hanzi.split('/').map((s) => s.trim()).includes(hanzi)) ||
-    allVocab.find((v) => v.hanzi.includes(hanzi) && hanzi.length >= 1);
+    allVocab.find((v) => extractVocabKeysFromHanzi(v.hanzi).includes(hanzi)) ||
+    SUPPLEMENTARY_COMPOUND_VOCAB.find(
+      (v) =>
+        v.hanzi === hanzi || extractVocabKeysFromHanzi(v.hanzi).includes(hanzi)
+    ) ||
+    (hanzi.length >= 2
+      ? allVocab.find((v) => v.hanzi.includes(hanzi))
+      : undefined);
 
   const primaryKeyword = getPrimaryHanziKeyword(exact?.hanzi || hanzi);
   const pinyin = exact?.pinyin || '';
   const meaningVi = exact?.meaning_vi || 'Từ vựng trong bài hội thoại';
   const type = exact?.type || 'từ mới';
-  const lessonTitle = exact?.lessonTitle || 'Giáo trình Quyển 1';
+  const lessonTitle = exact?.lessonTitle || 'Giáo trình Hán Ngữ Hoa Sen';
   const page = exact?.page || 1;
   const category = detectWordCategory(hanzi, meaningVi);
 
@@ -480,22 +683,92 @@ export function buildLocalWordDetails(
   }));
 
   const matchingLines = allDialogues
-    .filter((line) => line.hanzi.includes(primaryKeyword) || line.hanzi.includes(hanzi))
-    .slice(0, 4)
+    .filter(
+      (line) =>
+        line.hanzi.includes(primaryKeyword) || line.hanzi.includes(hanzi)
+    )
+    .slice(0, 5)
     .map((line) => ({
       hanzi: line.hanzi,
+      traditional: toTraditionalChinese(line.hanzi),
       pinyin: line.pinyin,
       meaningVi: line.meaningVi,
       page: line.page,
     }));
 
-  if (matchingLines.length === 0) {
-    matchingLines.push({
-      hanzi: `我正在学习“${primaryKeyword}”这个生词。`,
-      pinyin: `Wǒ zhèngzài xuéxí "${pinyin || primaryKeyword}" zhège shēngcí.`,
-      meaningVi: `Tôi đang học từ mới "${primaryKeyword}" (${meaningVi}).`,
-      page,
-    });
+  const pyClean = (pinyin || primaryKeyword).toLowerCase();
+  const viShort = meaningVi.split(',')[0].split(';')[0].trim().toLowerCase();
+
+  const commonTemplates: {
+    hanzi: string;
+    pinyin: string;
+    meaningVi: string;
+  }[] =
+    category === 'work_company'
+      ? [
+          {
+            hanzi: `在公司里，大家都很重视${primaryKeyword}。`,
+            pinyin: `Zài gōngsī lǐ, dàjiā dōu hěn zhòngshì ${pyClean}.`,
+            meaningVi: `Ở trong công ty, mọi người đều rất coi trọng ${viShort}.`,
+          },
+          {
+            hanzi: `关于${primaryKeyword}的问题，请先跟主管商量。`,
+            pinyin: `Guānyú ${pyClean} de wèntí, qǐng xiān gēn zhǔguǎn shāngliáng.`,
+            meaningVi: `Về vấn đề ${viShort}, xin hãy bàn bạc với chủ quản trước.`,
+          },
+          {
+            hanzi: `今天下午我们要检查一下${primaryKeyword}。`,
+            pinyin: `Jīntiān xiàwǔ wǒmen yào jiǎnchá yīxià ${pyClean}.`,
+            meaningVi: `Chiều hôm nay chúng ta phải kiểm tra một chút về ${viShort}.`,
+          },
+        ]
+      : category === 'food_drink' || category === 'fruits'
+      ? [
+          {
+            hanzi: `我家里每个人都很喜欢${primaryKeyword}。`,
+            pinyin: `Wǒ jiālǐ měi gèrén dōu hěn xǐhuān ${pyClean}.`,
+            meaningVi: `Mỗi người trong gia đình tôi đều rất thích ${viShort}.`,
+          },
+          {
+            hanzi: `这家餐厅的${primaryKeyword}非常好吃。`,
+            pinyin: `Zhè jiā cāntīng de ${pyClean} fēicháng hǎochī.`,
+            meaningVi: `Món ${viShort} của nhà hàng này vô cùng ngon.`,
+          },
+          {
+            hanzi: `下班以后我去超市买了一点${primaryKeyword}。`,
+            pinyin: `Xiàbān yǐhòu wǒ qù chāoshì mǎile yīdiǎn ${pyClean}.`,
+            meaningVi: `Sau khi tan làm tôi đi siêu thị mua một ít ${viShort}.`,
+          },
+        ]
+      : [
+          {
+            hanzi: `在日常生活中，“${primaryKeyword}”是一个很常用的词。`,
+            pinyin: `Zài rìcháng shēnghuó zhōng, "${pyClean}" shì yīgè hěn chángyòng de cí.`,
+            meaningVi: `Trong đời sống hàng ngày, "${primaryKeyword}" (${viShort}) là một từ rất thông dụng.`,
+          },
+          {
+            hanzi: `老师今天在课堂上给我们讲解了“${primaryKeyword}”。`,
+            pinyin: `Lǎoshī jīntiān zài kètáng shàng gěi wǒmen jiǎngjiěle "${pyClean}".`,
+            meaningVi: `Hôm nay trên lớp thầy giáo đã giảng giải cho chúng tôi về "${primaryKeyword}" (${viShort}).`,
+          },
+          {
+            hanzi: `请你用“${primaryKeyword}”造一个完整的句子。`,
+            pinyin: `Qǐng nǐ yòng "${pyClean}" zào yīgè wánzhěng de jùzi.`,
+            meaningVi: `Xin bạn hãy dùng từ "${primaryKeyword}" (${viShort}) để đặt một câu hoàn chỉnh.`,
+          },
+        ];
+
+  for (const tpl of commonTemplates) {
+    if (matchingLines.length >= 4) break;
+    if (!matchingLines.some((m) => m.hanzi === tpl.hanzi)) {
+      matchingLines.push({
+        hanzi: tpl.hanzi,
+        traditional: toTraditionalChinese(tpl.hanzi),
+        pinyin: tpl.pinyin,
+        meaningVi: tpl.meaningVi,
+        page,
+      });
+    }
   }
 
   const q1 = primaryKeyword;
@@ -525,6 +798,7 @@ export function buildLocalWordDetails(
 
   const searchLinks = buildWebImageSearchLinks(primaryKeyword);
   const hanziiUrl = buildHanziiDictUrl(primaryKeyword);
+  const hanziiExampleUrl = buildHanziiExampleUrl(primaryKeyword);
 
   return {
     hanzi,
@@ -538,6 +812,7 @@ export function buildLocalWordDetails(
     sinoVietnameseHint,
     contextualUsageVi,
     hanziiUrl,
+    hanziiExampleUrl,
     collocations: collocationMatches,
     synonyms,
     textbookExamples: matchingLines,
@@ -590,7 +865,7 @@ export function segmentChineseSentence(
 }
 
 /**
- * Vivid contextual card with dynamic Bing Image Search photo + Hanzii Dict & Web Image Links
+ * Vivid contextual card with dynamic Bing Image Search photo + Hanzii Dict & optional embedded controls
  */
 export const WordVisualIllustration: React.FC<{
   hanzi: string;
@@ -599,6 +874,9 @@ export const WordVisualIllustration: React.FC<{
   category: LocalWordDetails['category'];
   showSearchLinks?: boolean;
   showImageSearchLinks?: boolean;
+  showPinyin?: boolean;
+  showMeaning?: boolean;
+  children?: React.ReactNode;
 }> = ({
   hanzi,
   pinyin,
@@ -606,6 +884,9 @@ export const WordVisualIllustration: React.FC<{
   category,
   showSearchLinks = true,
   showImageSearchLinks = false,
+  showPinyin = true,
+  showMeaning = true,
+  children,
 }) => {
   const [imgError, setImgError] = useState(false);
 
@@ -724,15 +1005,17 @@ export const WordVisualIllustration: React.FC<{
             <span className="font-['Noto_Sans_SC'] text-2xl sm:text-3xl font-bold tracking-wide text-stone-900">
               {hanzi}
             </span>
-            {pinyin && (
+            {showPinyin && pinyin && (
               <span className="font-mono text-xs sm:text-sm font-semibold text-amber-800">
                 [{pinyin}]
               </span>
             )}
           </div>
-          <p className="mt-1 text-xs sm:text-sm font-semibold text-stone-800 line-clamp-2">
-            {meaningVi}
-          </p>
+          {showMeaning && (
+            <p className="mt-1 text-xs sm:text-sm font-semibold text-stone-800 line-clamp-2">
+              {meaningVi}
+            </p>
+          )}
         </div>
 
         {/* Dynamic Web Search Image Thumbnail for this exact Chinese word (`primaryKeyword`) */}
@@ -790,6 +1073,7 @@ export const WordVisualIllustration: React.FC<{
             href={hanziiUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => handleHanziiLinkClick(e, primaryKeyword)}
             className="inline-flex items-center gap-1 rounded-md border border-amber-300 bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-950 hover:bg-amber-100 transition-colors"
             title={`Tra cứu chi tiết từ "${primaryKeyword}" trên Từ điển Hanzii`}
           >
@@ -826,6 +1110,8 @@ export const WordVisualIllustration: React.FC<{
           )}
         </div>
       )}
+
+      {children}
     </div>
   );
 };

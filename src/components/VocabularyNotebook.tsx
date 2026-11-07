@@ -22,6 +22,7 @@ import {
   getPrimaryHanziKeyword,
   buildBingImageThumbUrl,
   buildHanziiDictUrl,
+  handleHanziiLinkClick,
 } from '../utils/visualDictionary';
 
 interface VocabularyNotebookProps {
@@ -42,15 +43,20 @@ const TAG_META: Record<
   BookmarkedWord['tag'],
   { label: string; badgeClass: string; activeBtnClass: string }
 > = {
+  da_luu: {
+    label: 'Đã lưu',
+    badgeClass: 'text-amber-900 bg-amber-100 border-amber-300',
+    activeBtnClass: 'border-amber-500 bg-amber-500 text-white',
+  },
   quan_trong: {
     label: 'Chưa thuộc',
-    badgeClass: 'text-emerald-800 bg-emerald-50 border-emerald-200',
-    activeBtnClass: 'border-emerald-600 bg-emerald-600 text-white',
+    badgeClass: 'text-rose-800 bg-rose-50 border-rose-200',
+    activeBtnClass: 'border-rose-600 bg-rose-600 text-white',
   },
   can_on: {
     label: 'Cần ôn tập',
-    badgeClass: 'text-amber-800 bg-amber-50 border-amber-200',
-    activeBtnClass: 'border-amber-600 bg-amber-600 text-white',
+    badgeClass: 'text-orange-800 bg-orange-50 border-orange-200',
+    activeBtnClass: 'border-orange-600 bg-orange-600 text-white',
   },
   hay_nham: {
     label: 'Hay nhầm',
@@ -59,8 +65,8 @@ const TAG_META: Record<
   },
   da_thuoc: {
     label: 'Đã thuộc',
-    badgeClass: 'text-sky-800 bg-sky-50 border-sky-200',
-    activeBtnClass: 'border-sky-600 bg-sky-600 text-white',
+    badgeClass: 'text-emerald-800 bg-emerald-50 border-emerald-200',
+    activeBtnClass: 'border-emerald-600 bg-emerald-600 text-white',
   },
 };
 
@@ -97,13 +103,13 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
     Record<string, boolean>
   >({});
 
-  // Swipe / Drag state for Flashcard quick classification (Left Green = Chưa thuộc, Right Blue = Đã thuộc)
+  // Swipe / Drag state for Flashcard quick classification (Left Red = Chưa thuộc, Right Green = Đã thuộc)
   const [dragDeltaX, setDragDeltaX] = useState<number>(0);
   const [isDraggingCard, setIsDraggingCard] = useState<boolean>(false);
   const [flyOutDir, setFlyOutDir] = useState<'left' | 'right' | null>(null);
   const [swipeFeedback, setSwipeFeedback] = useState<{
     text: string;
-    tone: 'emerald' | 'sky';
+    tone: 'rose' | 'emerald';
   } | null>(null);
 
   const dragStartXRef = useRef<number | null>(null);
@@ -134,14 +140,16 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
     const allItems = Object.values(bookmarks) as BookmarkedWord[];
     const counts: Record<'all' | BookmarkedWord['tag'], number> = {
       all: allItems.length,
+      da_luu: 0,
       quan_trong: 0,
       can_on: 0,
       hay_nham: 0,
       da_thuoc: 0,
     };
     for (const item of allItems) {
-      if (counts[item.tag] !== undefined) {
-        counts[item.tag]++;
+      const t = item.tag || 'da_luu';
+      if (counts[t] !== undefined) {
+        counts[t]++;
       }
     }
     return counts;
@@ -155,7 +163,8 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
       if (mode === 'flashcard' && onlyUnmemorized && item.tag === 'da_thuoc') {
         return false;
       }
-      const matchTag = filterTag === 'all' || item.tag === filterTag;
+      const itemTag = item.tag || 'da_luu';
+      const matchTag = filterTag === 'all' || itemTag === filterTag;
       const q = searchQuery.trim().toLowerCase();
       const matchSearch =
         !q ||
@@ -231,7 +240,7 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
       onUpdateTag(cardHanzi, targetTag);
       setSwipeFeedback({
         text: `Đã phân loại “${cardHanzi}” → ${label}`,
-        tone: direction === 'left_quan_trong' ? 'emerald' : 'sky',
+        tone: direction === 'left_quan_trong' ? 'rose' : 'emerald',
       });
 
       setFlyOutDir(null);
@@ -458,6 +467,12 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
           {[
             { id: 'all', label: 'Tất cả nhãn', count: tagCounts.all },
             {
+              id: 'da_luu',
+              label: 'Đã lưu',
+              count: tagCounts.da_luu,
+              isYellowSaved: true,
+            },
+            {
               id: 'quan_trong',
               label: 'Chưa thuộc',
               count: tagCounts.quan_trong,
@@ -474,15 +489,24 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
               }}
               className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors whitespace-nowrap shrink-0 ${
                 filterTag === tab.id
-                  ? 'bg-white text-stone-900 shadow-2xs font-semibold'
+                  ? tab.isYellowSaved
+                    ? 'bg-amber-400 text-stone-950 shadow-2xs font-bold'
+                    : 'bg-white text-stone-900 shadow-2xs font-semibold'
+                  : tab.isYellowSaved
+                  ? 'text-amber-900 bg-amber-50/90 hover:bg-amber-100 border border-amber-300/80 font-semibold'
                   : 'text-stone-600 hover:text-stone-900'
               }`}
             >
+              {tab.isYellowSaved && (
+                <Bookmark className="h-3.5 w-3.5 fill-amber-500 text-amber-700 shrink-0" />
+              )}
               <span>{tab.label}</span>
               <span
                 className={`rounded-full px-1.5 py-0.2 text-[10px] font-mono tabular-nums ${
                   filterTag === tab.id
                     ? 'bg-stone-900 text-white'
+                    : tab.isYellowSaved
+                    ? 'bg-amber-200/90 text-amber-950 font-bold'
                     : 'bg-stone-200/80 text-stone-700'
                 }`}
               >
@@ -587,21 +611,21 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
             </div>
 
             {/* Classification Counter Pills Row: ONLY shown when learningMethod === 'phan_loai_co_ban'
-                Left = Xanh lá (Chưa thuộc), Right = Xanh dương (Đã thuộc) */}
+                Left = Đỏ (Chưa thuộc), Right = Xanh lá (Đã thuộc) */}
             {learningMethod === 'phan_loai_co_ban' && (
               <div className="flex items-center justify-between gap-3 pt-0.5">
-                {/* Left Green Pill: Chưa thuộc */}
+                {/* Left Red Pill: Chưa thuộc */}
                 <button
                   type="button"
                   onClick={() => triggerSwipeClassification('left_quan_trong')}
                   className={`inline-flex items-center gap-2 rounded-l-lg rounded-r-full border-2 px-3.5 py-1.5 text-xs font-bold transition-all shrink-0 ${
                     dragDeltaX < -40
-                      ? 'scale-105 border-emerald-600 bg-emerald-600 text-white shadow-md'
-                      : 'border-emerald-500 bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
+                      ? 'scale-105 border-rose-600 bg-rose-600 text-white shadow-md'
+                      : 'border-rose-500 bg-rose-50 text-rose-700 hover:bg-rose-100'
                   }`}
                   title="Nhấn hoặc vuốt thẻ sang trái: Chưa thuộc"
                 >
-                  <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-emerald-600 px-1.5 font-mono text-xs font-extrabold text-white tabular-nums">
+                  <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-rose-600 px-1.5 font-mono text-xs font-extrabold text-white tabular-nums">
                     {tagCounts.quan_trong}
                   </span>
                   <span>Chưa thuộc</span>
@@ -612,9 +636,9 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                   {swipeFeedback && (
                     <span
                       className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold truncate ${
-                        swipeFeedback.tone === 'emerald'
-                          ? 'bg-emerald-100 text-emerald-900'
-                          : 'bg-sky-100 text-sky-900'
+                        swipeFeedback.tone === 'rose'
+                          ? 'bg-rose-100 text-rose-900'
+                          : 'bg-emerald-100 text-emerald-900'
                       }`}
                     >
                       <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
@@ -623,19 +647,19 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                   )}
                 </div>
 
-                {/* Right Blue Pill: Đã thuộc */}
+                {/* Right Green Pill: Đã thuộc */}
                 <button
                   type="button"
                   onClick={() => triggerSwipeClassification('right_da_thuoc')}
                   className={`inline-flex items-center gap-2 rounded-r-lg rounded-l-full border-2 px-3.5 py-1.5 text-xs font-bold transition-all shrink-0 ${
                     dragDeltaX > 40
-                      ? 'scale-105 border-sky-600 bg-sky-600 text-white shadow-md'
-                      : 'border-sky-500 bg-sky-50 text-sky-700 hover:bg-sky-100'
+                      ? 'scale-105 border-emerald-600 bg-emerald-600 text-white shadow-md'
+                      : 'border-emerald-500 bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
                   }`}
                   title="Nhấn hoặc vuốt thẻ sang phải: Đã thuộc"
                 >
                   <span>Đã thuộc</span>
-                  <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-sky-600 px-1.5 font-mono text-xs font-extrabold text-white tabular-nums">
+                  <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-emerald-600 px-1.5 font-mono text-xs font-extrabold text-white tabular-nums">
                     {tagCounts.da_thuoc}
                   </span>
                 </button>
@@ -680,14 +704,14 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                   : 'min-h-[320px]'
               } flex flex-col items-center justify-between gap-4 ${
                 learningMethod === 'phan_loai_co_ban' && isReadyToCommitLeft
-                  ? 'border-emerald-600 ring-4 ring-emerald-400/50 bg-emerald-50/20'
+                  ? 'border-rose-600 ring-4 ring-rose-400/50 bg-rose-50/20'
                   : learningMethod === 'phan_loai_co_ban' &&
                     isReadyToCommitRight
-                  ? 'border-sky-600 ring-4 ring-sky-400/50 bg-sky-50/20'
+                  ? 'border-emerald-600 ring-4 ring-emerald-400/50 bg-emerald-50/20'
                   : learningMethod === 'phan_loai_co_ban' && dragDeltaX < -45
-                  ? 'border-emerald-400 ring-2 ring-emerald-300/30'
+                  ? 'border-rose-400 ring-2 ring-rose-300/30'
                   : learningMethod === 'phan_loai_co_ban' && dragDeltaX > 45
-                  ? 'border-sky-400 ring-2 ring-sky-300/30'
+                  ? 'border-emerald-400 ring-2 ring-emerald-300/30'
                   : 'border-stone-300 hover:border-amber-500'
               }`}
             >
@@ -696,8 +720,8 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                 <div
                   className={`pointer-events-none absolute top-14 left-4 z-10 rounded-xl border-2 px-3 py-1 text-xs font-bold shadow-md transition-transform ${
                     isReadyToCommitLeft
-                      ? 'scale-105 border-emerald-700 bg-emerald-600 text-white'
-                      : 'border-emerald-500 bg-emerald-50/95 text-emerald-800'
+                      ? 'scale-105 border-rose-700 bg-rose-600 text-white'
+                      : 'border-rose-500 bg-rose-50/95 text-rose-800'
                   }`}
                 >
                   ← Chưa thuộc
@@ -707,8 +731,8 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                 <div
                   className={`pointer-events-none absolute top-14 right-4 z-10 rounded-xl border-2 px-3 py-1 text-xs font-bold shadow-md transition-transform ${
                     isReadyToCommitRight
-                      ? 'scale-105 border-sky-700 bg-sky-600 text-white'
-                      : 'border-sky-500 bg-sky-50/95 text-sky-800'
+                      ? 'scale-105 border-emerald-700 bg-emerald-600 text-white'
+                      : 'border-emerald-500 bg-emerald-50/95 text-emerald-800'
                   }`}
                 >
                   Đã thuộc →
@@ -749,10 +773,10 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                   {learningMethod === 'phan_loai_co_ban' && (
                     <span
                       className={`rounded-md border px-2 py-0.5 text-xs font-semibold ${
-                        TAG_META[activeCard.tag].badgeClass
+                        TAG_META[activeCard.tag || 'da_luu'].badgeClass
                       }`}
                     >
-                      {TAG_META[activeCard.tag].label}
+                      {TAG_META[activeCard.tag || 'da_luu'].label}
                     </span>
                   )}
                 </div>
@@ -835,7 +859,9 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                         href={activeCardHanziiUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={(e) =>
+                          handleHanziiLinkClick(e, activeCardKeyword)
+                        }
                         className="inline-flex items-center gap-1 rounded-md border border-amber-300 bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-950 hover:bg-amber-100 transition-colors"
                       >
                         <BookOpen className="h-3 w-3 text-amber-800" />
@@ -853,23 +879,25 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                 </div>
               )}
 
-              {/* Bottom of Card: 4 Classification Buttons in 1 Horizontal Row (Req 5) when in Phân loại cơ bản mode */}
+              {/* Bottom of Card: Classification Buttons in 1 Horizontal Row when in Phân loại cơ bản mode */}
               {learningMethod === 'phan_loai_co_ban' ? (
                 <div
-                  className="grid grid-cols-4 gap-1.5 sm:gap-2 w-full pt-2.5 border-t border-stone-100"
+                  className="grid grid-cols-5 gap-1 sm:gap-1.5 w-full pt-2.5 border-t border-stone-100"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {(Object.keys(TAG_META) as BookmarkedWord['tag'][]).map(
                     (t) => {
-                      const isSelected = activeCard.tag === t;
+                      const isSelected = (activeCard.tag || 'da_luu') === t;
                       return (
                         <button
                           key={t}
                           type="button"
                           onClick={() => onUpdateTag(activeCard.hanzi, t)}
-                          className={`inline-flex h-9 w-full items-center justify-center gap-1 rounded-xl border px-1.5 text-[11px] sm:text-xs font-semibold transition-all whitespace-nowrap ${
+                          className={`inline-flex h-9 w-full items-center justify-center gap-1 rounded-xl border px-1 text-[11px] sm:text-xs font-semibold transition-all whitespace-nowrap ${
                             isSelected
                               ? TAG_META[t].activeBtnClass + ' shadow-2xs'
+                              : t === 'da_luu'
+                              ? 'border-amber-300 bg-amber-50 text-amber-900 hover:bg-amber-100'
                               : 'border-stone-200 bg-stone-50 text-stone-700 hover:bg-stone-100'
                           }`}
                         >
@@ -1158,7 +1186,7 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                     </div>
 
                     <select
-                      value={item.tag}
+                      value={item.tag || 'da_luu'}
                       onChange={(e) =>
                         onUpdateTag(
                           item.hanzi,
@@ -1166,7 +1194,7 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                         )
                       }
                       className={`rounded border px-2 py-0.5 text-[11px] font-semibold ${
-                        TAG_META[item.tag].badgeClass
+                        TAG_META[item.tag || 'da_luu'].badgeClass
                       }`}
                     >
                       {(Object.keys(TAG_META) as BookmarkedWord['tag'][]).map(
@@ -1214,6 +1242,7 @@ export const VocabularyNotebook: React.FC<VocabularyNotebookProps> = ({
                       href={hanziiUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => handleHanziiLinkClick(e, item.hanzi)}
                       className="inline-flex items-center gap-1 rounded-lg border border-amber-200 bg-amber-50/60 px-2 py-1.5 text-xs font-medium text-amber-900 hover:bg-amber-100"
                     >
                       <span>Hanzii</span>

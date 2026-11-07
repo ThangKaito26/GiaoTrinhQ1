@@ -20,6 +20,55 @@ function getAIClient() {
 // Simple in-memory caches for fast repeated lookups and TTS playback
 const ttsCache = new Map<string, string>();
 const dictCache = new Map<string, unknown>();
+const exampleCache = new Map<
+  string,
+  {
+    hanzi: string;
+    traditional: string;
+    pinyin: string;
+    meaningVi: string;
+  }[]
+>();
+
+function decodeHtmlEntities(input: string): string {
+  const namedMap: Record<string, string> = {
+    '&aacute;': 'á',
+    '&agrave;': 'à',
+    '&eacute;': 'é',
+    '&egrave;': 'è',
+    '&iacute;': 'í',
+    '&igrave;': 'ì',
+    '&oacute;': 'ó',
+    '&ograve;': 'ò',
+    '&uacute;': 'ú',
+    '&ugrave;': 'ù',
+    '&uuml;': 'ü',
+    '&Aacute;': 'Á',
+    '&Agrave;': 'À',
+    '&Eacute;': 'É',
+    '&Egrave;': 'È',
+    '&Oacute;': 'Ó',
+    '&Ograve;': 'Ò',
+    '&quot;': '"',
+    '&#39;': "'",
+    '&apos;': "'",
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&nbsp;': ' ',
+  };
+  let out = input.replace(/<[^>]+>/g, '');
+  for (const [k, v] of Object.entries(namedMap)) {
+    out = out.split(k).join(v);
+  }
+  out = out.replace(/&#(\d+);/g, (_m, dec) =>
+    String.fromCharCode(parseInt(dec, 10))
+  );
+  out = out.replace(/&#x([0-9a-fA-F]+);/g, (_m, hex) =>
+    String.fromCharCode(parseInt(hex, 16))
+  );
+  return out.trim();
+}
 
 const VOICE_STYLE_PROFILES: Record<string, string> = {
   Kore: 'Speak in standard Mandarin Chinese (Putonghua) as a clear, articulate female Beijing teacher',
@@ -321,6 +370,109 @@ Hãy cung cấp thông tin từ điển chuyên dụng thật chi tiết, dễ h
         error instanceof Error ? error.message : 'Không thể tra cứu từ điển AI';
       console.error('Dictionary API Error:', message);
       res.status(500).json({ error: message });
+    }
+  });
+
+  // 3. Bilingual Chinese–Vietnamese Example Sentences Lookup via URL (Tatoeba Corpus)
+  app.get('/api/examples', async (req, res) => {
+    try {
+      const rawQ = typeof req.query.q === 'string' ? req.query.q.trim() : '';
+      if (!rawQ) {
+        res.json({ examples: [] });
+        return;
+      }
+
+      if (exampleCache.has(rawQ)) {
+        res.json({ examples: exampleCache.get(rawQ), cached: true });
+        return;
+      }
+
+      const url = `https://tatoeba.org/en/api_v0/search?from=cmn&to=vie&query=${encodeURIComponent(
+        rawQ
+      )}`;
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3800);
+
+      const response = await fetch(url, {
+        signal: controller.signal,
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+          Accept: 'application/json',
+        },
+      });
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        res.json({ examples: [] });
+        return;
+      }
+
+      const data = (await response.json()) as {
+        results?: {
+          text?: string;
+          transcriptions?: {
+            script?: string;
+            text?: string;
+            html?: string;
+          }[];
+          translations?: {
+            lang?: string;
+            text?: string;
+          }[][];
+        }[];
+      };
+
+      const examples: {
+        hanzi: string;
+        traditional: string;
+        pinyin: string;
+        meaningVi: string;
+      }[] = [];
+      const seen = new Set<string>();
+
+      for (const item of data.results || []) {
+        const hanzi = (item.text || '').trim();
+        if (!hanzi || seen.has(hanzi)) continue;
+
+        const tradObj = (item.transcriptions || []).find(
+          (t) => t.script === 'Hant'
+        );
+        const latnObj = (item.transcriptions || []).find(
+          (t) => t.script === 'Latn'
+        );
+        const flatTranslations = (item.translations || []).flat();
+        const vieObj = flatTranslations.find((tr) => tr && tr.lang === 'vie');
+
+        if (!vieObj || !vieObj.text) continue;
+
+        seen.add(hanzi);
+        const traditional = (tradObj?.text || hanzi).trim();
+        const pinyin = decodeHtmlEntities(
+          latnObj?.html || latnObj?.text || ''
+        );
+        const meaningVi = vieObj.text.trim();
+
+        examples.push({
+          hanzi,
+          traditional,
+          pinyin,
+          meaningVi,
+        });
+
+        if (examples.length >= 6) break;
+      }
+
+      if (exampleCache.size > 500) {
+        const firstKey = exampleCache.keys().next().value;
+        if (firstKey) exampleCache.delete(firstKey);
+      }
+      exampleCache.set(rawQ, examples);
+
+      res.json({ examples, cached: false });
+    } catch {
+      res.json({ examples: [] });
     }
   });
 

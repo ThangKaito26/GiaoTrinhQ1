@@ -19,6 +19,7 @@ import {
   AIResult,
 } from '../types/textbook';
 import { evaluateExerciseAnswerLocal } from '../utils/answerChecker';
+import { segmentChineseSentence } from '../utils/visualDictionary';
 
 interface SmartPracticeDashboardProps {
   lessonsExercises: LessonExercisesRaw[];
@@ -33,6 +34,22 @@ interface SmartPracticeDashboardProps {
   ) => void;
   onSpeak: (text: string, slow?: boolean) => void;
   onWordClick: (hanzi: string, contextSentence?: string) => void;
+  vocabSet: Set<string>;
+  sortedVocabKeys: string[];
+}
+
+/**
+ * Format lesson title so Vietnamese ("Bài 1: ...") comes FIRST, followed by " / ", then Chinese & Pinyin
+ */
+export function formatLessonTitleViFirst(rawTitle: string): string {
+  if (!rawTitle.includes('/')) return rawTitle;
+  const parts = rawTitle.split('/').map((s) => s.trim());
+  if (parts.length < 2) return rawTitle;
+  const [first, second] = parts;
+  if (/^bài\s/i.test(second)) {
+    return `${second} / ${first}`;
+  }
+  return `${first} / ${second}`;
 }
 
 export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
@@ -44,6 +61,8 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
   onSaveAttempt,
   onSpeak,
   onWordClick,
+  vocabSet,
+  sortedVocabKeys,
 }) => {
   const [filterType, setFilterType] = useState<string>('all');
   const [revealedIds, setRevealedIds] = useState<Record<string, boolean>>({});
@@ -168,6 +187,25 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
     return chips.slice(0, 18).sort((a, b) => a.hanzi.localeCompare(b.hanzi));
   };
 
+  const renderSegmentedChinese = (sentence: string) => {
+    const tokens = segmentChineseSentence(sentence, vocabSet, sortedVocabKeys);
+    return tokens.map((tok, tIdx) =>
+      tok.isWord ? (
+        <button
+          key={tIdx}
+          type="button"
+          onClick={() => onWordClick(tok.text, sentence)}
+          className="rounded px-0.5 font-['Noto_Sans_SC'] font-bold text-stone-900 hover:bg-amber-100 hover:text-amber-900 transition-colors"
+          title={`Tra từ "${tok.text}"`}
+        >
+          {tok.text}
+        </button>
+      ) : (
+        <span key={tIdx}>{tok.text}</span>
+      )
+    );
+  };
+
   return (
     <div className="space-y-5">
       {/* Top Smart Dashboard Summary Strip */}
@@ -193,7 +231,7 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
               {stats.completed} / {stats.total}
             </span>
             <span className="text-xs font-medium text-stone-600">
-              13 bài học
+              {lessonsExercises.length} bài học
             </span>
           </div>
         </div>
@@ -243,7 +281,8 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
           >
             {lessonsExercises.map((les) => (
               <option key={les.lesson_id} value={les.lesson_id}>
-                {les.lesson_title} ({les.exercises.length} câu)
+                {formatLessonTitleViFirst(les.lesson_title)} (
+                {les.exercises.length} câu)
               </option>
             ))}
           </select>
@@ -252,10 +291,12 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
         {/* Interactive Filter Tabs */}
         <div className="flex flex-wrap items-center gap-1 rounded-lg bg-stone-100 p-1">
           {[
-            { id: 'all', label: 'Tất cả dạng câu hỏi' },
-            { id: 'dich_viet_trung', label: 'III. Dịch (翻译)' },
+            { id: 'all', label: 'Tất cả dạng bài' },
+            { id: 'luyen_dich_hoi_thoai', label: 'II. Hội thoại (会话)' },
+            { id: 'luyen_tap_mau_cau', label: 'II. Mẫu câu (句子)' },
             { id: 'luyen_tap_doan_van', label: 'III. Bài đọc (课文/练习)' },
-            { id: 'dat_cau', label: 'IV. Đặt câu (造句)' },
+            { id: 'dich_viet_trung', label: 'III/IV. Dịch câu (翻译)' },
+            { id: 'dat_cau', label: 'III/IV. Đặt câu (造句)' },
             { id: 'luyen_tap_ngu_phap', label: 'Ngữ pháp (语法)' },
           ].map((tab) => (
             <button
@@ -282,6 +323,10 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
           const isRevealed = !!revealedIds[ex.exercise_id];
           const showHelper = activeHelperId === ex.exercise_id;
           const errMsg = errorMsgByEx[ex.exercise_id];
+          const isViTranslationType =
+            ex.exercise_type === 'luyen_tap_doan_van' ||
+            ex.exercise_type === 'luyen_dich_hoi_thoai' ||
+            ex.exercise_type === 'luyen_tap_mau_cau';
 
           return (
             <div
@@ -332,7 +377,7 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
               </div>
 
               {/* Exercise Prompt Content */}
-              <div className="mt-3.5 space-y-2">
+              <div className="mt-3.5 space-y-2.5">
                 {ex.target_word && (
                   <div className="flex flex-wrap items-center gap-2.5 rounded-lg bg-amber-50/70 border border-amber-200/70 px-3.5 py-2.5">
                     <span className="text-xs font-medium text-stone-600">
@@ -364,30 +409,154 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
                   </div>
                 )}
 
-                {ex.source_hanzi && (
-                  <div className="rounded-lg bg-stone-50 border border-stone-200/80 p-3.5 space-y-1.5">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-semibold text-stone-700">
-                        {ex.title || 'Đoạn văn tiếng Trung:'}
+                {ex.dialogue_content && ex.dialogue_content.length > 0 && (
+                  <div className="rounded-lg bg-stone-50 border border-stone-200/80 p-3.5 space-y-2">
+                    <div className="flex items-center justify-between gap-2 pb-1 border-b border-stone-200/70">
+                      <span className="text-xs font-bold text-amber-900">
+                        {ex.section_title || ex.title || 'Nội dung Hội thoại:'}
                       </span>
-                      <button
-                        onClick={() => onSpeak(ex.source_hanzi!, false)}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-amber-700 px-3 py-1 text-xs font-semibold text-white hover:bg-amber-800 shrink-0"
-                      >
-                        <Volume2 className="h-3.5 w-3.5" />
-                        Nghe đoạn văn
-                      </button>
+                      {ex.source_hanzi && (
+                        <button
+                          onClick={() => onSpeak(ex.source_hanzi!, false)}
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-700 px-2.5 py-1 text-xs font-semibold text-white hover:bg-amber-800 shrink-0"
+                        >
+                          <Volume2 className="h-3.5 w-3.5" />
+                          Nghe toàn hội thoại
+                        </button>
+                      )}
                     </div>
-                    <p className="font-['Noto_Sans_SC'] text-base leading-relaxed font-medium text-stone-900">
-                      {ex.source_hanzi}
-                    </p>
-                    {ex.source_pinyin && (
-                      <p className="font-mono text-xs leading-relaxed text-amber-800">
-                        {ex.source_pinyin}
-                      </p>
-                    )}
+                    <div className="space-y-2">
+                      {ex.dialogue_content.map((line, lIdx) => (
+                        <div
+                          key={lIdx}
+                          className="flex items-start justify-between gap-2.5 rounded-lg bg-white border border-stone-200/70 p-2.5"
+                        >
+                          <div className="space-y-0.5 flex-1 min-w-0">
+                            <p className="font-['Noto_Sans_SC'] text-sm sm:text-base font-bold text-stone-900 leading-relaxed">
+                              {line.speaker && line.speaker !== 'Hội thoại' ? (
+                                <span className="text-amber-900 mr-1.5">
+                                  {line.speaker}：
+                                </span>
+                              ) : null}
+                              {renderSegmentedChinese(line.hanzi)}
+                            </p>
+                            {line.pinyin && (
+                              <p className="font-mono text-xs text-amber-800">
+                                {line.pinyin}
+                              </p>
+                            )}
+                            {(isRevealed || checkRes) && line.vietnamese && (
+                              <p className="text-xs font-medium text-emerald-800 pt-0.5">
+                                → {line.vietnamese}
+                              </p>
+                            )}
+                          </div>
+                          <button
+                            onClick={() => onSpeak(line.hanzi, false)}
+                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-stone-200 bg-stone-50 text-stone-700 hover:bg-amber-50 hover:text-amber-800"
+                            title="Nghe câu thoại này"
+                          >
+                            <Volume2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
+
+                {ex.sentence_list && ex.sentence_list.length > 0 && (
+                  <div className="rounded-lg bg-stone-50 border border-stone-200/80 p-3.5 space-y-2">
+                    <div className="flex items-center justify-between gap-2 pb-1 border-b border-stone-200/70">
+                      <span className="text-xs font-bold text-amber-900">
+                        {ex.section_title || ex.title || 'Danh sách Mẫu câu:'}
+                      </span>
+                      {ex.source_hanzi && (
+                        <button
+                          onClick={() => onSpeak(ex.source_hanzi!, false)}
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-700 px-2.5 py-1 text-xs font-semibold text-white hover:bg-amber-800 shrink-0"
+                        >
+                          <Volume2 className="h-3.5 w-3.5" />
+                          Nghe toàn bộ mẫu câu
+                        </button>
+                      )}
+                    </div>
+                    <div className="space-y-2">
+                      {ex.sentence_list.map((sent, sIdx) => (
+                        <div
+                          key={sIdx}
+                          className="flex items-start justify-between gap-2.5 rounded-lg bg-white border border-stone-200/70 p-2.5"
+                        >
+                          <div className="space-y-0.5 flex-1 min-w-0">
+                            <p className="font-['Noto_Sans_SC'] text-sm sm:text-base font-bold text-stone-900 leading-relaxed">
+                              <span className="font-mono text-xs text-stone-500 mr-1.5">
+                                {sent.id || sIdx + 1}.
+                              </span>
+                              {renderSegmentedChinese(sent.hanzi)}
+                            </p>
+                            {sent.pinyin && (
+                              <p className="font-mono text-xs text-amber-800">
+                                {sent.pinyin}
+                              </p>
+                            )}
+                            {(isRevealed || checkRes) && sent.vietnamese && (
+                              <p className="text-xs font-medium text-emerald-800 pt-0.5">
+                                → {sent.vietnamese}
+                              </p>
+                            )}
+                          </div>
+                          <button
+                            onClick={() => onSpeak(sent.hanzi, false)}
+                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-stone-200 bg-stone-50 text-stone-700 hover:bg-amber-50 hover:text-amber-800"
+                            title="Nghe mẫu câu này"
+                          >
+                            <Volume2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {ex.source_hanzi &&
+                  (!ex.dialogue_content || ex.dialogue_content.length === 0) &&
+                  (!ex.sentence_list || ex.sentence_list.length === 0) && (
+                    <div className="rounded-lg bg-stone-50 border border-stone-200/80 p-3.5 space-y-1.5">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-xs font-semibold text-amber-900">
+                          {ex.title || 'Đoạn văn tiếng Trung:'}
+                        </span>
+                        <button
+                          onClick={() => onSpeak(ex.source_hanzi!, false)}
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-700 px-3 py-1 text-xs font-semibold text-white hover:bg-amber-800 shrink-0"
+                        >
+                          <Volume2 className="h-3.5 w-3.5" />
+                          {ex.exercise_type === 'luyen_dich_hoi_thoai' ||
+                          ex.exercise_type === 'luyen_tap_mau_cau'
+                            ? 'Nghe câu này'
+                            : 'Nghe đoạn văn'}
+                        </button>
+                      </div>
+                      <div className="font-['Noto_Sans_SC'] text-base sm:text-lg leading-relaxed font-bold text-stone-900">
+                        {ex.exercise_type === 'luyen_dich_hoi_thoai' ||
+                        ex.exercise_type === 'luyen_tap_mau_cau' ? (
+                          <>
+                            <span className="mr-1.5 text-stone-400">-</span>
+                            {renderSegmentedChinese(ex.source_hanzi)}
+                          </>
+                        ) : (
+                          renderSegmentedChinese(ex.source_hanzi)
+                        )}
+                      </div>
+                      {ex.source_pinyin && (
+                        <p className="font-mono text-xs leading-relaxed text-amber-800">
+                          {ex.exercise_type === 'luyen_dich_hoi_thoai' ||
+                          ex.exercise_type === 'luyen_tap_mau_cau'
+                            ? `- ${ex.source_pinyin}`
+                            : ex.source_pinyin}
+                        </p>
+                      )}
+                    </div>
+                  )}
 
                 {ex.prompt_vietnamese && (
                   <p className="text-sm sm:text-base font-semibold text-stone-900">
@@ -417,28 +586,30 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
                       }
                     }}
                     placeholder={
-                      ex.exercise_type === 'luyen_tap_doan_van'
-                        ? 'Nhập bản dịch tiếng Việt của đoạn văn...'
+                      isViTranslationType
+                        ? 'Nhập bản dịch tiếng Việt...'
                         : 'Nhập câu trả lời bằng chữ Hán hoặc Pinyin...'
                     }
                     className="flex-1 rounded-lg border border-stone-300 bg-stone-50/70 px-3.5 py-2.5 font-['Noto_Sans_SC'] text-sm text-stone-900 placeholder:font-sans placeholder:text-stone-400 focus:border-amber-700 focus:bg-white focus:outline-hidden"
                   />
 
                   <div className="flex items-center gap-2 shrink-0">
-                    <button
-                      onClick={() =>
-                        setActiveHelperId(showHelper ? null : ex.exercise_id)
-                      }
-                      className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2.5 text-xs font-medium transition-colors whitespace-nowrap shrink-0 ${
-                        showHelper
-                          ? 'border-amber-500 bg-amber-50 text-amber-900'
-                          : 'border-stone-300 bg-white text-stone-700 hover:bg-stone-50'
-                      }`}
-                      title="Mở bảng chọn nhanh chữ Hán"
-                    >
-                      <Keyboard className="h-4 w-4" />
-                      Bảng chữ Hán
-                    </button>
+                    {!isViTranslationType && (
+                      <button
+                        onClick={() =>
+                          setActiveHelperId(showHelper ? null : ex.exercise_id)
+                        }
+                        className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2.5 text-xs font-medium transition-colors whitespace-nowrap shrink-0 ${
+                          showHelper
+                            ? 'border-amber-500 bg-amber-50 text-amber-900'
+                            : 'border-stone-300 bg-white text-stone-700 hover:bg-stone-50'
+                        }`}
+                        title="Mở bảng chọn nhanh chữ Hán"
+                      >
+                        <Keyboard className="h-4 w-4" />
+                        Bảng chữ Hán
+                      </button>
+                    )}
 
                     <button
                       onClick={() => handleCheckAnswer(ex)}
@@ -451,7 +622,7 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
                 </div>
 
                 {/* Quick Chinese Character Picker (Sorted so it doesn't leak sentence order) */}
-                {showHelper && (
+                {showHelper && !isViTranslationType && (
                   <div className="rounded-lg border border-stone-200 bg-stone-50 p-3">
                     <div className="flex items-center justify-between text-xs text-stone-500 mb-2">
                       <span>
@@ -524,11 +695,18 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
 
                   {(isRevealed || checkRes) && (
                     <button
-                      onClick={() => onSpeak(ex.answer_hanzi, false)}
+                      onClick={() =>
+                        onSpeak(
+                          isViTranslationType && ex.source_hanzi
+                            ? ex.source_hanzi
+                            : ex.answer_hanzi,
+                          false
+                        )
+                      }
                       className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-800 hover:text-amber-950"
                     >
                       <Volume2 className="h-3.5 w-3.5" />
-                      Nghe phát âm đáp án
+                      Nghe phát âm tiếng Trung
                     </button>
                   )}
                 </div>
@@ -561,22 +739,32 @@ export const SmartPracticeDashboard: React.FC<SmartPracticeDashboardProps> = ({
                       <div className="text-[11px] font-medium text-stone-500">
                         Đáp án chuẩn trong Giáo trình:
                       </div>
-                      <p className="font-['Noto_Sans_SC'] text-base font-bold text-stone-900">
+                      <p className="font-['Noto_Sans_SC'] text-sm sm:text-base font-bold text-stone-900 whitespace-pre-line">
                         {ex.answer_hanzi}
                       </p>
-                      <p className="font-mono text-xs font-medium text-amber-800">
-                        {ex.answer_pinyin}
-                      </p>
-                      {ex.sample_sentence_vietnamese && (
-                        <p className="text-xs text-stone-700 pt-1">
-                          Nghĩa: {ex.sample_sentence_vietnamese}
+                      {ex.answer_pinyin && (
+                        <p className="font-mono text-xs font-medium text-amber-800">
+                          {ex.answer_pinyin}
                         </p>
                       )}
+                      {ex.sample_sentence_vietnamese &&
+                        ex.sample_sentence_vietnamese !== ex.answer_hanzi && (
+                          <p className="text-xs text-stone-700 pt-1 whitespace-pre-line">
+                            Nghĩa: {ex.sample_sentence_vietnamese}
+                          </p>
+                        )}
                     </div>
                     <button
-                      onClick={() => onSpeak(ex.answer_hanzi, false)}
+                      onClick={() =>
+                        onSpeak(
+                          isViTranslationType && ex.source_hanzi
+                            ? ex.source_hanzi
+                            : ex.answer_hanzi,
+                          false
+                        )
+                      }
                       className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-700 text-white hover:bg-amber-800"
-                      title="Nghe phát âm đáp án chuẩn"
+                      title="Nghe phát âm chuẩn"
                     >
                       <Volume2 className="h-4 w-4" />
                     </button>

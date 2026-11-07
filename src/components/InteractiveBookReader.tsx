@@ -18,12 +18,15 @@ import {
   X,
   SlidersHorizontal,
   Hand,
+  ZoomIn,
+  ZoomOut,
 } from 'lucide-react';
 import {
   TextbookSectionRaw,
   VocabItem,
   DialogueLine,
   GrammarCallout,
+  LessonSupplementaryContent,
   ExerciseItem,
   BookmarkedWord,
   SavedExerciseAttempt,
@@ -81,6 +84,8 @@ interface InteractiveBookReaderProps {
   onToggleLessonComplete: (sectionId: string) => void;
   vocabSet: Set<string>;
   sortedVocabKeys: string[];
+  totalPages?: number;
+  bookLabel?: string;
 }
 
 interface PageContentData {
@@ -96,6 +101,7 @@ interface PageContentData {
   grammarItems: GrammarCallout[];
   pageExercises: {
     ex: ExerciseItem;
+    lessonId: string;
     indexInLesson: number;
     sectionHeading: string;
   }[];
@@ -127,6 +133,8 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
   onToggleLessonComplete,
   vocabSet,
   sortedVocabKeys,
+  totalPages = 98,
+  bookLabel = 'Quyển 1',
 }) => {
   const [turningState, setTurningState] = useState<{
     dir: 'next' | 'prev';
@@ -136,6 +144,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
   } | null>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [showFullScreenToolbar, setShowFullScreenToolbar] = useState(false);
+  const [fullscreenZoom, setFullscreenZoom] = useState<number>(100);
   const [dialogueTranslations, setDialogueTranslations] = useState<
     Record<string, string>
   >({});
@@ -183,7 +192,21 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
       );
       const datCauSupp = suppList.filter((e) => e.exercise_type === 'dat_cau');
 
-      const combined = [...readingSupp, ...rawExList, ...datCauSupp];
+      const filteredRaw = rawExList.filter(
+        (e) =>
+          e.exercise_type !== 'luyen_dich_hoi_thoai' &&
+          e.exercise_type !== 'luyen_tap_mau_cau'
+      );
+
+      // In Q3 Bài 4..13, III. 造句 (dat_cau) comes before IV. 翻译成越语 (dich_viet_trung) in the PDF
+      const orderedRaw = /^q3_b(0[4-9]|1[0-3])$/.test(lessonId)
+        ? [
+            ...filteredRaw.filter((e) => e.exercise_type === 'dat_cau'),
+            ...filteredRaw.filter((e) => e.exercise_type !== 'dat_cau'),
+          ]
+        : filteredRaw;
+
+      const combined = [...readingSupp, ...orderedRaw, ...datCauSupp];
 
       let dichCounter = 0;
       let datCauCounter = 0;
@@ -199,14 +222,16 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
           dichCounter++;
           idx = dichCounter;
           heading =
-            lessonId === 'q1_b06'
-              ? 'IV. 翻译 Fānyì — DỊCH VIỆT SANG TRUNG'
-              : 'III. 翻译 Fānyì — DỊCH VIỆT SANG TRUNG';
+            lessonId === 'q1_b06' || /^q3_b(0[4-9]|1[0-3])$/.test(lessonId)
+              ? 'IV. 翻译成越语 Fānyì — DỊCH VIỆT SANG TRUNG'
+              : 'III. 翻译成越语 Fānyì — DỊCH VIỆT SANG TRUNG';
         } else if (ex.exercise_type === 'dat_cau') {
           datCauCounter++;
           idx = datCauCounter;
           heading =
-            'IV. 造句 Zàojù — ĐẶT CÂU (Dùng từ cho trước đặt câu ít nhất 10 từ)';
+            lessonId === 'q2_b21' || /^q3_b(0[4-9]|1[0-3])$/.test(lessonId)
+              ? 'III. 造句 Zàojù — ĐẶT CÂU (Dùng từ cho trước đặt câu ít nhất 10 từ)'
+              : 'IV. 造句 Zàojù — ĐẶT CÂU (Dùng từ cho trước đặt câu ít nhất 10 từ)';
         } else if (ex.exercise_type === 'luyen_tap_ngu_phap') {
           nguPhapCounter++;
           idx = nguPhapCounter;
@@ -236,15 +261,30 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
     return list;
   }, [exercisesByLessonId]);
 
-  // Build structured page data for any page 1..98
+  // Build structured page data for any page 1..totalPages
   const getPageData = useMemo(() => {
+    const activeSectionIds = new Set(sections.map((s) => s.id));
+    const activeBookMetas = Object.values(LESSON_SUPPLEMENTARY_DATA).filter(
+      (m) => activeSectionIds.has(m.sectionId)
+    );
+
     return (pageNum: number): PageContentData => {
       const primarySection =
         sections.find(
           (s) => pageNum >= s.page_start && pageNum <= s.page_end
         ) || sections[0];
 
-      const lessonMeta = LESSON_SUPPLEMENTARY_DATA[primarySection.id];
+      const lessonMeta: LessonSupplementaryContent = LESSON_SUPPLEMENTARY_DATA[
+        primarySection.id
+      ] || {
+        sectionId: primarySection.id,
+        lessonExerciseId: '',
+        lessonNumberLabel: 'Chuyên ngành',
+        themeColor: 'purple',
+        topicTag: 'Từ vựng Tiếng Trung Công xưởng & Chuyên ngành',
+        grammarCallouts: [],
+        dialogues: [],
+      };
 
       const vocabItems = sections.flatMap((s) =>
         s.vocabulary.filter((v) => v.page === pageNum)
@@ -256,7 +296,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
         line: DialogueLine;
       }[] = [];
 
-      for (const meta of Object.values(LESSON_SUPPLEMENTARY_DATA)) {
+      for (const meta of activeBookMetas) {
         for (const dSec of meta.dialogues) {
           for (const line of dSec.lines) {
             if (line.page === pageNum) {
@@ -270,14 +310,15 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
         }
       }
 
-      const grammarItems = Object.values(LESSON_SUPPLEMENTARY_DATA).flatMap(
-        (m) => m.grammarCallouts.filter((g) => g.page === pageNum)
+      const grammarItems = activeBookMetas.flatMap((m) =>
+        m.grammarCallouts.filter((g) => g.page === pageNum)
       );
 
       const pageExercises = allExercisesWithMeta
         .filter((item) => item.page === pageNum)
         .map((item) => ({
           ex: item.ex,
+          lessonId: item.lessonId,
           indexInLesson: item.indexInLesson,
           sectionHeading: item.sectionHeading,
         }));
@@ -292,14 +333,14 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
         pageExercises,
       };
     };
-  }, [sections, allExercisesWithMeta]);
+  }, [sections, allExercisesWithMeta, exercisesByLessonId]);
 
   const triggerPageFlip = (
     targetPage: number,
     dir: 'next' | 'prev',
     startAngle?: number
   ) => {
-    const clamped = Math.max(1, Math.min(98, targetPage));
+    const clamped = Math.max(1, Math.min(totalPages, targetPage));
     if (clamped === currentPage || turningState) return;
 
     if (springTimeoutRef.current) {
@@ -335,7 +376,11 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
       typeof window !== 'undefined' &&
       window.innerWidth >= 1280;
     const step = isDesktopDual ? 2 : 1;
-    triggerPageFlip(Math.min(98, currentPage + step), 'next', startAngle);
+    triggerPageFlip(
+      Math.min(totalPages, currentPage + step),
+      'next',
+      startAngle
+    );
   };
 
   const handleStepPrev = (
@@ -413,7 +458,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
       didMouseDragMoveRef.current = true;
       setDragOriginDir((prevDir) => {
         if (prevDir) return prevDir;
-        if (rawDx < 0 && currentPage < 98) return 'next';
+        if (rawDx < 0 && currentPage < totalPages) return 'next';
         if (rawDx > 0 && currentPage > 1) return 'prev';
         return null;
       });
@@ -449,7 +494,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
 
     // Commit turn if dragged past 65px in the intended direction
     if (directionalDx >= 65) {
-      if (activeDir === 'next' && currentPage < 98) {
+      if (activeDir === 'next' && currentPage < totalPages) {
         const startDeg = isDesktopDual
           ? Math.round(-progress * 165)
           : Math.round(-progress * 145);
@@ -656,7 +701,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
 
   const leftPageData = getPageData(currentPage);
   const rightPageData =
-    dualPageMode && currentPage + 1 <= 98
+    dualPageMode && currentPage + 1 <= totalPages
       ? getPageData(currentPage + 1)
       : null;
 
@@ -699,7 +744,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
       return leftPageData;
     }
     if (showInteractiveDragPreview && effectiveDragDir === 'next' && !isShowingDualSpread) {
-      return getPageData(Math.min(98, currentPage + 1));
+      return getPageData(Math.min(totalPages, currentPage + 1));
     }
     return leftPageData;
   }, [
@@ -710,17 +755,18 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
     currentPage,
     leftPageData,
     getPageData,
+    totalPages,
   ]);
 
   const baseRightPageData = useMemo(() => {
     if (!isShowingDualSpread) return null;
     if (turningState) {
       return turningState.dir === 'next'
-        ? getPageData(Math.min(98, turningState.toPage + 1))
-        : getPageData(Math.min(98, turningState.fromPage + 1));
+        ? getPageData(Math.min(totalPages, turningState.toPage + 1))
+        : getPageData(Math.min(totalPages, turningState.fromPage + 1));
     }
     if (showInteractiveDragPreview && effectiveDragDir === 'next') {
-      return getPageData(Math.min(98, currentPage + 3));
+      return getPageData(Math.min(totalPages, currentPage + 3));
     }
     return rightPageData;
   }, [
@@ -731,6 +777,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
     currentPage,
     rightPageData,
     getPageData,
+    totalPages,
   ]);
 
   const renderSingleBookPage = (
@@ -741,14 +788,31 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
     const startingSections = sections.filter(
       (s) => s.page_start === data.pageNumber
     );
+    const startingLessonExIds = new Set(
+      startingSections
+        .map((s) => LESSON_SUPPLEMENTARY_DATA[s.id]?.lessonExerciseId)
+        .filter(Boolean)
+    );
+    const leadingPageExercises =
+      startingSections.length > 0 && data.pageNumber > 1
+        ? data.pageExercises.filter(
+            (item) => !startingLessonExIds.has(item.lessonId)
+          )
+        : [];
+    const mainPageExercises =
+      startingSections.length > 0 && data.pageNumber > 1
+        ? data.pageExercises.filter((item) =>
+            startingLessonExIds.has(item.lessonId)
+          )
+        : data.pageExercises;
     const isLessonCompleted = !!completedLessons[data.primarySection.id];
 
     return (
       <div
-        className={`relative flex flex-col justify-between bg-[#FCFBF7] p-4 sm:p-6 lg:p-7 text-stone-900 ${
+        className={`relative flex h-full flex-col justify-between bg-[#FCFBF7] p-4 sm:p-6 lg:p-7 text-stone-900 ${
           isFullScreen
-            ? 'min-h-[76vh] sm:p-8 lg:p-10'
-            : 'min-h-[640px] sm:min-h-[720px]'
+            ? 'min-h-[80vh] sm:p-8 lg:p-10'
+            : 'min-h-[760px] sm:min-h-[860px]'
         } ${
           side === 'left'
             ? 'xl:rounded-l-2xl xl:border-r xl:border-stone-300/80 xl:shadow-[inset_-16px_0_26px_-14px_rgba(28,25,23,0.09)]'
@@ -762,7 +826,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-200 pb-2.5 mb-4">
             <div className="flex items-center gap-1.5 text-xs text-stone-500 min-w-0">
               <span className="font-semibold text-amber-900 shrink-0">
-                {data.lessonMeta?.lessonNumberLabel || 'Quyển 1'}
+                {data.lessonMeta?.lessonNumberLabel || bookLabel}
               </span>
               <span aria-hidden="true">·</span>
               <span className="truncate">
@@ -821,19 +885,17 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
               )}
 
               <span className="font-mono text-xs font-bold text-stone-600 tabular-nums">
-                {data.pageNumber} / 98
+                {data.pageNumber} / {totalPages}
               </span>
             </div>
           </div>
 
-          {/* Split-page exercises from previous lesson at the top (pages 15, 36, 44, 60, 80, 87) */}
-          {startingSections.length > 0 &&
-            data.pageExercises.length > 0 &&
-            data.pageNumber > 1 && (
-              <div className="mb-6 pb-5 border-b-2 border-dashed border-stone-200">
-                {renderExercisesBlock(data)}
-              </div>
-            )}
+          {/* Split-page exercises from previous lesson at the top (pages 15, 36, 44, 60, 80, 87 in Q1; pages 10, 57 in Q2) */}
+          {leadingPageExercises.length > 0 && (
+            <div className="mb-6 pb-5 border-b-2 border-dashed border-stone-200">
+              {renderExercisesBlock(data, leadingPageExercises)}
+            </div>
+          )}
 
           {/* Lesson Title Banner when a lesson starts on this page */}
           {startingSections.map((sec) => {
@@ -845,7 +907,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                 className="mb-5 rounded-xl border border-amber-200/90 bg-gradient-to-r from-amber-50/90 via-orange-50/50 to-stone-50 p-3.5 sm:p-4 text-center"
               >
                 <div className="text-xs font-medium text-amber-800">
-                  {meta?.topicTag || 'Giáo trình Tiếng Trung Quyển 1'}
+                  {meta?.topicTag || `Giáo Trình Hán Ngữ Hoa Sen ${bookLabel}`}
                 </div>
                 <h2 className="mt-1 font-['Noto_Sans_SC'] text-lg sm:text-2xl font-bold text-stone-900">
                   {sec.title_cn}
@@ -856,8 +918,8 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                   </p>
                 )}
                 <p className="mt-1 font-['Fraunces'] text-sm sm:text-base font-bold text-stone-800">
-                  {sec.id.startsWith('bai_')
-                    ? `Bài ${parseInt(sec.id.replace('bai_', ''), 10)}: ${sec.title_vi}`
+                  {/^(q[23]_)?bai_\d+/.test(sec.id)
+                    ? `Bài ${parseInt(sec.id.replace(/^(q[23]_)?bai_/, ''), 10)}: ${sec.title_vi}`
                     : sec.title_vi}
                 </p>
                 <div className="mt-2.5 flex justify-center">
@@ -1025,51 +1087,81 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                     {g.explanation}
                   </p>
                   <div className="space-y-1.5 pt-1">
-                    {g.examples.map((ex, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center justify-between gap-2 rounded-lg bg-white/80 px-3 py-1.5 text-xs border border-stone-200/60"
-                      >
-                        <div>
-                          <span className="font-['Noto_Sans_SC'] font-bold text-stone-900">
-                            ➢ {ex.hanzi}
-                          </span>{' '}
-                          {showPinyin && (
-                            <span className="font-mono text-amber-800">
-                              ({ex.pinyin})
-                            </span>
-                          )}{' '}
-                          <span className="text-stone-600">
-                            — {ex.meaningVi}
-                          </span>
-                        </div>
-                        <button
-                          onClick={() =>
-                            onPlaySingleItem({
-                              id: `${g.id}_ex_${idx}`,
-                              hanzi: ex.hanzi,
-                              pinyin: ex.pinyin,
-                              meaningVi: ex.meaningVi,
-                            })
-                          }
-                          className="flex h-6 w-6 shrink-0 items-center justify-center rounded bg-amber-100 text-amber-900 hover:bg-amber-200"
+                    {g.examples.map((ex, idx) => {
+                      const exTokens = segmentChineseSentence(
+                        ex.hanzi,
+                        vocabSet,
+                        sortedVocabKeys
+                      );
+                      return (
+                        <div
+                          key={idx}
+                          className="flex items-center justify-between gap-2 rounded-lg bg-white/80 px-3 py-1.5 text-xs border border-stone-200/60"
                         >
-                          <Volume2 className="h-3.5 w-3.5" />
-                        </button>
-                      </div>
-                    ))}
+                          <div>
+                            <span className="font-['Noto_Sans_SC'] font-bold text-stone-900">
+                              ➢{' '}
+                              {exTokens.map((tok, tIdx) =>
+                                tok.isWord ? (
+                                  <button
+                                    key={tIdx}
+                                    type="button"
+                                    onClick={() =>
+                                      onWordClick(
+                                        tok.text,
+                                        ex.hanzi,
+                                        data.primarySection.title_vi
+                                      )
+                                    }
+                                    className="rounded px-0.5 font-['Noto_Sans_SC'] font-bold text-stone-900 hover:bg-amber-100 hover:text-amber-900 transition-colors"
+                                    title={`Tra từ "${tok.text}"`}
+                                  >
+                                    {tok.text}
+                                  </button>
+                                ) : (
+                                  <span key={tIdx}>{tok.text}</span>
+                                )
+                              )}
+                            </span>{' '}
+                            {showPinyin && (
+                              <span className="font-mono text-amber-800">
+                                ({ex.pinyin})
+                              </span>
+                            )}{' '}
+                            <span className="text-stone-600">
+                              — {ex.meaningVi}
+                            </span>
+                          </div>
+                          <button
+                            onClick={() =>
+                              onPlaySingleItem({
+                                id: `${g.id}_ex_${idx}`,
+                                hanzi: ex.hanzi,
+                                pinyin: ex.pinyin,
+                                meaningVi: ex.meaningVi,
+                              })
+                            }
+                            className="flex h-6 w-6 shrink-0 items-center justify-center rounded bg-amber-100 text-amber-900 hover:bg-amber-200"
+                          >
+                            <Volume2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
             </div>
           )}
 
-          {/* SECTION II: DIALOGUES (II. 会话：Huì huà HỘI THOẠI) */}
+          {/* SECTION II: DIALOGUES / SAMPLE SENTENCES (II. 会话 / II. 句子) */}
           {data.dialogueLines.length > 0 && (
             <div className="mb-5 space-y-2.5">
               <div className="flex flex-wrap items-center justify-between gap-1">
                 <h3 className="font-['Noto_Sans_SC'] text-xs sm:text-sm font-bold text-stone-900">
-                  II. 会话：Huì huà — HỘI THOẠI
+                  {data.dialogueLines[0]?.sectionTitleCn.includes('句子')
+                    ? 'II. 句子：Jùzi — MẪU CÂU THÔNG DỤNG'
+                    : 'II. 会话：Huì huà — HỘI THOẠI'}
                 </h3>
                 <span className="text-[11px] text-stone-500">
                   Ấn vào chữ Hán để tra từ · Dịch sang tiếng Việt ở dòng chấm
@@ -1244,18 +1336,18 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
           )}
 
           {/* SECTION III / IV: EXERCISES ON THIS PAGE */}
-          {startingSections.length === 0 &&
-            data.pageExercises.length > 0 &&
-            renderExercisesBlock(data)}
+          {mainPageExercises.length > 0 &&
+            renderExercisesBlock(data, mainPageExercises)}
 
-          {/* Special Closing Message on Page 98 */}
-          {data.pageNumber === 98 && (
+          {/* Special Closing Message on Final Page */}
+          {data.pageNumber === totalPages && (
             <div className="mt-8 py-6 text-center">
               <p className="font-['Noto_Sans_SC'] text-2xl font-bold italic tracking-wide text-stone-900">
                 谢谢同学们！
               </p>
               <p className="mt-1 text-xs text-stone-500">
-                Cảm ơn các bạn học viên đã hoàn thành Giáo Trình Tiếng Trung Quyển 1!
+                Cảm ơn các bạn học viên đã hoàn thành Giáo Trình Hán Ngữ Hoa Sen{' '}
+                {bookLabel}!
               </p>
             </div>
           )}
@@ -1263,7 +1355,9 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
 
         {/* Bottom Page Footer (Without "Trung tâm:") */}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-stone-200/80 pt-3 text-[11px] text-stone-500">
-          <span>Trang {data.pageNumber} / 98</span>
+          <span>
+            Trang {data.pageNumber} / {totalPages}
+          </span>
           <span className="font-medium text-stone-700 text-right">
             Hán ngữ Hoa Sen · Biên soạn: Nguyễn Thị Cẩm Nho
           </span>
@@ -1272,13 +1366,16 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
     );
   };
 
-  function renderExercisesBlock(data: PageContentData) {
+  function renderExercisesBlock(
+    data: PageContentData,
+    exercisesList: PageContentData['pageExercises'] = data.pageExercises
+  ) {
     return (
       <div className="space-y-3">
-        {data.pageExercises.map(({ ex, indexInLesson, sectionHeading }, idx) => {
+        {exercisesList.map(({ ex, indexInLesson, sectionHeading }, idx) => {
           const isPrevSameHeading =
             idx > 0 &&
-            data.pageExercises[idx - 1].sectionHeading === sectionHeading;
+            exercisesList[idx - 1].sectionHeading === sectionHeading;
           const attempt = attempts[ex.exercise_id];
           const userAns = attempt?.userAnswer || '';
           const checkRes = attempt?.aiResult;
@@ -1396,8 +1493,17 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                     ) : (
                       <span>
                         {ex.grammar_point ? (
-                          <span className="block text-xs font-bold text-amber-900 mb-0.5">
+                          <span className="block text-xs font-bold text-amber-900 mb-1">
                             {ex.grammar_point}
+                          </span>
+                        ) : null}
+                        {ex.exercise_type === 'luyen_tap_ngu_phap' &&
+                        ex.vocab_grammar_notes ? (
+                          <span className="mb-1.5 block rounded-lg border border-amber-200/80 bg-amber-50/60 px-2.5 py-1.5 text-[11px] font-normal leading-relaxed text-stone-700">
+                            <strong className="font-semibold text-amber-950">
+                              Lý thuyết:{' '}
+                            </strong>
+                            {ex.vocab_grammar_notes}
                           </span>
                         ) : null}
                         {ex.prompt_vietnamese || ex.title}
@@ -1493,14 +1599,22 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                         onClick={() =>
                           onPlaySingleItem({
                             id: ex.exercise_id,
-                            hanzi: ex.answer_hanzi,
-                            pinyin: ex.answer_pinyin,
+                            hanzi:
+                              ex.exercise_type === 'luyen_tap_doan_van' &&
+                              ex.source_hanzi
+                                ? ex.source_hanzi
+                                : ex.answer_hanzi,
+                            pinyin:
+                              ex.exercise_type === 'luyen_tap_doan_van' &&
+                              ex.source_pinyin
+                                ? ex.source_pinyin
+                                : ex.answer_pinyin,
                             meaningVi: ex.prompt_vietnamese,
                             speaker: 'Đáp án chuẩn',
                           })
                         }
                         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-amber-700 text-white hover:bg-amber-800"
-                        title="Nghe phát âm đáp án"
+                        title="Nghe phát âm chuẩn"
                       >
                         <Volume2 className="h-3.5 w-3.5" />
                       </button>
@@ -1598,21 +1712,21 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                 <input
                   type="number"
                   min={1}
-                  max={98}
+                  max={totalPages}
                   value={currentPage}
                   onChange={(e) => {
                     const val = parseInt(e.target.value, 10);
                     if (!isNaN(val)) {
-                      onPageChange(Math.max(1, Math.min(98, val)));
+                      onPageChange(Math.max(1, Math.min(totalPages, val)));
                     }
                   }}
                   className="w-11 rounded border border-stone-300 bg-white px-1 py-0.5 text-center font-mono text-xs font-bold tabular-nums text-stone-900"
                 />
-                <span className="text-stone-400">/ 98</span>
+                <span className="text-stone-400">/ {totalPages}</span>
               </div>
               <button
                 onClick={handleStepNext}
-                disabled={currentPage >= 98}
+                disabled={currentPage >= totalPages}
                 className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 bg-stone-50 text-stone-700 hover:bg-stone-100 disabled:opacity-40"
                 title="Lật trang tiếp theo"
               >
@@ -1669,6 +1783,57 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                 <Columns2 className="h-3.5 w-3.5" />
                 <span>{dualPageMode ? 'Sách mở 2 trang' : 'Xem 1 trang'}</span>
               </button>
+
+              {/* PC Fullscreen Book Zoom Slider (60% – 150%) */}
+              {isFullScreen && (
+                <div
+                  className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-stone-50 px-2.5 py-1 shrink-0"
+                  title="Kéo thanh trượt để phóng to / thu nhỏ kích thước sách trên màn hình PC"
+                >
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setFullscreenZoom((z) => Math.max(60, z - 5))
+                    }
+                    disabled={fullscreenZoom <= 60}
+                    className="inline-flex h-6 w-6 items-center justify-center rounded border border-stone-200 bg-white text-stone-700 hover:bg-amber-50 hover:text-amber-800 disabled:opacity-40"
+                    title="Thu nhỏ sách (-5%)"
+                  >
+                    <ZoomOut className="h-3.5 w-3.5" />
+                  </button>
+                  <input
+                    type="range"
+                    min={60}
+                    max={150}
+                    step={5}
+                    value={fullscreenZoom}
+                    onChange={(e) =>
+                      setFullscreenZoom(parseInt(e.target.value, 10))
+                    }
+                    aria-label="Thanh kéo tùy chỉnh kích thước sách"
+                    className="w-24 lg:w-28 accent-amber-600 cursor-pointer"
+                  />
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setFullscreenZoom((z) => Math.min(150, z + 5))
+                    }
+                    disabled={fullscreenZoom >= 150}
+                    className="inline-flex h-6 w-6 items-center justify-center rounded border border-stone-200 bg-white text-stone-700 hover:bg-amber-50 hover:text-amber-800 disabled:opacity-40"
+                    title="Phóng to sách (+5%)"
+                  >
+                    <ZoomIn className="h-3.5 w-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setFullscreenZoom(100)}
+                    className="min-w-[40px] rounded bg-amber-100/80 px-1.5 py-0.5 text-center font-mono text-[11px] font-bold text-amber-900 hover:bg-amber-200/80 tabular-nums"
+                    title="Nhấn để đặt lại kích thước chuẩn 100%"
+                  >
+                    {fullscreenZoom}%
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="flex items-center gap-1.5">
@@ -1721,6 +1886,11 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
         }
       >
         <div
+          style={
+            isFullScreen && fullscreenZoom !== 100
+              ? ({ zoom: fullscreenZoom / 100 } as React.CSSProperties)
+              : undefined
+          }
           className={`book-stage-3d relative mx-auto w-full select-none cursor-grab active:cursor-grabbing ${
             isFullScreen ? 'max-w-[1720px]' : ''
           }`}
@@ -1765,7 +1935,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
 
               {/* Static Right Page Underneath (ONLY when Dual-Page Spread Mode is active) */}
               {isShowingDualSpread && baseRightPageData && (
-                <div className="hidden xl:block">
+                <div className="hidden xl:flex xl:flex-col h-full">
                   {renderSingleBookPage(baseRightPageData, 'right')}
                 </div>
               )}
@@ -1822,7 +1992,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                       <div className="leaf-face-back absolute inset-0 overflow-hidden rounded-2xl shadow-2xl">
                         {effectiveDragDir === 'next'
                           ? renderSingleBookPage(
-                              getPageData(Math.min(98, currentPage + 2)),
+                              getPageData(Math.min(totalPages, currentPage + 2)),
                               'left'
                             )
                           : renderSingleBookPage(
@@ -1896,7 +2066,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                         {turningState.dir === 'next'
                           ? renderSingleBookPage(
                               getPageData(
-                                Math.min(98, turningState.fromPage + 1)
+                                Math.min(totalPages, turningState.fromPage + 1)
                               ),
                               'right'
                             )
@@ -1915,7 +2085,7 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                             )
                           : renderSingleBookPage(
                               getPageData(
-                                Math.min(98, turningState.toPage + 1)
+                                Math.min(totalPages, turningState.toPage + 1)
                               ),
                               'right'
                             )}
@@ -1973,20 +2143,20 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
                   <input
                     type="range"
                     min={1}
-                    max={98}
+                    max={totalPages}
                     value={currentPage}
                     onChange={(e) => onPageChange(parseInt(e.target.value, 10))}
-                    aria-label="Thanh trượt chọn trang sách từ 1 đến 98"
+                    aria-label={`Thanh trượt chọn trang sách từ 1 đến ${totalPages}`}
                     className="w-full accent-amber-500 cursor-pointer"
                   />
                   <span className="font-mono text-xs text-amber-300 tabular-nums whitespace-nowrap">
-                    {currentPage}/98
+                    {currentPage}/{totalPages}
                   </span>
                 </div>
 
                 <button
                   onClick={handleStepNext}
-                  disabled={currentPage >= 98}
+                  disabled={currentPage >= totalPages}
                   className="inline-flex items-center gap-1.5 rounded-lg bg-amber-600 px-3 sm:px-4 py-2 text-xs font-semibold text-white hover:bg-amber-500 disabled:opacity-40 transition-colors shrink-0"
                 >
                   <span>Lật trang sau</span>
@@ -2012,23 +2182,71 @@ export const InteractiveBookReader: React.FC<InteractiveBookReaderProps> = ({
             </button>
 
             <div className="flex flex-1 max-w-md items-center gap-2.5 px-2">
+              <span className="hidden sm:inline text-[11px] text-stone-400 whitespace-nowrap">
+                Trang:
+              </span>
               <input
                 type="range"
                 min={1}
-                max={98}
+                max={totalPages}
                 value={currentPage}
                 onChange={(e) => onPageChange(parseInt(e.target.value, 10))}
-                aria-label="Thanh trượt chọn trang sách từ 1 đến 98"
+                aria-label={`Thanh trượt chọn trang sách từ 1 đến ${totalPages}`}
                 className="w-full accent-amber-500 cursor-pointer"
               />
               <span className="font-mono text-xs font-bold text-amber-300 tabular-nums whitespace-nowrap">
-                {currentPage}/98
+                {currentPage}/{totalPages}
               </span>
+            </div>
+
+            {/* Bottom PC Zoom Slider in Fullscreen (Always accessible even when top toolbar is hidden) */}
+            <div className="hidden md:flex items-center gap-1.5 rounded-lg border border-stone-700 bg-stone-800/90 px-2.5 py-1.5 shrink-0">
+              <span className="text-[11px] font-medium text-stone-300 whitespace-nowrap">
+                Cỡ sách:
+              </span>
+              <button
+                type="button"
+                onClick={() => setFullscreenZoom((z) => Math.max(60, z - 5))}
+                disabled={fullscreenZoom <= 60}
+                className="inline-flex h-6 w-6 items-center justify-center rounded bg-stone-700 text-amber-200 hover:bg-stone-600 disabled:opacity-40"
+                title="Thu nhỏ kích thước sách (-5%)"
+              >
+                <ZoomOut className="h-3.5 w-3.5" />
+              </button>
+              <input
+                type="range"
+                min={60}
+                max={150}
+                step={5}
+                value={fullscreenZoom}
+                onChange={(e) =>
+                  setFullscreenZoom(parseInt(e.target.value, 10))
+                }
+                aria-label="Thanh kéo thu phóng kích thước sách"
+                className="w-24 lg:w-28 accent-amber-500 cursor-pointer"
+              />
+              <button
+                type="button"
+                onClick={() => setFullscreenZoom((z) => Math.min(150, z + 5))}
+                disabled={fullscreenZoom >= 150}
+                className="inline-flex h-6 w-6 items-center justify-center rounded bg-stone-700 text-amber-200 hover:bg-stone-600 disabled:opacity-40"
+                title="Phóng to kích thước sách (+5%)"
+              >
+                <ZoomIn className="h-3.5 w-3.5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setFullscreenZoom(100)}
+                className="min-w-[40px] rounded bg-stone-900 px-1.5 py-0.5 text-center font-mono text-[11px] font-bold text-amber-300 hover:bg-stone-700 tabular-nums"
+                title="Nhấn để đặt lại kích thước 100%"
+              >
+                {fullscreenZoom}%
+              </button>
             </div>
 
             <button
               onClick={handleStepNext}
-              disabled={currentPage >= 98}
+              disabled={currentPage >= totalPages}
               className="inline-flex items-center gap-1.5 rounded-lg bg-amber-600 px-3.5 sm:px-4 py-2 text-xs font-semibold text-white hover:bg-amber-500 disabled:opacity-40 transition-colors shrink-0"
             >
               <span>Lật trang sau</span>

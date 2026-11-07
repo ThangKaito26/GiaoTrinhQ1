@@ -1,0 +1,1530 @@
+{
+  "book_id": "q3",
+  "book_title": "GIÁO TRÌNH TIẾNG TRUNG QUYỂN 3",
+  "total_lessons": 13,
+  "lessons": [
+    {
+      "lesson_id": "q3_b01",
+      "lesson_num": 1,
+      "lesson_title": "第一课 Dì yī kè：面试 / Bài 1: Phỏng vấn",
+      "exercises": [
+        {
+          "exercise_id": "q3_b01_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn sinh năm nào? Công việc trước đây của bạn là gì? Có mấy năm kinh nghiệm?",
+          "answer_hanzi": "你是哪一年出生的？你以前的工作是什么？有几年的工作经验？",
+          "answer_pinyin": "Nǐ shì nǎ yī nián chūshēng de? Nǐ yǐqián de gōngzuò shì shénme? Yǒu jǐ nián de gōngzuò jīngyàn?",
+          "vocab_grammar_notes": "哪一年出生 (nǎ yī nián chūshēng: sinh năm nào), 工作经验 (gōngzuò jīngyàn: kinh nghiệm làm việc)."
+        },
+        {
+          "exercise_id": "q3_b01_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bộ phận nhân sự vừa thông báo, họ đang cần tuyển dụng nhân viên kế toán, lương và đãi ngộ cũng rất tốt, nhưng hơi áp lực.",
+          "answer_hanzi": "人事部刚刚通知，他们正在招聘会计人员，薪水和待遇都很好，但是有一点儿压力。",
+          "answer_pinyin": "Rénshì bù gānggāng tōngzhī, tāmen zhèngzài zhāopìn kuàijì rényuán, xīnshuǐ hé dàiyù dōu hěn hǎo, dànshì yǒu yīdiǎnr yālì.",
+          "vocab_grammar_notes": "人事部 (rénshì bù: phòng nhân sự), 招聘 (zhāopìn: tuyển dụng), 会计 (kuàijì: kế toán), 薪水和待遇 (lương và đãi ngộ)."
+        },
+        {
+          "exercise_id": "q3_b01_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Công việc của cương vị này tôi rất thành thục, đặc biệt là thao tác máy tính của tôi rất tốt.",
+          "answer_hanzi": "这个岗位的工作我非常熟练，尤其是我的电脑操作水平非常好。",
+          "answer_pinyin": "Zhège gǎngwèi de gōngzuò wǒ fēicháng shúliàn, yóuqí shì wǒ de diànnǎo cāozuò shuǐpíng fēicháng hǎo.",
+          "vocab_grammar_notes": "岗位 (gǎngwèi: vị trí/cương vị), 熟练 (shúliàn: thành thục), 电脑操作 (diànnǎo cāozuò: thao tác máy tính)."
+        },
+        {
+          "exercise_id": "q3_b01_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Dạo này công ty có vấn đề nghiêm trọng, nên tôi phải thường xuyên công tác ở Đài Loan, không có nhiều thời gian giải quyết công việc ở công ty.",
+          "answer_hanzi": "最近公司出现了严重的问题，所以我必须经常去台湾出差，没有太多时间处理公司的事务。",
+          "answer_pinyin": "Zuìjìn gōngsī chūxiàn le yánzhòng de wèntí, suǒyǐ wǒ bìxū jīngcháng qù Táiwān chūchāi, méiyǒu tài duō shíjiān chǔlǐ gōngsī de shìwù.",
+          "vocab_grammar_notes": "严重的问题 (yánzhòng de wèntí: vấn đề nghiêm trọng), 去台湾出差 (đi công tác Đài Loan), 处理 (xử lý/giải quyết)."
+        },
+        {
+          "exercise_id": "q3_b01_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Nhược điểm lớn nhất của tôi là thao tác máy tính vẫn chưa tốt, nhưng tôi nhất định sẽ cố gắng học.",
+          "answer_hanzi": "我最大的缺点就是电脑操作还不够熟练，但我一定会努力学习。",
+          "answer_pinyin": "Wǒ zuìdà de quēdiǎn jiùshì diànnǎo cāozuò hái bù gòu shúliàn, dàn wǒ yīdìng huì nǔlì xuéxí.",
+          "vocab_grammar_notes": "缺点 (quēdiǎn: nhược điểm/khuyết điểm), 优点 (yōudiǎn: ưu điểm)."
+        },
+        {
+          "exercise_id": "q3_b01_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi rất tin tưởng và tín nhiệm bạn, căn cứ vào năng lực của bạn, có thể quản lí tốt xưởng sản xuất không?",
+          "answer_hanzi": "我非常相信和信任你，根据你的能力，能管理好生产车间吗？",
+          "answer_pinyin": "Wǒ fēicháng xiāngxìn hé xìnrèn nǐ, gēnjù nǐ de nénglì, néng guǎnlǐ hǎo shēngchǎn chējiān ma?",
+          "vocab_grammar_notes": "信任 (xìnrèn: tín nhiệm), 根据 (gēnjù: căn cứ vào), 生产车间 (xưởng sản xuất)."
+        },
+        {
+          "exercise_id": "q3_b01_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Sau 1 tháng thử việc, tôi cảm thấy bạn làm việc rất nỗ lực và nghiêm túc, thời gian làm việc chính thức sẽ tính từ ngày mai.",
+          "answer_hanzi": "经过一个月的试用期，我觉得你工作非常努力和认真，正式上班的时间从明天开始计算。",
+          "answer_pinyin": "Jīngguò yī gè yuè de shìyòngqī, wǒ juéde nǐ gōngzuò fēicháng nǔlì hé rènzhēn, zhèngshì shàngbān de shíjiān cóng míngtiān kāishǐ jìsuàn.",
+          "vocab_grammar_notes": "试用期 (shìyòngqī: thời gian thử việc), 正式上班 (đi làm chính thức)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b02",
+      "lesson_num": 2,
+      "lesson_title": "第二课 Dì èr kè：包装和出库 / Bài 2: Đóng gói và xuất kho",
+      "exercises": [
+        {
+          "exercise_id": "q3_b02_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hàng hóa trước khi xuất kho cần phải kiểm tra tốt chất lượng và số lượng.",
+          "answer_hanzi": "货物在出库之前，必须要认真检查好货物的质量和数量。",
+          "answer_pinyin": "Huòwù zài chūkù zhīqián, bìxū yào rènzhēn jiǎnchá hǎo huòwù de zhìliàng hé shùliàng.",
+          "vocab_grammar_notes": "出库 (chūkù: xuất kho), 入库 (rùkù: nhập kho), 质量 (chất lượng), 数量 (số lượng)."
+        },
+        {
+          "exercise_id": "q3_b02_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tất cả đơn xuất kho và đơn nhập kho do chủ quản đối chiếu, xác nhận và kí tên.",
+          "answer_hanzi": "所有的出库单和入库单都由仓库主管核对、确认并签字。",
+          "answer_pinyin": "Suǒyǒu de chūkùdān hé rùkùdān dōu yóu cāngkù zhǔguǎn héduì, quèrèn bìng qiānzì.",
+          "vocab_grammar_notes": "出库单 (phiếu xuất kho), 入库单 (phiếu nhập kho), 核对 (héduì: đối chiếu kiểm tra), 签字 (qiānzì: ký tên)."
+        },
+        {
+          "exercise_id": "q3_b02_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Mỗi tháng khách hàng đều đến tham quan dây chuyền đóng gói.",
+          "answer_hanzi": "客户每个月都会来参观我们的包装流水线。",
+          "answer_pinyin": "Kèhù měi gè yuè dōu huì lái cānguān wǒmen de bāozhuāng liúshuǐxiàn.",
+          "vocab_grammar_notes": "包装流水线 (dây chuyền đóng gói), 参观 (tham quan)."
+        },
+        {
+          "exercise_id": "q3_b02_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Quy trình sản xuất hàng hóa không được tùy tiện thao tác, phải căn cứ tiêu chuẩn của công ty.",
+          "answer_hanzi": "生产货物的流程不能随便操作，必须严格按照公司的标准执行。",
+          "answer_pinyin": "Shēngchǎn huòwù de liúchéng bù néng suíbiàn cāozuò, bìxū yángé ànzhào gōngsī de biāozhǔn zhíxíng.",
+          "vocab_grammar_notes": "随便操作 (tùy tiện thao tác), 按照公司的标准 (căn cứ tiêu chuẩn công ty)."
+        },
+        {
+          "exercise_id": "q3_b02_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Đóng gói dùng thùng giấy hay thùng gỗ đều được, nhưng dùng cái nào cũng đều phải dán nhãn.",
+          "answer_hanzi": "包装用纸箱还是木箱都可以，但是不管用哪一种都必须贴上标签。",
+          "answer_pinyin": "Bāozhuāng yòng zhǐxiāng háishì mùxiāng dōu kěyǐ, dànshì bùguǎn yòng nǎ yī zhǒng dōu bìxū tiē shàng biāoqiān.",
+          "vocab_grammar_notes": "纸箱 (zhǐxiāng: thùng giấy), 木箱 (mùxiāng: thùng gỗ), 贴标签 (dán nhãn)."
+        },
+        {
+          "exercise_id": "q3_b02_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tài vụ và bộ phận xuất kho cần phối hợp, theo dõi sát sao đơn hàng.",
+          "answer_hanzi": "财务部和出库部门需要密切配合，紧紧跟踪好每一笔订单。",
+          "answer_pinyin": "Cáiwù bù hé chūkù bùmén xūyào mìqiè pèihé, jǐnjǐn gēnzōng hǎo měi yī bǐ dìngdān.",
+          "vocab_grammar_notes": "财务部 (phòng tài vụ), 配合 (phối hợp), 跟踪订单 (theo dõi đơn hàng)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b03",
+      "lesson_num": 3,
+      "lesson_title": "第三课 Dì sān kè：我的任务是什么？ / Bài 3: Nhiệm vụ của tôi là gì?",
+      "exercises": [
+        {
+          "exercise_id": "q3_b03_ex01",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Đây là ngày cuối cùng tôi đi làm, tuần sau tôi đến công ty của bạn tôi phỏng vấn.",
+          "answer_hanzi": "这是我上班的最后一天，下个星期我要去我朋友的公司参加面试。",
+          "answer_pinyin": "Zhè shì wǒ shàngbān de zuìhòu yī tiān, xià gè xīngqī wǒ yào qù wǒ péngyou de gōngsī cānjiā miànshì.",
+          "vocab_grammar_notes": "最后一天 (ngày cuối cùng), 参加面试 (tham gia phỏng vấn)."
+        },
+        {
+          "exercise_id": "q3_b03_ex02",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi không phải nhân viên thống kê, cũng không phải nhân viên kế toán, tôi là nhân viên QC kiểm phẩm.",
+          "answer_hanzi": "我不是统计员，也不是会计员，我是一名负责产品检验的质检员（QC）。",
+          "answer_pinyin": "Wǒ bù shì tǒngjìyuán, yě bù shì kuàijìyuán, wǒ shì yī míng fùzé chǎnpǐn jiǎnyàn de zhìjiǎnyuán (QC).",
+          "vocab_grammar_notes": "统计员 (nhân viên thống kê), 质检员 (nhân viên kiểm tra chất lượng / QC)."
+        },
+        {
+          "exercise_id": "q3_b03_ex03",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi cho rằng chất lượng hàng hóa giảm là bởi vì: trong quá trình thao tác không căn cứ vào tiêu chuẩn.",
+          "answer_hanzi": "我认为产品质量之所以下降是因为：在操作过程中没有严格按照标准执行。",
+          "answer_pinyin": "Wǒ rènwéi chǎnpǐn zhìliàng zhī suǒyǐ xiàjiàng shì yīnwèi: zài cāozuò guòchéng zhōng méiyǒu yángé ànzhào biāozhǔn zhíxíng.",
+          "vocab_grammar_notes": "质量下降 (chất lượng giảm sút), 操作过程 (quá trình thao tác)."
+        },
+        {
+          "exercise_id": "q3_b03_ex04",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Nguyên vật liệu phải kiểm nghiệm và đánh giá tỉ mỉ, phòng ngừa phát sinh sai sót trong sản xuất.",
+          "answer_hanzi": "进料原材料必须进行严格细致的检验和评估，以防止在生产中发生差错。",
+          "answer_pinyin": "Jìnliào yuáncáiliào bìxū jìnxíng yángé xìzhì de jiǎnyàn hé pínggū, yǐ fángzhǐ zài shēngchǎn zhōng fāshēng chācuò.",
+          "vocab_grammar_notes": "进料检验 (IQC / kiểm tra nguyên vật liệu đầu vào), 原材料 (nguyên vật liệu)."
+        },
+        {
+          "exercise_id": "q3_b03_ex05",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Công ty bao gồm nhiều khu vực khác nhau, ví dụ: khu vực công xưởng, văn phòng, kho, nhà ăn, và nhà xe.",
+          "answer_hanzi": "公司包括很多不同的区域，例如：车间厂区、办公室、仓库、食堂和停车场。",
+          "answer_pinyin": "Gōngsī bāokuò hěn duō bùtóng de qūyù, lìrú: chējiān chǎngqū, bàngōngshì, cāngkù, shítáng hé tíngchēchǎng.",
+          "vocab_grammar_notes": "包括 (bāokuò: bao gồm), 车间 (công xưởng), 仓库 (kho), 食堂 (nhà ăn), 停车场 (nhà xe)."
+        },
+        {
+          "exercise_id": "q3_b03_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "注意",
+          "target_word_pinyin": "Zhùyì",
+          "target_word_meaning": "Chú ý, lưu ý",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Khi công nhân thao tác trên máy dập cơ khí, nhất định phải chú ý giữ khoảng cách an toàn.",
+          "answer_hanzi": "工人在操作大型冲压机械设备的时候，一定要时刻注意自身的安全防护。",
+          "answer_pinyin": "Gōngrén zài cāozuò dàxíng chōngyā jīxiè shèbèi de shíhou, yīdìng yào shíkè zhùyì zìshēn de ānquán fánghù.",
+          "vocab_grammar_notes": "注意安全 (chú ý an toàn)."
+        },
+        {
+          "exercise_id": "q3_b03_ex07",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "准时",
+          "target_word_pinyin": "Zhǔnshí",
+          "target_word_meaning": "Đúng giờ",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tất cả công nhân viên phân xưởng mỗi ngày đều phải đến đúng giờ trước tám giờ để quẹt thẻ vào ca.",
+          "answer_hanzi": "全厂所有车间工人每天早上都必须在八点钟之前准时到达厂区打卡上班。",
+          "answer_pinyin": "Quán chǎng suǒyǒu chējiān gōngrén měitiān zǎoshang dōu bìxū zài bā diǎn zhōng zhīqián zhǔnshí dàodá chǎngqū dǎkǎ shàngbān.",
+          "vocab_grammar_notes": "准时上班 (đúng giờ đi làm)."
+        },
+        {
+          "exercise_id": "q3_b03_ex08",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "明白",
+          "target_word_pinyin": "Míngbái",
+          "target_word_meaning": "Hiểu rõ, rõ ràng",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bạn đã hiểu rõ toàn bộ nội dung trong bản hướng dẫn thao tác tiêu chuẩn mà chủ quản vừa giải thích chưa?",
+          "answer_hanzi": "主管刚才向大家详细讲解的作业指导书标准，你们大家都完全听明白了吗？",
+          "answer_pinyin": "Zhǔguǎn gāngcái xiàng dàjiā xiángxì jiǎngjiě de zuòyè zhǐdǎoshū biāozhǔn, nǐmen dàjiā dōu wánquán tīng míngbai le ma?",
+          "vocab_grammar_notes": "听明白 (tīng míngbai: nghe hiểu rõ)."
+        },
+        {
+          "exercise_id": "q3_b03_ex09",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "采购",
+          "target_word_pinyin": "Cǎigòu",
+          "target_word_meaning": "Thu mua, mua sắm",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bộ phận thu mua đang tích cực liên hệ các nhà cung cấp để đặt mua lô linh kiện mới phục vụ sản xuất.",
+          "answer_hanzi": "采购部门正在积极联系几家合格供应商，紧急采购生产所需的核心零配件。",
+          "answer_pinyin": "Cǎigòu bùmén zhèngzài jījí liánxì jǐ jiā hégé gōngyìngshāng, jǐnjí cǎigòu shēngchǎn suǒ xū de héxīn língpèijiàn.",
+          "vocab_grammar_notes": "采购部 (phòng thu mua), 零配件 (linh kiện phụ tùng)."
+        },
+        {
+          "exercise_id": "q3_b03_ex10",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "以下",
+          "target_word_pinyin": "Yǐxià",
+          "target_word_meaning": "Dưới đây, trở xuống",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Xin mời tất cả các nhân viên có tên trong danh sách dưới đây đến phòng họp gặp trưởng phòng nhân sự.",
+          "answer_hanzi": "请名字出现在以下这份培训名单上的新员工，立刻到二楼人事办公室报到。",
+          "answer_pinyin": "Qǐng míngzì chūxiàn zài yǐxià zhè fèn péixùn míngdān shàng de xīn yuángōng, lìkè dào èr lóu rénshì bàngōngshì bàodào.",
+          "vocab_grammar_notes": "以下 (dưới đây, trở xuống)."
+        },
+        {
+          "exercise_id": "q3_b03_ex11",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "订单",
+          "target_word_pinyin": "Dìngdān",
+          "target_word_meaning": "Đơn đặt hàng",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Công ty chúng tôi vừa nhận được một đơn đặt hàng lớn trị giá hàng triệu đô la từ đối tác nước ngoài.",
+          "answer_hanzi": "我们公司上个月刚刚从海外客户那里接到了一笔数量庞大的外贸服装订单。",
+          "answer_pinyin": "Wǒmen gōngsī shàng gè yuè gānggāng cóng hǎiwài kèhù nàlǐ jiēdào le yī bǐ shùliàng pángdà de wàimào fúzhuāng dìngdān.",
+          "vocab_grammar_notes": "接到订单 (nhận đơn hàng), 一笔订单 (lượng từ 笔 cho đơn hàng)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b04",
+      "lesson_num": 4,
+      "lesson_title": "第四课 Dì sì kè：工厂的规定是什么？ / Bài 4: Quy định của công xưởng là gì?",
+      "exercises": [
+        {
+          "exercise_id": "q3_b04_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "扣钱",
+          "target_word_pinyin": "Kòu qián",
+          "target_word_meaning": "Trừ tiền, phạt tiền",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Nếu như bạn đi làm muộn quá mười lăm phút mà không có lý do chính đáng, công ty sẽ trừ tiền chuyên cần của bạn.",
+          "answer_hanzi": "如果你无故上班迟到超过十五分钟，公司财务部就会按照规定扣除你的全勤奖金。",
+          "answer_pinyin": "Rúguǒ nǐ wúgù shàngbān chídào chāoguò shíwǔ fēnzhōng, gōngsī cáiwù bù jiù huì ànzhào guīdìng kòuchú nǐ de quánqín jiǎngjīn.",
+          "vocab_grammar_notes": "扣钱 (kòu qián: trừ tiền), 全勤奖 (thưởng chuyên cần)."
+        },
+        {
+          "exercise_id": "q3_b04_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "坏",
+          "target_word_pinyin": "Huài",
+          "target_word_meaning": "Hỏng, hư hại",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Chiếc máy may điện tử công nghiệp này đột nhiên bị hỏng motor rồi, cần bảo trì gấp.",
+          "answer_hanzi": "车间里的这台全自动电脑缝纫机电机突然烧坏了，必须叫机修工赶快过来修理。",
+          "answer_pinyin": "Chējiān lǐ de zhè tái quán zìdòng diànnǎo féngrènjī diànjī tūrán shāo huài le, bìxū jiào jīxiūgōng gǎnkuài guòlái xiūlǐ.",
+          "vocab_grammar_notes": "坏了 (huài le: bị hỏng rồi)."
+        },
+        {
+          "exercise_id": "q3_b04_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "遵守",
+          "target_word_pinyin": "Zūnshǒu",
+          "target_word_meaning": "Tuân thủ, chấp hành",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Mỗi một nhân viên khi bước vào khu vực nhà xưởng đều phải nghiêm túc tuân thủ quy tắc an toàn lao động.",
+          "answer_hanzi": "每一位进入工厂车间的生产作业人员，都必须严格遵守企业的安全操作规程。",
+          "answer_pinyin": "Měi yī wèi jìnrù gōngchǎng chējiān de shēngchǎn zuòyè rényuán, dōu bìxū yángé zūnshǒu qǐyè de ānquán cāozuò guīchéng.",
+          "vocab_grammar_notes": "遵守规则/规程 (tuân thủ quy tắc/quy trình)."
+        },
+        {
+          "exercise_id": "q3_b04_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "规定",
+          "target_word_pinyin": "Guīdìng",
+          "target_word_meaning": "Quy định",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bản nội quy xưởng mới ban hành có quy định cụ thể về thời gian nghỉ ngơi và chế độ làm thêm giờ.",
+          "answer_hanzi": "公司刚刚颁布的最新员工手册明确规定了大家上下班的工时以及加班补贴政策。",
+          "answer_pinyin": "Gōngsī gānggāng bānbù de zuìxīn yuángōng shǒucè míngquè guīdìng le dàjiā shàngxiàbān de gōngshí yǐjí jiābān bǔtiē zhèngcè.",
+          "vocab_grammar_notes": "规章制度 (nội quy quy chế), 明确规定 (quy định rõ ràng)."
+        },
+        {
+          "exercise_id": "q3_b04_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "设备",
+          "target_word_pinyin": "Shèbèi",
+          "target_word_meaning": "Thiết bị",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tất cả các thiết bị máy móc trong phân xưởng sản xuất đều phải được kiểm tra và bảo dưỡng định kỳ hàng tuần.",
+          "answer_hanzi": "生产车间里的所有机械设备，每个星期都必须由技术人员进行定期检查和保养。",
+          "answer_pinyin": "Shēngchǎn chējiān lǐ de suǒyǒu jīxiè shèbèi, měi gè xīngqī dōu bìxū yóu jìshù rényuán jìnxíng dìngqī jiǎnchá hé bǎoyǎng.",
+          "vocab_grammar_notes": "机械设备 (jīxiè shèbèi: thiết bị máy móc), 定期检查 (kiểm tra định kỳ)."
+        },
+        {
+          "exercise_id": "q3_b04_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "禁止",
+          "target_word_pinyin": "Jìnzhǐ",
+          "target_word_meaning": "Cấm, nghiêm cấm",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Khu vực kho chứa hóa chất và nguyên vật liệu dễ cháy nghiêm cấm sử dụng lửa và hút thuốc.",
+          "answer_hanzi": "在存放易燃易爆化学品的重要物料仓库区域，严厉禁止明火和抽烟吸烟行为。",
+          "answer_pinyin": "Zài cúnfàng yìrán yìbào huàxuépǐn de zhòngyào wùliào cāngkù qūyù, yánlì jìnzhǐ mínghuǒ hé chōuyān xīyān xíngwéi.",
+          "vocab_grammar_notes": "禁止吸烟 (cấm hút thuốc), 严禁 (nghiêm cấm)."
+        },
+        {
+          "exercise_id": "q3_b04_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hướng dẫn sử dụng của tất cả thiết bị tôi đều xem qua rất nhiều lần rồi, thao tác vận hành tôi đều rất thành thạo.",
+          "answer_hanzi": "所有机器设备的使用说明书我都仔细看过很多遍了，设备的操作运行我也非常熟练。",
+          "answer_pinyin": "Suǒyǒu jīqì shèbèi de shǐyòng shuōmíngshū wǒ dōu zǐxì kànguo hěn duō biàn le, shèbèi de cāozuò yùnxíng wǒ yě fēicháng shúliàn.",
+          "vocab_grammar_notes": "使用说明书 (hướng dẫn sử dụng), 操作运行 (thao tác vận hành)."
+        },
+        {
+          "exercise_id": "q3_b04_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Đơn xin phép mua công cụ sửa chữa bạn viết sai rồi, bạn viết lại từ đầu đi, sau đó đưa cho nhân sự.",
+          "answer_hanzi": "你填写的购买维修工具申请单格式写错了，请你重新写一份，然后交给行政人事部。",
+          "answer_pinyin": "Nǐ tiánxiě de gòumǎi wéixiū gōngjù shēnqǐngdān géshì xiě cuò le, qǐng nǐ chóngxīn xiě yī fèn, ránhòu jiāo gěi xíngzhèng rénshì bù.",
+          "vocab_grammar_notes": "维修工具 (công cụ sửa chữa), 申请单 (đơn xin), 重新 (viết lại từ đầu)."
+        },
+        {
+          "exercise_id": "q3_b04_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tình hình bây giờ của công xưởng rất bừa bộn, có rất nhiều máy móc bị hỏng, bạn sắp xếp người đến sửa đi.",
+          "answer_hanzi": "现在工厂车间的情况非常混乱，有很多机器设备坏了，你快安排维修人员过来修理吧。",
+          "answer_pinyin": "Xiànzài gōngchǎng chējiān de qíngkuàng fēicháng hùnluàn, yǒu hěn duō jīqì shèbèi huài le, nǐ kuài ānpái wéixiū rényuán guòlái xiūlǐ ba.",
+          "vocab_grammar_notes": "混乱 (hùnluàn: bừa bộn, hỗn loạn), 安排人修理 (sắp xếp người sửa)."
+        },
+        {
+          "exercise_id": "q3_b04_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Có một lô hàng phát sinh vấn đề, tỉ lệ không đạt rất cao, các bộ phận liên quan đến họp khẩn cấp.",
+          "answer_hanzi": "有一批货物发生了质量问题，不良率非常高，请各相关部门立刻过来开紧急会议。",
+          "answer_pinyin": "Yǒu yī pī huòwù fāshēng le zhìliàng wèntí, bùliáng lǜ fēicháng gāo, qǐng gè xiāngguān bùmén lìkè guòlái kāi jǐnjí huìyì.",
+          "vocab_grammar_notes": "不良率 (bùliáng lǜ: tỉ lệ không đạt), 相关部门 (các bộ phận liên quan), 紧急会议 (họp khẩn cấp)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b05",
+      "lesson_num": 5,
+      "lesson_title": "第五课 Dì wǔ kè：我真的知道错了。 / Bài 5: Tôi thật sự biết lỗi rồi",
+      "exercises": [
+        {
+          "exercise_id": "q3_b05_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "之后",
+          "target_word_pinyin": "Zhīhòu",
+          "target_word_meaning": "Sau đó, sau khi",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Sau khi xảy ra tai nạn lao động, nhà xưởng lập tức tạm dừng hoạt động để tiến hành điều tra kỹ thuật.",
+          "answer_hanzi": "发生工伤安全事故之后，生产线立刻暂停运作以便专业人员展开事故调查。",
+          "answer_pinyin": "Fāshēng gōngshāng ānquán shìgù zhīhòu, shēngchǎnxiàn lìkè zàntíng yùnzuò yǐbiàn zhuānyè rényuán zhǎnkāi shìgù diàochá.",
+          "vocab_grammar_notes": "事故之后 (sau sự cố)."
+        },
+        {
+          "exercise_id": "q3_b05_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "病假",
+          "target_word_pinyin": "Bìngjià",
+          "target_word_meaning": "Nghỉ ốm, nghỉ phép bệnh",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Anh ấy vì bị cảm sốt nặng nên đã nộp giấy chứng nhận bệnh của bệnh viện để xin nghỉ ốm ba ngày.",
+          "answer_hanzi": "因为突发重感冒高烧不退，他特意向人事部提交了医院证明申请休三天病假。",
+          "answer_pinyin": "Yīnwèi tūfā zhòng gǎnmào gāoshāo bù tuì, tā tèyì xiàng rénshì bù tíjiāo le yīyuàn zhèngmíng shēnqǐng xiū sān tiān bìngjià.",
+          "vocab_grammar_notes": "休病假 (xiū bìngjià: nghỉ ốm), 医院证明 (giấy bệnh viện)."
+        },
+        {
+          "exercise_id": "q3_b05_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "处理",
+          "target_word_pinyin": "Chǔlǐ",
+          "target_word_meaning": "Xử lý, giải quyết",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Chủ quản Hồ đang có mặt tại hiện trường để trực tiếp chỉ đạo xử lý sự cố thiết bị máy móc hư hỏng.",
+          "answer_hanzi": "胡主管目前正在生产一线车间现场，亲自跟进协调处理这起突发的机械故障。",
+          "answer_pinyin": "Hú zhǔguǎn mùqián zhèngzài shēngchǎn yīxiàn chējiān xiànchǎng, qīnzì gēnjìn xiétiáo chǔlǐ zhè qǐ tūfā de jīxiè gùzhàng.",
+          "vocab_grammar_notes": "处理故障 (xử lý sự cố/trục trặc)."
+        },
+        {
+          "exercise_id": "q3_b05_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "困",
+          "target_word_pinyin": "Kùn",
+          "target_word_meaning": "Buồn ngủ, vướng mắc, khốn đốn",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Đêm qua tăng ca làm đêm mệt mỏi quá, trưa nay vừa ăn cơm xong là tôi đã cảm thấy vô cùng buồn ngủ.",
+          "answer_hanzi": "昨天通宵上夜班实在太辛苦了，今天吃完午饭之后我整个人困得连眼睛都睁不开了。",
+          "answer_pinyin": "Zuótiān tōngxiāo shàng yèbān shízài tài xīnkǔ le, jīntiān chī wán wǔfàn zhīhòu wǒ zhěng gè rén kùn de lián yǎnjing dōu zhēng bu kāi le.",
+          "vocab_grammar_notes": "困得 (buồn ngủ đến mức...)."
+        },
+        {
+          "exercise_id": "q3_b05_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "班长",
+          "target_word_pinyin": "Bānzhǎng",
+          "target_word_meaning": "Tổ trưởng, trưởng ca",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tổ trưởng ca ngày luôn hướng dẫn tận tình cho các công nhân mới về quy trình an toàn của máy móc.",
+          "answer_hanzi": "白班班长在早会上总是非常热心地为新进车间的普工培训机器的操作注意事项。",
+          "answer_pinyin": "Báibān bānzhǎng zài zǎohuì shàng zǒngshì fēicháng rèxīn de wèi xīn jìn chējiān de pǔgōng péixùn jīqì de cāozuò zhùyì shìxiàng.",
+          "vocab_grammar_notes": "车间班长 (tổ trưởng sản xuất/trưởng ca xưởng)."
+        },
+        {
+          "exercise_id": "q3_b05_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "文件",
+          "target_word_pinyin": "Wénjiàn",
+          "target_word_meaning": "Văn kiện, tài liệu, hồ sơ",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tôi đã cất cẩn thận toàn bộ các văn bản hợp đồng quan trọng vào trong két sắt lưu trữ của phòng giám đốc.",
+          "answer_hanzi": "我已经把这几份涉及商业机密的重要合同文件，全部锁进总经理办公室的文件柜里了。",
+          "answer_pinyin": "Wǒ yǐjīng bǎ zhè jǐ fèn shèjí shāngyè jīmì de zhòngyào hétong wénjiàn, quánbù suǒ jìn zǒngjīnglǐ bàngōngshì de wénjiànguì lǐ le.",
+          "vocab_grammar_notes": "合同文件 (tài liệu hợp đồng), 文件柜 (tủ tài liệu)."
+        },
+        {
+          "exercise_id": "q3_b05_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Trong 1 tiếng tôi sẽ chuẩn bị xong tất cả tài liệu và văn kiện, cũng sắp xong rồi.",
+          "answer_hanzi": "在一个小时之内我会把所有的资料和文件都准备好，现在也快做好了。",
+          "answer_pinyin": "Zài yī gè xiǎoshí zhīnèi wǒ huì bǎ suǒyǒu de zīliào hé wénjiàn dōu zhǔnbèi hǎo, xiànzài yě kuài zuò hǎo le.",
+          "vocab_grammar_notes": "在一个小时之内 (trong vòng 1 giờ), 资料和文件 (tài liệu và văn kiện)."
+        },
+        {
+          "exercise_id": "q3_b05_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi đối với cách làm việc của bạn rất hài lòng, sau này bạn nên cố gắng phát huy.",
+          "answer_hanzi": "我对你的工作表现和办事方式非常满意，以后你要继续努力好好发挥。",
+          "answer_pinyin": "Wǒ duì nǐ de gōngzuò biǎoxiàn hé bànshì fāngshì fēicháng mǎnyì, yǐhòu nǐ yào jìxù nǔlì hǎohāo fāhuī.",
+          "vocab_grammar_notes": "对...满意 (hài lòng đối với...), 发挥 (fāhuī: phát huy)."
+        },
+        {
+          "exercise_id": "q3_b05_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Nhật Lê có thai rồi, cũng sắp nghỉ phép thai sản, bạn sắp xếp tuyển dụng thêm 1 nhân viên thống kê đi.",
+          "answer_hanzi": "日黎已经怀孕了，马上就要休产假了，你快安排多招聘一位车间统计员吧。",
+          "answer_pinyin": "Rìlí yǐjīng huáiyùn le, mǎshàng jiù yào xiū chǎnjià le, nǐ kuài ānpái duō zhāopìn yī wèi chējiān tǒngjìyuán ba.",
+          "vocab_grammar_notes": "怀孕 (huáiyùn: có thai/mang thai), 休产假 (xiū chǎnjià: nghỉ chế độ thai sản)."
+        },
+        {
+          "exercise_id": "q3_b05_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Lúc nãy có 1 máy đột nhiên nổ, có 1 công nhân bị phỏng, nhân viên y tế đến giúp anh ấy băng bó rồi.",
+          "answer_hanzi": "刚才有一台机器突然爆炸了，有一名工人被烫伤，医务人员已经过来帮他包扎好了。",
+          "answer_pinyin": "Gāngcái yǒu yī tái jīqì tūrán bàozhà le, yǒu yī míng gōngrén bèi tàngshāng, yīwù rényuán yǐjīng guòlái bāng tā bāozā hǎo le.",
+          "vocab_grammar_notes": "爆炸 (nổ), 烫伤 (tàngshāng: bị phỏng), 包扎 (bāozā: băng bó)."
+        },
+        {
+          "exercise_id": "q3_b05_ex11",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ở xưởng E có 1 thiết bị rò rỉ điện, có 2 công nhân bị điện giật, nhưng không nguy hiểm, họ đã tỉnh rồi.",
+          "answer_hanzi": "E车间有一台设备漏电，有两名工人触电了，不过没有生命危险，他们已经醒过来了。",
+          "answer_pinyin": "E chējiān yǒu yī tái shèbèi lòudiàn, yǒu liǎng míng gōngrén chùdiàn le, bùguò méiyǒu shēngmìng wēixiǎn, tāmen yǐjīng xǐng guòlái le.",
+          "vocab_grammar_notes": "漏电 (lòudiàn: rò rỉ điện), 触电 (chùdiàn: bị điện giật), 醒过来 (tỉnh lại)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b06",
+      "lesson_num": 6,
+      "lesson_title": "第六课 Dì liù kè：一些工厂的问题。 / Bài 6: Một số vấn đề của nhà máy",
+      "exercises": [
+        {
+          "exercise_id": "q3_b06_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "打卡",
+          "target_word_pinyin": "Dǎkǎ",
+          "target_word_meaning": "Quẹt thẻ (chấm công)",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Công ty có quy định nghiêm ngặt rằng tất cả nhân viên phải tự mình quẹt thẻ chấm công, không được quẹt hộ người khác.",
+          "answer_hanzi": "公司严禁代替他人打卡，每位员工上下班都必须自觉在指纹考勤机上打卡。",
+          "answer_pinyin": "Gōngsī yánjìn dàitì tārén dǎkǎ, měi wèi yuángōng shàngxiàbān dōu bìxū zìjué zài zhǐwén kǎoqín jī shàng dǎkǎ.",
+          "vocab_grammar_notes": "考勤打卡 (chấm công quẹt thẻ), 代打卡 (quẹt thẻ giùm)."
+        },
+        {
+          "exercise_id": "q3_b06_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "年底",
+          "target_word_pinyin": "Niándǐ",
+          "target_word_meaning": "Cuối năm",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Vào dịp cuối năm, toàn thể nhân viên trong công ty đều rất mong đợi khoản tiền thưởng tháng lương thứ mười ba.",
+          "answer_hanzi": "每到年底核算业绩的时候，大家最期待的就是拿到公司发放的第十三月年终奖金。",
+          "answer_pinyin": "Měi dào niándǐ hésuàn yèjì de shíhou, dàjiā zuì qīdài de jiùshì nádào gōngsī fāfàng de dì-shísān yuè niánzhōng jiǎngjīn.",
+          "vocab_grammar_notes": "年底 (niándǐ: cuối năm), 年终奖 (thưởng cuối năm)."
+        },
+        {
+          "exercise_id": "q3_b06_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "懒",
+          "target_word_pinyin": "Lǎn",
+          "target_word_meaning": "Lười biếng",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Làm việc trong môi trường công xưởng tuyệt đối không được có thói lười biếng, nếu không sẽ bị đào thải.",
+          "answer_hanzi": "在流水线上工作绝不能偷懒拖延，否则不仅影响团队进度，还会被工厂淘汰。",
+          "answer_pinyin": "Zài liúshuǐxiàn shàng gōngzuò jué bù néng tōulǎn tuōyán, fǒuzé bùjǐn yǐngxiǎng tuánduì jìndù, hái huì bèi gōngchǎng táotài.",
+          "vocab_grammar_notes": "偷懒 (tōulǎn: lười biếng, trốn việc)."
+        },
+        {
+          "exercise_id": "q3_b06_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "吵架",
+          "target_word_pinyin": "Chǎojià",
+          "target_word_meaning": "Cãi nhau",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Khi đồng nghiệp có ý kiến bất đồng trong công việc, nên bình tĩnh nói chuyện chứ không nên cãi nhau gay gắt.",
+          "answer_hanzi": "同事之间在工作配合上有意见分歧时，应该理性沟通，切不可冲动争吵吵架。",
+          "answer_pinyin": "Tóngshì zhījiān zài gōngzuò pèihé shàng yǒu yìjiàn fēnqí shí, yīnggāi lǐxìng gōutōng, qiè bùkě chōngdòng zhēngchǎo chǎojià.",
+          "vocab_grammar_notes": "争吵/吵架 (cãi cọ, tranh cãi)."
+        },
+        {
+          "exercise_id": "q3_b06_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "保证",
+          "target_word_pinyin": "Bǎozhèng",
+          "target_word_meaning": "Bảo đảm, cam đoan",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Trưởng phòng sản xuất cam kết với khách hàng sẽ bảo đảm chất lượng hàng hóa đạt chuẩn 100%.",
+          "answer_hanzi": "生产部经理向客户郑重保证，这批出口订单的产品质量合格率绝对达到百分之百。",
+          "answer_pinyin": "Shēngchǎn bù jīnglǐ xiàng kèhù zhèngzhòng bǎozhèng, zhè pī chūkǒu dìngdān de chǎnpǐn zhìliàng hégélǜ juéduì dádào bǎi fēn zhī bǎi.",
+          "vocab_grammar_notes": "保证质量 (bảo đảm chất lượng), 合格率 (tỉ lệ đạt)."
+        },
+        {
+          "exercise_id": "q3_b06_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "赚钱",
+          "target_word_pinyin": "Zhuànqián",
+          "target_word_meaning": "Kiếm tiền",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Nhiều người trẻ rời quê hương lên các khu công nghiệp làm việc tăng ca chăm chỉ để kiếm tiền.",
+          "answer_hanzi": "很多年轻人离开农村老家来到工业区打拼，靠着勤劳加班努力赚钱改善家庭生活。",
+          "answer_pinyin": "Hěn duō niánqīng rén líkāi nóngcūn lǎojiā lái dào gōngyèqū dǎpīn, kàozhe qínláo jiābān nǔlì zhuànqián gǎishàn jiātíng shēnghuó.",
+          "vocab_grammar_notes": "努力赚钱 (nỗ lực kiếm tiền)."
+        },
+        {
+          "exercise_id": "q3_b06_ex07",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "好像",
+          "target_word_pinyin": "Hǎoxiàng",
+          "target_word_meaning": "Hình như, dường như",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tôi nghe thấy tiếng máy cắt phía trước hình như có âm thanh lạ, bạn mau dừng máy kiểm tra xem.",
+          "answer_hanzi": "我听见前面那台激光切割机的运转声音好像有些不正常，你快按紧急停止按钮检查一下。",
+          "answer_pinyin": "Wǒ tīngjiàn qiánmiàn nà tái jīguāng qiēgējī de yùnzhuǎn shēngyīn hǎoxiàng yǒuxiē bù zhèngcháng, nǐ kuài àn jǐnjí tíngzhǐ ànniǔ jiǎnchá yīxià.",
+          "vocab_grammar_notes": "好像 (hǎoxiàng: dường như, hình như)."
+        },
+        {
+          "exercise_id": "q3_b06_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Chiều nay có khách hàng đến công xưởng tham quan, bạn thông báo trong nhóm cho các bộ phận chuẩn bị.",
+          "answer_hanzi": "今天下午有重要客户来我们工厂参观考察，你快在工作群里通知各部门做好准备。",
+          "answer_pinyin": "Jīntiān xiàwǔ yǒu zhòngyào kèhù lái wǒmen gōngchǎng cānguān kǎochá, nǐ kuài zài gōngzuò qún lǐ tōngzhī gè bùmén zuò hǎo zhǔnbèi.",
+          "vocab_grammar_notes": "参观考察 (tham quan khảo sát), 工作群 (nhóm làm việc/group chat)."
+        },
+        {
+          "exercise_id": "q3_b06_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Văn phòng của chủ quản rất dơ, bạn kêu nhân viên vệ sinh đến dọn dẹp đi.",
+          "answer_hanzi": "主管的办公室地面弄得很脏，你快去叫保洁阿姨过来彻底打扫整理一下吧。",
+          "answer_pinyin": "Zhǔguǎn de bàngōngshì dìmian nòng de hěn zāng, nǐ kuài qù jiào bǎojié āyí guòlái chèdǐ dǎsǎo zhěnglǐ yīxià ba.",
+          "vocab_grammar_notes": "弄得很脏 (làm bẩn rất dơ), 保洁员 (nhân viên vệ sinh)."
+        },
+        {
+          "exercise_id": "q3_b06_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bởi vì gia đình anh ấy rất khó khăn, nên anh ấy luôn luôn nỗ lực kiếm tiền, vì vậy áp lực cũng rất lớn.",
+          "answer_hanzi": "因为他的家庭经济条件非常困难，所以他一直拼命努力赚钱，因此心理压力也非常大。",
+          "answer_pinyin": "Yīnwèi tā de jiātíng jīngjì tiáojiàn fēicháng kùnnan, suǒyǐ tā yīzhí pīnmìng nǔlì zhuànqián, yīncǐ xīnlǐ yālì yě fēicháng dà.",
+          "vocab_grammar_notes": "经济困难 (kinh tế khó khăn), 努力赚钱 (nỗ lực kiếm tiền), 压力很大 (áp lực rất lớn)."
+        },
+        {
+          "exercise_id": "q3_b06_ex11",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Lô hàng lần này, tỉ lệ không đạt rất nhiều, bạn giúp tôi liên hệ nhà cung ứng đi.",
+          "answer_hanzi": "这批原料的不良品率实在是太高了，麻烦你赶紧帮我联系供应商过来协商索赔。",
+          "answer_pinyin": "Zhè pī yuánliào de bùliángpǐn lǜ shízài shì tài gāo le, máfan nǐ gǎnjǐn bāng wǒ liánxì gōngyìngshāng guòlái xiéshāng suǒpéi.",
+          "vocab_grammar_notes": "不良品率 (tỉ lệ sản phẩm hỏng), 联系供应商 (liên hệ nhà cung ứng)."
+        },
+        {
+          "exercise_id": "q3_b06_ex12",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn biết lái xe nâng không, bạn có kinh nghiệm mấy năm rồi, công ty tôi cần tuyển, lương cũng tương đối cao.",
+          "answer_hanzi": "你会开叉车吗？你有几年的驾驶经验了？我们公司正在招聘叉车司机，薪水待遇也比较高。",
+          "answer_pinyin": "Nǐ huì kāi chāchē ma? Nǐ yǒu jǐ nián de jiàshǐ jīngyàn le? Wǒmen gōngsī zhèngzài zhāopìn chāchē sījī, xīnshuǐ dàiyù yě bǐjiào gāo.",
+          "vocab_grammar_notes": "开叉车 (kāi chāchē: lái xe nâng), 比较高 (tương đối cao)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b07",
+      "lesson_num": 7,
+      "lesson_title": "第七课 Dì qī kè：这些事都是你自己管的。 / Bài 7: Những việc này đều do bạn tự quản lý",
+      "exercises": [
+        {
+          "exercise_id": "q3_b07_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "价钱",
+          "target_word_pinyin": "Jiàqián",
+          "target_word_meaning": "Giá tiền, giá cả",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Giá tiền của lô nguyên phụ liệu này rẻ hơn nhiều so với báo giá của nhà cung ứng trước đó.",
+          "answer_hanzi": "这批服装辅料的采购价钱，比之前那家供货商给出的报价要便宜很多。",
+          "answer_pinyin": "Zhè pī fúzhuāng fǔliào de cǎigòu jiàqián, bǐ zhīqián nà jiā gōnghuòshāng gěichū de bàojià yào piányi hěn duō.",
+          "vocab_grammar_notes": "价钱/价格 (giá tiền), 报价 (báo giá)."
+        },
+        {
+          "exercise_id": "q3_b07_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "扫描",
+          "target_word_pinyin": "Sǎomiáo",
+          "target_word_meaning": "Quét (scan), quét mã",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Thủ kho dùng máy quét mã vạch để quét mã từng thùng hàng trước khi đưa lên xe tải vận chuyển.",
+          "answer_hanzi": "仓库管理员正在使用手持扫描枪，认真扫描每件纸箱上的条形码以便核实出库数量。",
+          "answer_pinyin": "Cāngkù guǎnlǐyuán zhèngzài shǐyòng shǒuchí sǎomiáoqiāng, rènzhēn sǎomiáo měi jiàn zhǐxiāng shàng de tiáoxíngmǎ yǐbiàn héshí chūkù shùliàng.",
+          "vocab_grammar_notes": "扫描条形码 (quét mã vạch), 扫描枪 (súng scan mã)."
+        },
+        {
+          "exercise_id": "q3_b07_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "疫情",
+          "target_word_pinyin": "Yìqíng",
+          "target_word_meaning": "Tình hình dịch bệnh",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Trong thời gian bùng phát dịch bệnh, tất cả công nhân viên ra vào nhà máy đều phải đo thân nhiệt và đeo khẩu trang.",
+          "answer_hanzi": "在疫情防控期间，所有进出工厂厂区的员工和访客都必须测量体温并佩戴口罩。",
+          "answer_pinyin": "Zài yìqíng fángkòng qījiān, suǒyǒu jìnchū gōngchǎng chǎngqū de yuángōng hé fǎngkè dōu bìxū cèliáng tǐwēn bìng pèidài kǒuzhào.",
+          "vocab_grammar_notes": "疫情防控 (phòng chống dịch bệnh), 测量体温 (đo thân nhiệt)."
+        },
+        {
+          "exercise_id": "q3_b07_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "戴眼镜",
+          "target_word_pinyin": "Dài yǎnjìng",
+          "target_word_meaning": "Đeo kính, mang kính",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Vì đôi mắt của anh ấy bị cận thị độ cao nên khi đọc tài liệu công việc lúc nào cũng phải đeo kính.",
+          "answer_hanzi": "因为他的眼睛高度近视，所以在看图纸和电脑文件的时候必须时刻戴着眼镜。",
+          "answer_pinyin": "Yīnwèi tā de yǎnjing gāodù jìnshì, suǒyǐ zài kàn túzhǐ hé diànnǎo wénjiàn de shíhou bìxū shíkè dàizhe yǎnjìng.",
+          "vocab_grammar_notes": "戴眼镜 (dài yǎnjìng: đeo kính)."
+        },
+        {
+          "exercise_id": "q3_b07_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "来不及",
+          "target_word_pinyin": "Láibují",
+          "target_word_meaning": "Không kịp",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Sáng nay thức dậy muộn quá nên tôi không kịp ăn sáng, vội vàng chạy đến công ty cho kịp giờ làm.",
+          "answer_hanzi": "今天早晨起得太晚了，我根本来不及在宿舍吃早餐，就急急忙忙骑车赶来公司打卡。",
+          "answer_pinyin": "Jīntiān zǎochen qǐ de tài wǎn le, wǒ gēnběn láibují zài sùshè chī zǎocān, jiù jíjímángmáng qí chē gǎn lái gōngsī dǎkǎ.",
+          "vocab_grammar_notes": "来不及 (láibují: không kịp làm gì)."
+        },
+        {
+          "exercise_id": "q3_b07_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "暂时",
+          "target_word_pinyin": "Zhànshí",
+          "target_word_meaning": "Tạm thời",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Vì đường dây chuyền sơn đang bảo trì nên công đoạn này tạm thời dừng lại trong hai tiếng.",
+          "answer_hanzi": "由于喷涂设备正在进行紧急检修，该工段的加工作业暂时停止两个小时。",
+          "answer_pinyin": "Yóuyú pēntú shèbèi zhèngzài jìnxíng jǐnjí jiǎnxiū, gāi gōngduàn de jiāgōng zuòyè zhànshí tíngzhǐ liǎng gè xiǎoshí.",
+          "vocab_grammar_notes": "暂时停止 (tạm thời dừng lại)."
+        },
+        {
+          "exercise_id": "q3_b07_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tối hôm qua tôi mất ngủ, không kịp ăn sáng, trên đường kẹt xe dữ dội, vì vậy đến trễ 15 phút, tôi cũng không có quẹt thẻ.",
+          "answer_hanzi": "昨天晚上我失眠了，早上来不及吃早饭，路上堵车非常严重，所以迟到了十五分钟，我也没来得及打卡。",
+          "answer_pinyin": "Zuótiān wǎnshang wǒ shīmián le, zǎoshang láibují chī zǎofàn, lùshang dǔchē fēicháng yánzhòng, suǒyǐ chídào le shíwǔ fēnzhōng, wǒ yě méi láidejí dǎkǎ.",
+          "vocab_grammar_notes": "失眠 (shīmián: mất ngủ), 来不及 (láibují: không kịp), 堵车严重 (kẹt xe nghiêm trọng)."
+        },
+        {
+          "exercise_id": "q3_b07_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tuần sau, xưởng thành phẩm tổ chức diễn tập thao tác của PCCC, công nhân nên tích cực hợp tác và tham gia.",
+          "answer_hanzi": "下个星期，成品车间组织消防安全实操演练，全体一线工人应该积极配合并且踊跃参加。",
+          "answer_pinyin": "Xià gè xīngqī, chéngpǐn chējiān zǔzhī xiāofáng ānquán shícāo yǎnliàn, quántǐ yīxiàn gōngrén yīnggāi jījí pèihé bìngqiě yǒngyuè cānjiā.",
+          "vocab_grammar_notes": "消防演练 (xiāofáng yǎnliàn: diễn tập PCCC), 成品车间 (xưởng thành phẩm)."
+        },
+        {
+          "exercise_id": "q3_b07_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Công ty nghiêm cấm hút thuốc là bởi vì phòng ngừa hỏa hoạn và nổ, tất cả công nhân đều phải tuân thủ quy định này.",
+          "answer_hanzi": "公司严禁在厂区吸烟是为了有效预防火灾和爆炸事故，所有员工都必须严格遵守这一项安全规定。",
+          "answer_pinyin": "Gōngsī yánjìn zài chǎngqū xīyān shì wèile yǒuxiào yùfáng huǒzāi hé bàozhà shìgù, suǒyǒu yuángōng dōu bìxū yángé zūnshǒu zhè yī xiàng ānquán guīdìng.",
+          "vocab_grammar_notes": "预防火灾 (phòng ngừa hỏa hoạn), 严禁吸烟 (nghiêm cấm hút thuốc)."
+        },
+        {
+          "exercise_id": "q3_b07_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Sau khi cuộc họp kết thúc, những hợp đồng này bạn giúp tôi photo 2 phần, đem cho chủ quản Hồ kí tên và đóng mộc.",
+          "answer_hanzi": "会议结束之后，这些合同文件请你帮我复印两份，然后送去给胡主管签字盖章。",
+          "answer_pinyin": "Huìyì jiéshù zhīhòu, zhèxiē hétong wénjiàn qǐng nǐ bāng wǒ fùyìn liǎng fèn, ránhòu sòng qù gěi Hú zhǔguǎn qiānzì gàizhāng.",
+          "vocab_grammar_notes": "复印两份 (photo 2 bản), 签字盖章 (ký tên đóng mộc/đóng dấu)."
+        },
+        {
+          "exercise_id": "q3_b07_ex11",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Hôm qua tan học, lúc chạy xe về nhà, không cẩn thận nên anh ấy té, nhưng bị thương không quá nghiêm trọng.",
+          "answer_hanzi": "昨天放学后骑车回家的路上，他不小心摔倒了，不过幸好伤势并不算太严重。",
+          "answer_pinyin": "Zuótiān fàngxué hòu qí chē huí jiā de lùshang, tā bù xiǎoxīn shuāidǎo le, bùguò xìnghǎo shāngshì bìng bù suàn tài yánzhòng.",
+          "vocab_grammar_notes": "不小心摔倒 (không cẩn thận té ngã), 伤势不严重 (vết thương không nghiêm trọng)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b08",
+      "lesson_num": 8,
+      "lesson_title": "第八课 Dì bā kè：工作时候我受伤了！ / Bài 8: Lúc làm việc tôi bị thương rồi!",
+      "exercises": [
+        {
+          "exercise_id": "q3_b08_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "合理",
+          "target_word_pinyin": "Hélǐ",
+          "target_word_meaning": "Hợp lý",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bảng báo giá của nhà cung ứng này rất hợp lý, rất phù hợp với ngân sách của công ty chúng tôi.",
+          "answer_hanzi": "这家供应商给出的产品报价相当合理透明，完全符合我们公司预先设定的采购预算。",
+          "answer_pinyin": "Zhè jiā gōngyìngshāng gěichū de chǎnpǐn bàojià xiāngdāng hélǐ tòumíng, wánquán fúhé wǒmen gōngsī yùxiān shèdìng de cǎigòu yùsuàn.",
+          "vocab_grammar_notes": "价格合理 (giá cả hợp lý)."
+        },
+        {
+          "exercise_id": "q3_b08_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "目的",
+          "target_word_pinyin": "Mùdì",
+          "target_word_meaning": "Mục đích",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Mục đích chính của khóa đào tạo an toàn lao động lần này là nâng cao ý thức phòng ngừa tai nạn cho công nhân.",
+          "answer_hanzi": "组织这次车间安全实操培训的主要目的，在于全面提高全体一线员工的自我保护意识。",
+          "answer_pinyin": "Zǔzhī zhè cì chējiān ānquán shícāo péixùn de zhǔyào mùdì, zàiyú quánmiàn tígāo quántǐ yīxiàn yuángōng de zìwǒ bǎohù yìshí.",
+          "vocab_grammar_notes": "主要目的 (mục đích chính)."
+        },
+        {
+          "exercise_id": "q3_b08_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "培训",
+          "target_word_pinyin": "Péixùn",
+          "target_word_meaning": "Đào tạo, tập huấn",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tất cả công nhân mới trước khi vào dây chuyền sản xuất đều phải tham gia khóa tập huấn kéo dài ba ngày.",
+          "answer_hanzi": "所有新入职的员工在正式上岗之前，都必须参加为期三天的岗位技能和安全培训。",
+          "answer_pinyin": "Suǒyǒu xīn rùzhí de yuángōng zài zhèngshì shànggǎng zhīqián, dōu bìxū cānjiā wéiqī sān tiān de gǎngwèi jìnéng hé ānquán péixùn.",
+          "vocab_grammar_notes": "岗前培训 (đào tạo trước khi nhận việc)."
+        },
+        {
+          "exercise_id": "q3_b08_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "的话",
+          "target_word_pinyin": "Dehuà",
+          "target_word_meaning": "Nếu, nếu như (trợ từ giả thiết)",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Nếu như bạn phát hiện máy móc có tiếng kêu bất thường, hãy lập tức báo cho tổ trưởng bảo trì.",
+          "answer_hanzi": "如果发现运转中的机械设备出现异响的话，请务必立刻通知现场的机修班长过来排查。",
+          "answer_pinyin": "Rúguǒ fāxiàn yùnzhuǎn zhōng de jīxiè shèbèi chūxiàn yìxiǎng dehuà, qǐng wùbì lìkè tōngzhī xiànchǎng de jīxiū bānzhǎng guòlái páichá.",
+          "vocab_grammar_notes": "如果...的话 (rúguǒ... dehuà: nếu như...)."
+        },
+        {
+          "exercise_id": "q3_b08_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "升职",
+          "target_word_pinyin": "Shēng zhí",
+          "target_word_meaning": "Thăng chức",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Nhờ thành tích làm việc xuất sắc và khả năng lãnh đạo, anh ấy vừa được thăng chức lên làm phó giám đốc.",
+          "answer_hanzi": "凭借突出的工作业绩以及卓越的管理能力，他上个月成功升职为生产部副经理。",
+          "answer_pinyin": "Píngjiè tūchū de gōngzuò yèjì yǐjí zhuóyuè de guǎnlǐ nénglì, tā shàng gè yuè chénggōng shēngzhí wéi shēngchǎn bù fù jīnglǐ.",
+          "vocab_grammar_notes": "升职加薪 (thăng chức tăng lương)."
+        },
+        {
+          "exercise_id": "q3_b08_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "长度",
+          "target_word_pinyin": "Chángdù",
+          "target_word_meaning": "Chiều dài, độ dài",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Nhân viên QC dùng thước cặp chính xác để đo chiều dài và độ dày của thanh kim loại này.",
+          "answer_hanzi": "质检员正在使用精密卡尺，认真测量这批加工零配件的具体长度和厚度误差。",
+          "answer_pinyin": "Zhìjiǎnyuán zhèngzài shǐyòng jīngmì kǎchǐ, rènzhēn cèliáng zhè pī jiāgōng língpèijiàn de jùtǐ chángdù hé hòudù wùchā.",
+          "vocab_grammar_notes": "测量长度 (cèliáng chángdù: đo chiều dài)."
+        },
+        {
+          "exercise_id": "q3_b08_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Em gái của bạn càng lớn càng đẹp, tóc vàng, mũi cao, mắt to, hơn nữa còn biết rất nhiều thứ tiếng.",
+          "answer_hanzi": "你的妹妹越长越漂亮了，金黄色的头发，高鼻梁，大眼睛，而且还会说好几种外语。",
+          "answer_pinyin": "Nǐ de mèimei yuè zhǎng yuè piàoliang le, jīnhuángsè de tóufa, gāo bíliáng, dà yǎnjing, érqiě hái huì shuō hǎo jǐ zhǒng wàiyǔ.",
+          "vocab_grammar_notes": "越...越... (càng... càng...), 而且还 (hơn nữa còn)."
+        },
+        {
+          "exercise_id": "q3_b08_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Ước mơ sau này của bạn là có thể mua nhà, mua xe, mua đất. Bạn muốn sống một cuộc sống tốt đẹp hơn hiện tại.",
+          "answer_hanzi": "你以后的梦想是能够买房、买车、买地。你想过上比现在更加美好的生活。",
+          "answer_pinyin": "Nǐ yǐhòu de mèngxiǎng shì nénggòu mǎi fáng, mǎi chē, mǎi dì. Nǐ xiǎng guò shàng bǐ xiànzài gèngjiā měihǎo de shēnghuó.",
+          "vocab_grammar_notes": "以后的梦想 (ước mơ sau này), 比现在更加美好 (tốt đẹp hơn hiện tại)."
+        },
+        {
+          "exercise_id": "q3_b08_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Phòng của bạn bao lâu chưa quét dọn, vừa dơ vừa lộn xộn, ăn cơm xong lập tức dọn dẹp đi.",
+          "answer_hanzi": "你的房间多久没有打扫了，又脏又乱，吃完饭立刻去收拾打扫干净吧。",
+          "answer_pinyin": "Nǐ de fángjiān duōjiǔ méiyǒu dǎsǎo le, yòu zāng yòu luàn, chī wán fàn lìkè qù shōushi dǎsǎo gānjìng ba.",
+          "vocab_grammar_notes": "又脏又乱 (vừa dơ vừa lộn xộn), 收拾干净 (dọn dẹp sạch sẽ)."
+        },
+        {
+          "exercise_id": "q3_b08_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bạn học tiếng Anh tốt như vậy, phương pháp học của bạn là gì, có thể chia sẻ cho tôi một chút không?",
+          "answer_hanzi": "你的英语学得这么好，你平时的学习方法是什么，能不能给我分享一下？",
+          "answer_pinyin": "Nǐ de yīngyǔ xué de zhème hǎo, nǐ píngshí de xuéxí fāngfǎ shì shénme, néng bu néng gěi wǒ fēnxiǎng yīxià?",
+          "vocab_grammar_notes": "学习方法 (phương pháp học), 分享 (chia sẻ)."
+        },
+        {
+          "exercise_id": "q3_b08_ex11",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi không thích ăn cơm ở bên ngoài, tôi thích tự nấu ăn, vừa ngon vừa hợp khẩu vị.",
+          "answer_hanzi": "我不喜欢在外面吃饭，我喜欢自己做饭，既好吃又符合自己的口味。",
+          "answer_pinyin": "Wǒ bù xǐhuān zài wàimiàn chī fàn, wǒ xǐhuān zìjǐ zuò fàn, jì hǎochī yòu fúhé zìjǐ de kǒuwèi.",
+          "vocab_grammar_notes": "自己做饭 (tự nấu ăn), 合口味 (hợp khẩu vị)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b09",
+      "lesson_num": 9,
+      "lesson_title": "第九课 Dì jiǔ kè：我产量没有达标了！ / Bài 9: Sản lượng của tôi không đạt chỉ tiêu rồi!",
+      "exercises": [
+        {
+          "exercise_id": "q3_b09_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "考虑",
+          "target_word_pinyin": "Kǎolǜ",
+          "target_word_meaning": "Suy nghĩ, cân nhắc",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Trước khi đưa ra quyết định chuyển đổi công việc, bạn nên cân nhắc thật kỹ các yếu tố gia đình và tương lai.",
+          "answer_hanzi": "在做出跳槽换工作的决定之前，你应该结合自身家庭和职业规划认真考虑清楚。",
+          "answer_pinyin": "Zài zuòchū tiàocáo huàn gōngzuò de juédìng zhīqián, nǐ yīnggāi jiéhé zìshēn jiātíng hé zhíyè guīhuà rènzhēn kǎolǜ qīngchǔ.",
+          "vocab_grammar_notes": "考虑清楚 (cân nhắc kỹ càng)."
+        },
+        {
+          "exercise_id": "q3_b09_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "态度",
+          "target_word_pinyin": "Tàidù",
+          "target_word_meaning": "Thái độ",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Nhân viên dịch vụ khách hàng khi tiếp đãi khách phải luôn duy trì thái độ niềm nở, lịch sự và chu đáo.",
+          "answer_hanzi": "客服接待人员在面对客户咨询的时候，必须时刻保持诚恳热情、礼貌周到的服务态度。",
+          "answer_pinyin": "Kèfú jiēdài rényuán zài miànduì kèhù zīxún de shíhou, bìxū shíkè bǎochí chéngkěn rèqíng, lǐmào zhōudào de fúwù tàidù.",
+          "vocab_grammar_notes": "服务态度 (thái độ phục vụ)."
+        },
+        {
+          "exercise_id": "q3_b09_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "终于",
+          "target_word_pinyin": "Zhōngyú",
+          "target_word_meaning": "Cuối cùng",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Sau nhiều tháng ngày miệt mài nghiên cứu, dây chuyền sản xuất mới của công xưởng cuối cùng đã vận hành thành công.",
+          "answer_hanzi": "经过技术攻关小组几个月的辛勤研发，全自动生产线终于在今天上午顺利调试成功并投入运行。",
+          "answer_pinyin": "Jīngguò jìshù gōngguān xiǎozǔ jǐ gè yuè de xīnqín yánfā, quán zìdòng shēngchǎnxiàn zhōngyú zài jīntiān shàngwǔ shùnlì tiáoshì chénggōng bìng tóurù yùnxíng.",
+          "vocab_grammar_notes": "终于 (zhōngyú: cuối cùng, rốt cuộc - biểu thị kết quả mong đợi sau nhiều nỗ lực)."
+        },
+        {
+          "exercise_id": "q3_b09_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "小气",
+          "target_word_pinyin": "Xiǎoqì",
+          "target_word_meaning": "Hẹp hòi, keo kiệt",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Anh ấy trong công việc rất sòng phẳng và rộng rãi với mọi người, chưa từng có tính toán hẹp hòi keo kiệt.",
+          "answer_hanzi": "他在人际交往中一向为人非常大方开朗，从来不会在鸡毛蒜皮的小事上表现得斤斤计较和小气。",
+          "answer_pinyin": "Tā zài rénjì jiāowǎng zhōng yīxiàng wéirén fēicháng dàfang kāilǎng, cónglái bù huì zài jīmáosuànpí de xiǎoshì shàng biǎoxiàn de jīnjīnjìjiào hé xiǎoqi.",
+          "vocab_grammar_notes": "大方 (hào phóng, rộng lượng) đối nghĩa với 小气 (keo kiệt)."
+        },
+        {
+          "exercise_id": "q3_b09_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "晕倒",
+          "target_word_pinyin": "Yūn dǎo",
+          "target_word_meaning": "Ngất xỉu, ngất đi",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Vì thời tiết trong phân xưởng quá nóng bức ngột ngạt nên một nữ công nhân đã đột ngột ngất xỉu.",
+          "answer_hanzi": "由于车间里边通风不良加上气温过高，导致一位流水线女工在作业中突然体力不支晕倒了。",
+          "answer_pinyin": "Yóuyú chējiān lǐbian tōngfēng bùliáng jiā shàng qìwēn guò gāo, dǎozhì yī wèi liúshuǐxiàn nǚgōng zài zuòyè zhōng tūrán tǐlì bùzhī yūndǎo le.",
+          "vocab_grammar_notes": "晕倒 (ngất xỉu), 体力不支 (kiệt sức)."
+        },
+        {
+          "exercise_id": "q3_b09_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Cuối cùng anh ấy cũng tìm được công việc phù hợp, chức vụ này rất dễ phát triển, rất có tiền đồ.",
+          "answer_hanzi": "他终于找到了一份称心如意的工作，这个岗位晋升空间很大，非常有发展前途。",
+          "answer_pinyin": "Tā zhōngyú zhǎodào le yī fèn chènxīnrúyì de gōngzuò, zhège gǎngwèi jìnshēng kōngjiān hěn dà, fēicháng yǒu fāzhǎn qiántú.",
+          "vocab_grammar_notes": "终于 (zhōngyú: cuối cùng thì), 前途 (qiántú: tiền đồ, tương lai triển vọng)."
+        },
+        {
+          "exercise_id": "q3_b09_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Lúc đi làm, phải tuân thủ chấp hành tốt quy tắc của công xưởng, đảm bảo hoàn thành tốt nhiệm vụ của cấp trên giao phó.",
+          "answer_hanzi": "在日常工作当中，必须严格遵守工厂各项规章制度，确保按时按量完成领导交办的生产任务。",
+          "answer_pinyin": "Zài rìcháng gōngzuò dāngzhōng, bìxū yángé zūnshǒu gōngchǎng gè xiàng guīzhāng zhìdù, quèbǎo ànshí ànliàng wánchéng lǐngdǎo jiāobàn de shēngchǎn rènwu.",
+          "vocab_grammar_notes": "遵守制度 (tuân thủ chế độ/nội quy), 完成任务 (hoàn thành nhiệm vụ)."
+        },
+        {
+          "exercise_id": "q3_b09_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Nơi tôi sống rất yên tĩnh, không ồn ào, ban ngày mọi người đều đi làm, môi trường xung quanh rất sạch sẽ, không có rác.",
+          "answer_hanzi": "我住的地方非常安静祥和，一点儿也不嘈杂，白天大家都去上班，周边环境干净整洁没有垃圾。",
+          "answer_pinyin": "Wǒ zhù de dìfang fēicháng ānjìng xiánghé, yīdiǎnr yě bù cáozá, báitiān dàjiā dōu qù shàngbān, zhōubiān huánjìng gānjìng zhěngjié méiyǒu lājī.",
+          "vocab_grammar_notes": "周边环境 (môi trường xung quanh), 干净整洁 (sạch sẽ ngăn nắp)."
+        },
+        {
+          "exercise_id": "q3_b09_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Chồng của cô ấy là tài xế xe tải, cường độ làm việc của anh ấy rất cao, mỗi ngày đều thức rất sớm để lái xe tải đi giao hàng.",
+          "answer_hanzi": "她的丈夫是一名集装箱卡车司机，日常工作强度非常大，每天清晨都要很早起床开车去送货。",
+          "answer_pinyin": "Tā de zhàngfu shì yī míng jízhuāngxiāng kǎchē sījī, rìcháng gōngzuò qiángdù fēicháng dà, měitiān qīngchén dōu yào hěn zǎo qǐchuáng kāichē qù sònghuò.",
+          "vocab_grammar_notes": "工作强度 (cường độ làm việc), 开车送货 (lái xe giao hàng)."
+        },
+        {
+          "exercise_id": "q3_b09_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Mặc dù tôi đã nhanh hết sức, nhưng do trên đường quá kẹt xe, tôi không đến kịp sân bay, vì vậy tôi đã hủy vé máy bay rồi.",
+          "answer_hanzi": "虽然我已经拼尽全力赶路，但路上交通拥堵太严重，我没能赶上飞机，因此我已经退票了。",
+          "answer_pinyin": "Suīrán wǒ yǐjīng pīnjìn quánlì gǎnlù, dàn lùshang jiāotōng yōngdǔ tài yánzhòng, wǒ méi néng gǎn shàng fēijī, yīncǐ wǒ yǐjīng tuìpiào le.",
+          "vocab_grammar_notes": "交通拥堵 (giao thông tắc nghẽn/kẹt xe), 退票 (tuìpiào: trả vé/hủy vé)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b10",
+      "lesson_num": 10,
+      "lesson_title": "第十课 Dì shí kè：我觉得一切都值得 / Bài 10: Tôi cảm thấy tất cả đều xứng đáng",
+      "exercises": [
+        {
+          "exercise_id": "q3_b10_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "总之",
+          "target_word_pinyin": "Zǒngzhī",
+          "target_word_meaning": "Tóm lại, nói tóm lại",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Nói tóm lại, chất lượng là sinh mệnh của doanh nghiệp, bất kỳ công nhân nào cũng phải nghiêm khắc giữ vững tiêu chuẩn.",
+          "answer_hanzi": "总之，产品质量就是我们企业的立足生命线，每一位工人都要在生产中把好质量关。",
+          "answer_pinyin": "Zǒngzhī, chǎnpǐn zhìliàng jiùshì wǒmen qǐyè de lìzú shēngmìngxiàn, měi yī wèi gōngrén dōu yào zài shēngchǎn zhōng bǎ hǎo zhìliàng guān.",
+          "vocab_grammar_notes": "总之 đứng đầu câu để đúc kết kết luận."
+        },
+        {
+          "exercise_id": "q3_b10_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "登记",
+          "target_word_pinyin": "Dēngjì",
+          "target_word_meaning": "Đăng ký, ghi danh",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Tất cả khách bên ngoài vào công ty đều phải dừng lại ở phòng bảo vệ để xuất trình giấy tờ và đăng ký thông tin.",
+          "answer_hanzi": "所有外来访客在进入厂区大门之前，都必须在保安室出示有效证件并如实登记个人信息。",
+          "answer_pinyin": "Suǒyǒu wàilái fǎngkè zài jìnrù chǎngqū dàmén zhīqián, dōu bìxū zài bǎo'ān shì chūshì yǒuxiào zhèngjiàn bìng rúshí dēngjì gèrén xìnxī.",
+          "vocab_grammar_notes": "登记信息 (đăng ký thông tin), 保安室 (phòng bảo vệ)."
+        },
+        {
+          "exercise_id": "q3_b10_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "裁员",
+          "target_word_pinyin": "Cáiyuán",
+          "target_word_meaning": "Cắt giảm nhân sự, sa thải bớt nhân viên",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Vì ảnh hưởng của khủng hoảng kinh tế toàn cầu, ban giám đốc công ty bắt buộc phải thực hiện chính sách cắt giảm nhân sự.",
+          "answer_hanzi": "由于受到外部市场经济萧条订单锐减的严重影响，公司管理层迫不得已实施了部分裁员计划。",
+          "answer_pinyin": "Yóuyú shòudào wàibù shìchǎng jīngjì xiāotiáo dìngdān ruìjiǎn de yánzhòng yǐngxiǎng, gōngsī guǎnlǐcéng pòbùdéyǐ shíshī le bùfen cáiyuán jìhuà.",
+          "vocab_grammar_notes": "裁员计划 (kế hoạch cắt giảm nhân sự)."
+        },
+        {
+          "exercise_id": "q3_b10_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "稳定",
+          "target_word_pinyin": "Wěndìng",
+          "target_word_meaning": "Ổn định",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Anh ấy rất thích làm việc tại đây vì mức lương tốt và môi trường làm việc vô cùng ổn định lâu dài.",
+          "answer_hanzi": "他非常满意这份外资企业的工作待遇，因为这里的薪水待遇优厚并且有着非常稳定的职业发展环境。",
+          "answer_pinyin": "Tā fēicháng mǎnyì zhè fèn wàizī qǐyè de gōngzuò dàiyù, yīnwèi zhèlǐ de xīnshui dàiyù yōuhòu bìngqiě yǒuzhe fēicháng wěndìng de zhíyè fāzhǎn huánjìng.",
+          "vocab_grammar_notes": "工作稳定 (công việc ổn định)."
+        },
+        {
+          "exercise_id": "q3_b10_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "放弃",
+          "target_word_pinyin": "Fàngqì",
+          "target_word_meaning": "Từ bỏ, buông xuôi",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Cho dù công việc có gặp phải bao nhiêu khó khăn thử thách, chúng ta cũng tuyệt đối không được nản chí từ bỏ mục tiêu.",
+          "answer_hanzi": "无论在日常工作和技能学习中遇到多大的阻碍，我们都绝不能轻言放弃最初的目标。",
+          "answer_pinyin": "Wúlùn zài rìcháng gōngzuò hé jìnéng xuéxí zhōng yù dào duō dà de zǔ'ài, wǒmen dōu jué bù néng qīngyán fàngqì zuìchū de mùbiāo.",
+          "vocab_grammar_notes": "放弃目标 (từ bỏ mục tiêu), 绝不放弃 (tuyệt đối không từ bỏ)."
+        },
+        {
+          "exercise_id": "q3_b10_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Sau khi bạn làm xong bảng danh sách này, bạn đến phòng họp 1 chút, tôi có 1 số chuyện, muốn bàn bạc với bạn.",
+          "answer_hanzi": "你把这份统计名单整理好之后，请到会议室来一趟，我有些工作上的重要事情想和你商量商量。",
+          "answer_pinyin": "Nǐ bǎ zhè fèn tǒngjì míngdān zhěnglǐ hǎo zhīhòu, qǐng dào huìyìshì lái yī tàng, wǒ yǒuxiē gōngzuò shàng de zhòngyào shìqing xiǎng hé nǐ shāngliang shāngliang.",
+          "vocab_grammar_notes": "整理名单 (chỉnh lý/sắp xếp danh sách), 商量 (bàn bạc, thương lượng)."
+        },
+        {
+          "exercise_id": "q3_b10_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Phần mềm này bị lỗi rồi, bạn kêu người lập tức đến sửa đi, tôi còn rất nhiều bản vẽ thiết kế cần xử lí.",
+          "answer_hanzi": "这个电脑设计软件发生故障出错了，你快叫IT维护人员马上过来修复，我还有很多工程图纸急需处理呢。",
+          "answer_pinyin": "Zhège diànnǎo shèjì ruǎnjiàn fāshēng gùzhàng chūcuò le, nǐ kuài jiào IT wéihù rényuán mǎshàng guòlái xiūfù, wǒ hái yǒu hěn duō gōngchéng túzhǐ jíxū chǔlǐ ne.",
+          "vocab_grammar_notes": "软件出错 (phần mềm bị lỗi), 设计图纸 (bản vẽ thiết kế), 急需处理 (cần xử lý gấp)."
+        },
+        {
+          "exercise_id": "q3_b10_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Thật kì quái, số lượng của lô hàng này tôi đã đếm rất nhiều lần, đã đủ rồi, sao bây giờ lại thiếu nhiều như vậy.",
+          "answer_hanzi": "真是太奇怪了，这批出货的实际数量我之前清点核对过很多次都是齐的，怎么现在莫名其妙少了这么多？",
+          "answer_pinyin": "Zhēn shì tài qíguài le, zhè pī chūhuò de shíjì shùliàng wǒ zhīqián qīngdiǎn héduì guò hěn duō cì dōu shì qí de, zěnme xiànzài mòmíngqímiào shǎo le zhème duō?",
+          "vocab_grammar_notes": "清点数量 (đếm/kiểm kê số lượng), 奇怪 (kỳ quái, lạ lùng)."
+        },
+        {
+          "exercise_id": "q3_b10_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Mặc dù người này đã viết giấy cam kết 1 lần rồi, nhưng anh ấy lại cố ý vi phạm 1 lần nữa, anh ấy bị đuổi việc, cũng không thể trách công ty.",
+          "answer_hanzi": "虽然这个人之前已经写过一次保证书了，但他这次又故意违规犯错，他被公司开除解雇，也完全怪不得别人。",
+          "answer_pinyin": "Suīrán zhège rén zhīqián yǐjīng xiěguo yī cì bǎozhèngshū le, dàn tā zhè cì yòu gùyì wéiguī fàncuò, tā bèi gōngsī kāichú jiěgù, yě wánquán guàibude biérén.",
+          "vocab_grammar_notes": "保证书 (giấy cam kết/bảo đảm), 故意 (cố ý), 开除 (sa thải/đuổi việc), 怪不得 (không thể trách)."
+        },
+        {
+          "exercise_id": "q3_b10_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Giấy CMND của bạn mất rồi phải không, trong nhóm nhân sự vừa thông báo, có người nhặt được CMND, bạn đến đó xác nhận và lấy về đi.",
+          "answer_hanzi": "你的身份证是不是不小心弄丢了？刚才人事部工作群里发通告说有人捡到了身份证，你快去前台核实认领回来吧。",
+          "answer_pinyin": "Nǐ de shēnfènzhèng shì bù shì bù xiǎoxīn nòng diū le? Gāngcái rénshì bù gōngzuò qún lǐ fā tōnggào shuō yǒurén jiǎndào le shēnfènzhèng, nǐ kuài qù qiántái héshí rènlǐng huílái ba.",
+          "vocab_grammar_notes": "身份证 (thẻ CCCD/CMND), 弄丢 (làm mất), 捡到 (nhặt được), 认领 (xác nhận nhận lại)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b11",
+      "lesson_num": 11,
+      "lesson_title": "第十一课 Dì shíyī kè：大家的意见都一样重要 / Bài 11: Ý kiến của mọi người đều quan trọng như nhau",
+      "exercises": [
+        {
+          "exercise_id": "q3_b11_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "羡慕",
+          "target_word_pinyin": "Xiànmù",
+          "target_word_meaning": "Ngưỡng mộ, ghen tị",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Mọi người đều vô cùng ngưỡng mộ anh ấy vì anh ấy có thể giao tiếp tiếng Trung và tiếng Anh một cách lưu loát tự tin.",
+          "answer_hanzi": "大家都非常羡慕他能够讲一口极其纯正地道的英语和流利自如的中文。",
+          "answer_pinyin": "Dàjiā dōu fēicháng xiànmù tā nénggòu jiǎng yī kǒu jíqí chúnzhèng dìdào de yīngyǔ hé liúlì zìrú de zhōngwén.",
+          "vocab_grammar_notes": "羡慕 (xiànmù: ngưỡng mộ)."
+        },
+        {
+          "exercise_id": "q3_b11_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "怪不得",
+          "target_word_pinyin": "Guàibùdé",
+          "target_word_meaning": "Thảo nào, hèn chi, hèn gì",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Thảo nào hôm nay văn phòng vắng vẻ như vậy, thì ra các thành viên trong tổ đều ra xưởng kiểm tra hàng mẫu rồi.",
+          "answer_hanzi": "怪不得今天整个大办公室空无一人，原来他们整个项目组都下车间抽检产品了。",
+          "answer_pinyin": "Guàibude jīntiān zhěng gè dà bàngōngshì kōng wú yī rén, yuánlái tāmen zhěng gè xiàngmùzǔ dōu xià chējiān chōujiǎn chǎnpǐn le.",
+          "vocab_grammar_notes": "怪不得...原来... (thảo nào... thì ra...)."
+        },
+        {
+          "exercise_id": "q3_b11_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "紧张",
+          "target_word_pinyin": "Jǐnzhāng",
+          "target_word_meaning": "Căng thẳng, hồi hộp",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Lần đầu tiên đứng trước tổng giám đốc để báo cáo phương án, trong lòng tôi cảm thấy vô cùng hồi hộp lo lắng.",
+          "answer_hanzi": "第一次站在外籍总经理面前作全英文业务汇报时，我的手心里全都是汗，心情特别紧张。",
+          "answer_pinyin": "Dì yī cì zhàn zài wàijí zǒngjīnglǐ miànqián zuò quán yīngwén yèwù huìbào shí, wǒ de shǒuxīn lǐ quán dōu shì hàn, xīnqíng tèbié jǐnzhāng.",
+          "vocab_grammar_notes": "心情紧张 (tâm trạng căng thẳng/hồi hộp)."
+        },
+        {
+          "exercise_id": "q3_b11_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "微信",
+          "target_word_pinyin": "Wēixìn",
+          "target_word_meaning": "WeChat (ứng dụng nhắn tin)",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Chúng ta hãy quét mã kết bạn WeChat nhé, sau này có tài liệu công việc gì thì gửi trực tiếp qua WeChat cho tiện.",
+          "answer_hanzi": "我们扫一扫互相加个微信好友吧，方便以后日常工作中随时发送工程图纸和资料。",
+          "answer_pinyin": "Wǒmen sǎo yī sǎo hùxiāng jiā gè wēixìn hǎoyǒu ba, fāngbiàn yǐhòu rìcháng gōngzuò zhōng suíshí fāsòng gōngchéng túzhǐ hé zīliào.",
+          "vocab_grammar_notes": "加微信 (kết bạn Wechat), 发送文件 (gửi tài liệu)."
+        },
+        {
+          "exercise_id": "q3_b11_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "保存",
+          "target_word_pinyin": "Bǎocún",
+          "target_word_meaning": "Lưu, bảo tồn, lưu trữ",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Sau khi sửa đổi xong bảng báo giá chi tiết, bạn phải lập tức bấm lưu tập tin vào ổ đĩa mạng chung.",
+          "answer_hanzi": "在电脑上修改完这份复杂的报价清单之后，一定要第一时间将电子文件保存到共享服务器中。",
+          "answer_pinyin": "Zài diànnǎo shàng xiūgǎi wán zhè fèn fùzá de bàojià qīngdān zhīhòu, yīdìng yào dì-yī shíjiān jiāng diànzǐ wénjiàn bǎocún dào gòngxiǎng fúwùqì zhōng.",
+          "vocab_grammar_notes": "保存文件 (lưu tập tin/tài liệu)."
+        },
+        {
+          "exercise_id": "q3_b11_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Yêu cầu của nhân viên lễ tân là biết dùng tiếng Anh và tiếng Trung cơ bản để giao tiếp, học lực từ trung cấp trở lên.",
+          "answer_hanzi": "公司前台接待员的岗位招聘要求是熟练掌握基础的英语和汉语交流能力，学历要求中专以上。",
+          "answer_pinyin": "Gōngsī qiántái jiēdàiyuán de gǎngwèi zhāopìn yāoqiú shì shúliàn zhǎngwò jīchǔ de yīngyǔ hé hànyǔ jiāoliú nénglì, xuélì yāoqiú zhōngzhuān yǐshàng.",
+          "vocab_grammar_notes": "前台接待 (nhân viên lễ tân), 学历 (học lực/trình độ học vấn), 中专 (trung cấp chuyên nghiệp)."
+        },
+        {
+          "exercise_id": "q3_b11_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi vô cùng phê bình thái độ tiếp đãi khách hàng của bạn, bất luận là lí do gì, phải luôn luôn giữ thái độ vui vẻ và lễ phép.",
+          "answer_hanzi": "我严肃批评你刚才接待客户时的服务态度，无论出于什么原因，都必须时刻保持微笑、客气和礼貌。",
+          "answer_pinyin": "Wǒ yánsù pīpíng nǐ gāngcái jiēdài kèhù shí de fúwù tàidù, wúlùn chūyú shénme yuányīn, dōu bìxū shíkè bǎochí wēixiào, kèqi hé lǐmào.",
+          "vocab_grammar_notes": "批评 (pīpíng: phê bình), 保持礼貌 (giữ lễ phép lịch sự)."
+        },
+        {
+          "exercise_id": "q3_b11_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Vì không thể thống nhất ý kiến, tính cách của tôi và cô ấy không hợp, thường xuyên cãi nhau, bây giờ cô ấy giận tôi rồi, xóa wechat của tôi rồi.",
+          "answer_hanzi": "因为无法达成统一意见，我和她的性格合不来经常吵架，现在她生我的气了，还把我的微信给删掉了。",
+          "answer_pinyin": "Yīnwèi wúfǎ dáchéng tǒngyī yìjiàn, wǒ hé tā de xìnggé hébùlái jīngcháng chǎojià, xiànzài tā shēng wǒ de qì le, hái bǎ wǒ de wēixìn gěi shāndiào le.",
+          "vocab_grammar_notes": "统一意见 (thống nhất ý kiến), 性格不合 (tính cách không hợp), 删微信 (xóa Wechat)."
+        },
+        {
+          "exercise_id": "q3_b11_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Bảng báo cáo cuối tháng, tôi làm nửa ngày mới xong, tôi quên save, đột nhiên văn phòng cúp điện, tất cả đều mất rồi.",
+          "answer_hanzi": "月底的综合报表我辛苦做了大半天才完成，结果我忘了保存，办公室突然停电，所有数据都丢光了。",
+          "answer_pinyin": "Yuèdǐ de zōnghé bàobiǎo wǒ xīnkǔ zuò le dà bàn tiān cái wánchéng, jiéguǒ wǒ wàng le bǎocún, bàngōngshì tūrán tíngdiàn, suǒyǒu shùjù dōu diū guāng le.",
+          "vocab_grammar_notes": "月底报表 (báo cáo cuối tháng), 保存文件 (lưu tài liệu), 停电 (cúp điện)."
+        },
+        {
+          "exercise_id": "q3_b11_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Chỉ cần bạn không từ bỏ hy vọng, không sợ gian khổ, nhất thiết phải kiên trì nỗ lực mà học tập, nâng cao trình độ và năng lực của mình thì sẽ có thể thành công.",
+          "answer_hanzi": "只要你不放弃希望，不畏艰苦，千万要坚持不懈地刻苦钻研学习，提升自身综合素质与能力，就一定能获得成功。",
+          "answer_pinyin": "Zhǐyào nǐ bù fàngqì xīwàng, bù wèi jiānkǔ, qiānwàn yào jiānchíbùxiè de kèkǔ zuānyán xuéxí, tíshēng zìshēn zōnghé sùzhì yǔ nénglì, jiù yīdìng néng huòdé chénggōng.",
+          "vocab_grammar_notes": "千万 (nhất thiết phải), 坚持不懈 (kiên trì bền bỉ), 获得成功 (đạt được thành công)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b12",
+      "lesson_num": 12,
+      "lesson_title": "第十二课 Dì shí èr kè：你输入密码正确吗？ / Bài 12: Bạn nhập mật khẩu có đúng không?",
+      "exercises": [
+        {
+          "exercise_id": "q3_b12_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "抽屉",
+          "target_word_pinyin": "Chōutì",
+          "target_word_meaning": "Ngăn kéo",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bản hợp đồng gốc có đóng dấu đỏ của đối tác hiện được cất kỹ ở ngăn kéo dưới cùng bàn làm việc của tôi.",
+          "answer_hanzi": "客户签盖好的那份正式合同正本，就锁在我办公桌最下面那一层抽屉里面。",
+          "answer_pinyin": "Kèhù qiān gài hǎo de nà fèn zhèngshì hétong zhèngběn, jiù suǒ zài wǒ bàngōngzhuō zuì xiàmiàn nà yī céng chōutì lǐmiàn.",
+          "vocab_grammar_notes": "抽屉 (chōutì: ngăn kéo bàn)."
+        },
+        {
+          "exercise_id": "q3_b12_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "响",
+          "target_word_pinyin": "Xiǎng",
+          "target_word_meaning": "Vang lên, kêu, reo chuông",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Chuông báo động cháy của phân xưởng đột nhiên vang lên inh ỏi, khiến mọi người đều giật mình chạy ra ngoài.",
+          "answer_hanzi": "车间墙壁上的消防报警器突然剧烈地响了起来，所有工人立刻迅速有序地撤离现场。",
+          "answer_pinyin": "Chējiān qiángbì shàng de xiāofáng bàojǐngqì tūrán jùliè de xiǎng le qǐlái, suǒyǒu gōngrén lìkè xùnsù yǒuxù de chèlí xiànchǎng.",
+          "vocab_grammar_notes": "响了起来 (xiǎng le qǐlái: reo vang lên)."
+        },
+        {
+          "exercise_id": "q3_b12_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "深色",
+          "target_word_pinyin": "Shēn sè",
+          "target_word_meaning": "Màu đậm, màu sẫm",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Bộ đồng phục công nhân màu đậm này rất sạch và khó nhìn thấy vết bẩn dầu mỡ khi thao tác.",
+          "answer_hanzi": "这套深蓝色的车间工装非常耐脏，在充满油污的机械作业流水线上特别实用。",
+          "answer_pinyin": "Zhè tào shēnlánsè de chējiān gōngzhuāng fēicháng nàizāng, zài chōngmǎn yóuwū de jīxiè zuòyè liúshuǐxiàn shàng tèbié shíyòng.",
+          "vocab_grammar_notes": "深色 (màu đậm), 耐脏 (chống bẩn tốt)."
+        },
+        {
+          "exercise_id": "q3_b12_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "系统",
+          "target_word_pinyin": "Xìtǒng",
+          "target_word_meaning": "Hệ thống",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Hệ thống quản lý dữ liệu sản xuất ERP của công ty chúng tôi hoạt động vô cùng ổn định và hiệu quả.",
+          "answer_hanzi": "我们工厂最新引入的这套ERP企业资源计划管理系统，极大地提升了生产效率。",
+          "answer_pinyin": "Wǒmen gōngchǎng zuìxīn yǐnrù de zhè tào ERP qǐyè zīyuán jìhuà guǎnlǐ xìtǒng, jí dà de tíshēng le shēngchǎn xiàolǜ.",
+          "vocab_grammar_notes": "管理系统 (hệ thống quản lý)."
+        },
+        {
+          "exercise_id": "q3_b12_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "密码",
+          "target_word_pinyin": "Mìmǎ",
+          "target_word_meaning": "Mật khẩu, mật mã",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Để đảm bảo an toàn thông tin nội bộ, các bạn nên thường xuyên thay đổi mật khẩu đăng nhập máy tính của mình.",
+          "answer_hanzi": "为了保证内部业务机密的数据安全，IT部门要求大家每个季度都要更换一次开机密码。",
+          "answer_pinyin": "Wèile bǎozhhèng nèibù yèwù jīmì de shùjù ānquán, IT bùmén yāoqiú dàjiā měi gè jìdù dōu yào gēnghuàn yī cì kāijī mìmǎ.",
+          "vocab_grammar_notes": "更换密码 (thay đổi mật khẩu)."
+        },
+        {
+          "exercise_id": "q3_b12_ex06",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "改天",
+          "target_word_pinyin": "Gǎitiān",
+          "target_word_meaning": "Hôm khác, dịp khác",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Hôm nay tôi phải tăng ca đến tận đêm muộn, hẹn bạn hôm khác chúng mình cùng đi ăn lẩu nhé.",
+          "answer_hanzi": "今天晚上我必须在厂里加班加点赶交货订单，我们改天有空再一起去吃火锅吧。",
+          "answer_pinyin": "Jīntiān wǎnshang wǒ bìxū zài chǎng lǐ jiābān jiādiǎn gǎn jiāohuò dìngdān, wǒmen gǎitiān yǒukòng zài yīqǐ qù chī huǒguō ba.",
+          "vocab_grammar_notes": "改天 (hôm khác/dịp khác)."
+        },
+        {
+          "exercise_id": "q3_b12_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tốc độ nói chuyện của anh ấy rất nhanh, tiếng nói của anh ấy cũng rất lớn, vì vậy văn phòng lúc nào cũng rất ồn.",
+          "answer_hanzi": "他讲话的语速非常快，而且嗓门声调也特别大，所以只要他在，办公室里总是显得很嘈杂。",
+          "answer_pinyin": "Tā jiǎnghuà de yǔsù fēicháng kuài, érqiě sǎngmén shēngdiào yě tèbié dà, suǒyǐ zhǐyào tā zài, bàngōngshì lǐ zǒngshì xiǎnde hěn cáozá.",
+          "vocab_grammar_notes": "语速快 (tốc độ nói nhanh), 嗓门大 (giọng lớn), 嘈杂 (ồn ào náo nhiệt)."
+        },
+        {
+          "exercise_id": "q3_b12_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi không phải cố ý nghe lén chuyện của các bạn, chỉ là đúng lúc tôi đi qua, tôi thật sự không chú ý nghe các bạn nói gì.",
+          "answer_hanzi": "我绝对不是故意偷听你们之间的私事对话，只是恰好路过这里，我真的没有留心你们具体在聊些什么。",
+          "answer_pinyin": "Wǒ juéduì bù shì gùyì tōutīng nǐmen zhījiān de sīshì duìhuà, zhǐshì qiàhǎo lùguò zhèlǐ, wǒ zhēnde méiyǒu liúxīn nǐmen jùtǐ zài liáo xiē shénme.",
+          "vocab_grammar_notes": "故意偷听 (cố ý nghe lén), 恰好路过 (đúng lúc đi ngang qua)."
+        },
+        {
+          "exercise_id": "q3_b12_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Mật khẩu của điện thoại tôi nhập đúng rồi, sao lại không thể mở điện thoại được, có lẽ tôi lại nhớ sai rồi.",
+          "answer_hanzi": "我感觉我输入的手机锁屏密码是正确的，怎么无法解锁开机呢，大概又是我自己记错了。",
+          "answer_pinyin": "Wǒ gǎnjué wǒ shūrù de shǒujī suǒpíng mìmǎ shì zhèngquè de, zěnme wúfǎ jiěsuǒ kāijī ne, dàgài yòu shì wǒ zìjǐ jì cuò le.",
+          "vocab_grammar_notes": "输入密码 (nhập mật mã/mật khẩu), 解锁 (mở khóa), 记错 (nhớ sai)."
+        },
+        {
+          "exercise_id": "q3_b12_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Trước khi ra ngoài, tôi đã khóa cửa cẩn thận rồi, chìa khóa tôi đưa cho em gái của bạn rồi, kẻ trộm không dễ vào trong được.",
+          "answer_hanzi": "出门之前，我已经把门窗都牢牢反锁好了，钥匙也交给了你的妹妹，小偷绝不可能轻易溜进去的。",
+          "answer_pinyin": "Chūmén zhīqián, wǒ yǐjīng bǎ ménchuāng dōu láoláo fǎnsuǒ hǎo le, yàoshi yě jiāogěi le nǐ de mèimei, xiǎotōu jué bù kěnéng qīngyì liū jìnqù de.",
+          "vocab_grammar_notes": "锁门 (khóa cửa), 钥匙 (chìa khóa), 小偷 (kẻ trộm)."
+        },
+        {
+          "exercise_id": "q3_b12_ex11",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tiền lương của tháng này công ty đã chuyển khoản rồi, bạn kiểm tra xem, tài khoản của bạn đã nhận được tiền chưa.",
+          "answer_hanzi": "公司财务部今天已经将这个月的薪水全部转账了，请你查一下手机银行，看看你的账户到账了没有。",
+          "answer_pinyin": "Gōngsī cáiwù bù jīntiān yǐjīng jiāng zhège yuè de xīnshui quánbù zhuǎnzhàng le, qǐng nǐ chá yīxià shǒujī yínháng, kànkan nǐ de zhànghù dào zhàng le méiyǒu.",
+          "vocab_grammar_notes": "转账 (zhuǎnzhàng: chuyển khoản), 账户 (tài khoản), 到账 (tiền về tài khoản)."
+        },
+        {
+          "exercise_id": "q3_b12_ex12",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Màu sắc của áo khoác này quá nhạt rồi, còn có cái nào đậm hơn 1 chút không?",
+          "answer_hanzi": "这件夹克外套的面料颜色实在太浅了，仓库里还有没有颜色更深一点儿的同款款式？",
+          "answer_pinyin": "Zhè jiàn jiákè wàitào de miànliào yánsè shízài tài qiǎn le, cāngkù lǐ hái yǒu méiyǒu yánsè gèng shēn yīdiǎnr de tóngkuǎn kuǎnshì?",
+          "vocab_grammar_notes": "浅色 (qiǎnsè: màu nhạt) đối nghĩa với 深色 (shēnsè: màu đậm), 夹克外套 (áo khoác)."
+        }
+      ]
+    },
+    {
+      "lesson_id": "q3_b13",
+      "lesson_num": 13,
+      "lesson_title": "第十三课 Dì shísān kè：你们经常印多大的纸板？ / Bài 13: Các bạn thường in tấm bìa cỡ bao nhiêu?",
+      "exercises": [
+        {
+          "exercise_id": "q3_b13_ex01",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "宽度",
+          "target_word_pinyin": "Kuāndù",
+          "target_word_meaning": "Chiều rộng, độ rộng, khổ vải",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Trước khi đưa vào máy dệt, thợ kỹ thuật phải kiểm tra kỹ chiều rộng và khổ của tấm vải này.",
+          "answer_hanzi": "在送上电脑裁剪台之前，技术员认真核验了这卷特种面料的实际有效门幅宽度。",
+          "answer_pinyin": "Zài sòng shàng diànnǎo cáijiǎntái zhīqián, jìshùyuán rènzhēn héyàn le zhè juǎn tèzhǒng miànliào de shíjì yǒuxiào ménfú kuāndù.",
+          "vocab_grammar_notes": "门幅宽度 (khổ rộng của vải)."
+        },
+        {
+          "exercise_id": "q3_b13_ex02",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "面料",
+          "target_word_pinyin": "Miànliào",
+          "target_word_meaning": "Chất liệu vải, mặt vải",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Lô áo sơ mi xuất khẩu này dùng chất liệu vải cotton 100% thoáng khí và co giãn rất tốt.",
+          "answer_hanzi": "这批出口欧美的高档衬衫全部采用百分之百纯棉的高透气弹性环保面料生产。",
+          "answer_pinyin": "Zhè pī chūkǒu Ōu-Měi de gāodàng chènshān quánbù cǎiyòng bǎi fēn zhī bǎi chúnmián de gāo tòuqì tánxìng huánbǎo miànliào shēngchǎn.",
+          "vocab_grammar_notes": "纯棉面料 (vải 100% cotton)."
+        },
+        {
+          "exercise_id": "q3_b13_ex03",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "大小",
+          "target_word_pinyin": "Dàxiǎo",
+          "target_word_meaning": "Kích cỡ, độ lớn",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Kích thước của thùng carton đóng gói này phải vừa khít với kích cỡ sản phẩm bên trong.",
+          "answer_hanzi": "外包装瓦楞纸箱的规格大小必须严格根据内部包装产品的尺寸来定制加工。",
+          "answer_pinyin": "Wàibāozhuāng wǎléng zhǐxiāng de guīgé dàxiǎo bìxū yángé gēnjù nèibù bāozhuāng chǎnpǐn de chǐcun lái dìngzhì jiāgōng.",
+          "vocab_grammar_notes": "规格大小 (quy cách kích cỡ)."
+        },
+        {
+          "exercise_id": "q3_b13_ex04",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "模糊",
+          "target_word_pinyin": "Móhú",
+          "target_word_meaning": "Mờ, nhòe, không rõ nét",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Mã vạch in trên nhãn dán bị nhòe mực rồi, máy quét không thể đọc được thông tin sản phẩm.",
+          "answer_hanzi": "贴在包装箱侧面的条形码标签印刷得非常模糊，条码扫描器根本无法辨认出数据。",
+          "answer_pinyin": "Tiē zài bāozhuāngxiāng cèmiàn de tiáoxíngmǎ biāoqiān yìnshuā de fēicháng móhu, tiáomǎ sǎomiáoqì gēnběn wúfǎ biànrèn chū shùjù.",
+          "vocab_grammar_notes": "模糊不清 (móhú bù qīng: mờ nhạt không rõ)."
+        },
+        {
+          "exercise_id": "q3_b13_ex05",
+          "exercise_type": "dat_cau",
+          "category": "Đặt câu theo từ cho trước",
+          "target_word": "工段",
+          "target_word_pinyin": "Gōngduàn",
+          "target_word_meaning": "Công đoạn, phân đoạn sản xuất",
+          "requirement": "Dùng các từ cho trước đặt thành câu có ý nghĩa (Một câu ít nhất 10 từ)",
+          "sample_sentence_vietnamese": "Mỗi một phân đoạn trong dây chuyền lắp ráp đều có một trưởng công đoạn chịu trách nhiệm kiểm tra.",
+          "answer_hanzi": "在整条全自动机械装配线上，每一个作业工段都安排了一名责任心极强的工段长。",
+          "answer_pinyin": "Zài zhěng tiáo quán zìdòng jīxiè zhuāngpèixiàn shàng, měi yī gè zuòyè gōngduàn dōu ānpái le yī míng zérènxīn jí qiáng de gōngduànzhǎng.",
+          "vocab_grammar_notes": "工段长 (trưởng công đoạn), 装配工段 (công đoạn lắp ráp)."
+        },
+        {
+          "exercise_id": "q3_b13_ex06",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Lúc nãy anh ấy nói, chỉ là nói đùa, bạn đừng hiểu lầm, cũng đừng nghĩ nhiều, tính tình của anh ấy là như vậy.",
+          "answer_hanzi": "刚才他说的那些话其实只是开个玩笑而已，你千万别误会，也别胡思乱想，他的直爽性格一向就是这样的。",
+          "answer_pinyin": "Gāngcái tā shuō de nàxiē huà qíshí zhǐshì kāi gè wánxiào éryǐ, nǐ qiānwàn bié wùhuì, yě bié húsīluànxiǎng, tā de zhíshuǎng xìnggé yīxiàng jiùshì zhèyàng de.",
+          "vocab_grammar_notes": "开玩笑 (nói đùa), 别误会 (đừng hiểu lầm), 性格 (tính tình)."
+        },
+        {
+          "exercise_id": "q3_b13_ex07",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Loại vải này rất nhiều bụi, rất khó nhuộm màu, mặc cũng rất nóng, may quần áo cũng không thích hợp.",
+          "answer_hanzi": "这种布料灰尘很多，染色难度极大，贴身穿起来也特别闷热，拿来做夏天服装很不合适。",
+          "answer_pinyin": "Zhè zhǒng bùliào huīchén hěn duō, rǎnsè nándù jí dà, tiēshēn chuān qǐlái yě tèbié mēnrè, nálái zuò xiàtiān fúzhuāng hěn bù héshì.",
+          "vocab_grammar_notes": "布料 (vải vóc), 染色 (nhuộm màu), 灰尘 (bụi bặm)."
+        },
+        {
+          "exercise_id": "q3_b13_ex08",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Gần KCN, môi trường rất dễ bị ảnh hưởng và ô nhiễm, vì vậy mỗi KCN quản lí vấn đề xử lí nước thải rất nghiêm khắc.",
+          "answer_hanzi": "靠近工业区周围的环境极易受到工业污染，因此每个园区管委会对工业污水处理监管都非常严格。",
+          "answer_pinyin": "Kàojìn gōngyèqū zhōuwéi de huánjìng jí yì shòudào gōngyè wūrǎn, yīncǐ měi gè yuánqū guǎnwěihuì duì gōngyè wūshuǐ chǔlǐ jiānguǎn dōu fēicháng yángé.",
+          "vocab_grammar_notes": "环境污染 (ô nhiễm môi trường), 污水处理 (xử lý nước thải)."
+        },
+        {
+          "exercise_id": "q3_b13_ex09",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Kim may đứt rồi, bạn giúp tôi lấy ra và thay mới đi, loại máy may này tôi không biết thay kim.",
+          "answer_hanzi": "机针断掉了，请你帮我取出来换一根新的，这款新型高速缝纫机我还不会更换机针。",
+          "answer_pinyin": "Jīzhēn duàn diào le, qǐng nǐ bāng wǒ qǔ chūlái huàn yī gēn xīn de, zhè kuǎn xīnxíng gāosù féngrènjī wǒ hái bù huì gēnghuàn jīzhēn.",
+          "vocab_grammar_notes": "机针 (kim máy may), 断掉 (gãy/đứt), 更换 (thay thế)."
+        },
+        {
+          "exercise_id": "q3_b13_ex10",
+          "exercise_type": "dich_viet_trung",
+          "category": "Dịch Việt sang Trung",
+          "prompt_vietnamese": "Tôi làm việc ở bộ phận nhuộm chỉnh lí, không phải bộ phận dệt, công việc của tôi là quản lí thuốc nhuộm và phụ trợ.",
+          "answer_hanzi": "我在印染后整理工段上班，而不是纺织部门，我的主要岗位职责是负责染料和助剂的日常配制管理。",
+          "answer_pinyin": "Wǒ zài yìnrǎn hòu zhěnglǐ gōngduàn shàngbān, ér bù shì fǎngzhī bùmén, wǒ de zhǔyào gǎngwèi zhízé shì fùzé rǎnliào hé zhùjì de rìcháng pèizhì guǎnlǐ.",
+          "vocab_grammar_notes": "整理工段 (bộ phận hoàn tất/chỉnh lý), 纺织部 (bộ phận dệt), 染料和助剂 (thuốc nhuộm và chất phụ trợ)."
+        }
+      ]
+    }
+  ],
+  "total_exercises": 131
+}

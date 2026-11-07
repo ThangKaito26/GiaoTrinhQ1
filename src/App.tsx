@@ -13,6 +13,11 @@ import {
   ChevronUp,
   CheckCircle2,
   BookOpen,
+  LayoutGrid,
+  List,
+  ExternalLink,
+  Eye,
+  EyeOff,
 } from 'lucide-react';
 import {
   TextbookDataRaw,
@@ -28,16 +33,27 @@ import {
 import {
   LESSON_SUPPLEMENTARY_DATA,
   SUPPLEMENTARY_EXERCISES_BY_LESSON,
+  EXERCISE_PAGE_MAP,
 } from './data/dialoguesAndGrammar';
+import {
+  normalizeBook2TextbookData,
+  normalizeBook3TextbookData,
+  expandLessonGroupedExercises,
+} from './data/book2And3Data';
 import { bookAudio, PlayTrackItem } from './utils/audioEngine';
 import { InteractiveBookReader } from './components/InteractiveBookReader';
 import { AudioPlayerBar } from './components/AudioPlayerBar';
 import { DictionaryModal } from './components/DictionaryModal';
 import { SmartPracticeDashboard } from './components/SmartPracticeDashboard';
 import { VocabularyNotebook } from './components/VocabularyNotebook';
+import { PinyinSectionView } from './components/PinyinSectionView';
 import {
   WordVisualIllustration,
   detectWordCategory,
+  buildHanziiDictUrl,
+  handleHanziiLinkClick,
+  extractVocabKeysFromHanzi,
+  SUPPLEMENTARY_COMPOUND_VOCAB,
 } from './utils/visualDictionary';
 
 type ActiveWorkspaceTab =
@@ -46,6 +62,50 @@ type ActiveWorkspaceTab =
   | 'dictionary_hub'
   | 'notebook';
 
+export type BookId = 'q1' | 'q2' | 'q3';
+
+const BOOKS_CONFIG: Record<
+  BookId,
+  {
+    id: BookId;
+    shortTitle: string;
+    label: string;
+    subtitle: string;
+    textbookUrl: string;
+    exercisesUrl: string;
+    defaultLessonId: string;
+  }
+> = {
+  q1: {
+    id: 'q1',
+    shortTitle: 'Quyển 1',
+    label: 'Quyển 1',
+    subtitle: '13 Bài học & Ngữ pháp Tổng hợp',
+    textbookUrl: '/assets/aistudio/giao_trinh_tieng_trung_q1_13d0c89b.json',
+    exercisesUrl: '/assets/aistudio/bai_tap_tieng_trung_q1_c99e6c3e.json',
+    defaultLessonId: 'q1_b01',
+  },
+  q2: {
+    id: 'q2',
+    shortTitle: 'Quyển 2',
+    label: 'Quyển 2',
+    subtitle: 'Bài 13–23 & Ngữ pháp 2, 3',
+    textbookUrl: '/assets/aistudio/giao_trinh_tieng_trung_q2_9478e204.json',
+    exercisesUrl: '/assets/aistudio/bai_tap_tieng_trung_q2_794d6e50.json',
+    defaultLessonId: 'q2_b13',
+  },
+  q3: {
+    id: 'q3',
+    shortTitle: 'Quyển 3',
+    label: 'Quyển 3',
+    subtitle: '13 Bài Công xưởng & 10 Chuyên ngành',
+    textbookUrl: '/assets/aistudio/giao_trinh_tieng_trung_q3_02b0244c.json',
+    exercisesUrl: '/assets/aistudio/bai_tap_tieng_trung_q3_534a5904.json',
+    defaultLessonId: 'q3_b01',
+  },
+};
+
+const STORAGE_SELECTED_BOOK_KEY = 'chinese_ebook_selected_book_v1';
 const STORAGE_BOOKMARKS_KEY = 'q1_chinese_ebook_bookmarks_v1';
 const STORAGE_ATTEMPTS_KEY = 'q1_chinese_ebook_attempts_v1';
 const STORAGE_COMPLETED_LESSONS_KEY =
@@ -60,7 +120,7 @@ const DEFAULT_BOOKMARKS: Record<string, BookmarkedWord> = {
     lessonId: 'bai_01',
     lessonTitle: 'XIN CHÀO！',
     page: 1,
-    tag: 'quan_trong',
+    tag: 'da_luu',
     personalNote: 'Câu chào hỏi phổ biến nhất trong giao tiếp hàng ngày',
     createdAt: Date.now() - 3600000,
   },
@@ -91,6 +151,18 @@ const DEFAULT_BOOKMARKS: Record<string, BookmarkedWord> = {
 };
 
 export default function App() {
+  const [selectedBook, setSelectedBook] = useState<BookId>(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_SELECTED_BOOK_KEY);
+      if (saved === 'q1' || saved === 'q2' || saved === 'q3') return saved;
+    } catch {
+      // ignore
+    }
+    return 'q1';
+  });
+
+  const activeBookMeta = BOOKS_CONFIG[selectedBook];
+
   const [textbookData, setTextbookData] = useState<TextbookDataRaw | null>(null);
   const [exercisesData, setExercisesData] = useState<ExercisesDataRaw | null>(
     null
@@ -100,13 +172,14 @@ export default function App() {
 
   // Navigation & Reader State
   const [activeTab, setActiveTab] = useState<ActiveWorkspaceTab>('ebook');
+  const [showPinyinIntro, setShowPinyinIntro] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [dualPageMode, setDualPageMode] = useState<boolean>(true);
   const [showPinyin, setShowPinyin] = useState<boolean>(true);
   const [showViMeaning, setShowViMeaning] = useState<boolean>(false);
   const [mobileTocOpen, setMobileTocOpen] = useState<boolean>(false);
   const [selectedPracticeLessonId, setSelectedPracticeLessonId] =
-    useState<string>('q1_b01');
+    useState<string>(() => BOOKS_CONFIG[selectedBook].defaultLessonId);
 
   // Dictionary Modal & Hub State
   const [dictModalWord, setDictModalWord] = useState<{
@@ -116,6 +189,12 @@ export default function App() {
   } | null>(null);
   const [dictHubQuery, setDictHubQuery] = useState<string>('');
   const [dictHubLessonFilter, setDictHubLessonFilter] = useState<string>('all');
+  const [dictHubViewMode, setDictHubViewMode] = useState<
+    'visual_grid' | 'compact_list'
+  >('visual_grid');
+  const [dictShowPinyin, setDictShowPinyin] = useState<boolean>(true);
+  const [dictShowMeaning, setDictShowMeaning] = useState<boolean>(true);
+  const [crossBookVocab, setCrossBookVocab] = useState<VocabItem[]>([]);
 
   // Audio Playback State
   const [currentTrack, setCurrentTrack] = useState<PlayTrackItem | null>(null);
@@ -201,23 +280,49 @@ export default function App() {
     }));
   }, []);
 
-  // Load Curriculum & Exercises JSON files
+  const handleSelectBook = useCallback((nextBook: BookId) => {
+    setShowPinyinIntro(false);
+    setActiveTab('ebook');
+    if (nextBook === selectedBook) return;
+    playbackSessionRef.current++;
+    bookAudio.stop();
+    setIsPlaying(false);
+    setSelectedBook(nextBook);
+    setCurrentPage(1);
+    setDictHubLessonFilter('all');
+    setSelectedPracticeLessonId(BOOKS_CONFIG[nextBook].defaultLessonId);
+    try {
+      localStorage.setItem(STORAGE_SELECTED_BOOK_KEY, nextBook);
+    } catch {
+      // ignore
+    }
+  }, [selectedBook]);
+
+  // Load Curriculum & Exercises JSON files for the selected book (Quyển 1, 2, or 3)
   useEffect(() => {
     let mounted = true;
     const loadAssets = async () => {
       setLoadingData(true);
+      setLoadError(null);
       try {
+        const cfg = BOOKS_CONFIG[selectedBook];
         const [tbRes, exRes] = await Promise.all([
-          fetch('/assets/aistudio/giao_trinh_tieng_trung_q1_13d0c89b.json'),
-          fetch('/assets/aistudio/bai_tap_tieng_trung_q1_c99e6c3e.json'),
+          fetch(cfg.textbookUrl),
+          fetch(cfg.exercisesUrl),
         ]);
         if (!tbRes.ok || !exRes.ok) {
           throw new Error('Không thể tải dữ liệu giáo trình');
         }
-        const [tbJson, exJson] = await Promise.all([
+        const [rawTbJson, exJson] = await Promise.all([
           tbRes.json() as Promise<TextbookDataRaw>,
           exRes.json() as Promise<ExercisesDataRaw>,
         ]);
+        const tbJson: TextbookDataRaw =
+          selectedBook === 'q2'
+            ? normalizeBook2TextbookData(rawTbJson, exJson, EXERCISE_PAGE_MAP)
+            : selectedBook === 'q3'
+            ? normalizeBook3TextbookData(rawTbJson, exJson, EXERCISE_PAGE_MAP)
+            : { ...rawTbJson, total_pages: 98 };
         if (mounted) {
           setTextbookData(tbJson);
           setExercisesData(exJson);
@@ -238,9 +343,38 @@ export default function App() {
     return () => {
       mounted = false;
     };
+  }, [selectedBook]);
+
+  // Preload all 3 books' vocabulary once so compound words (like 介绍 from Q1 when reading Q2/Q3) are always segmented and looked up as complete compound words
+  useEffect(() => {
+    let active = true;
+    Promise.all(
+      (['q1', 'q2', 'q3'] as BookId[]).map(async (bId) => {
+        const cfg = BOOKS_CONFIG[bId];
+        const res = await fetch(cfg.textbookUrl);
+        if (!res.ok) return [] as VocabItem[];
+        const data = (await res.json()) as TextbookDataRaw;
+        return (data.sections || []).flatMap((sec) =>
+          (sec.vocabulary || []).map((v) => ({
+            ...v,
+            lessonId: sec.id,
+            lessonTitle: `${sec.title_vi} (${cfg.shortTitle})`,
+          }))
+        );
+      })
+    )
+      .then((arrays) => {
+        if (active) {
+          setCrossBookVocab(arrays.flat());
+        }
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
   }, []);
 
-  // Flatten all 529 vocabulary items across all 13 sections
+  // Flatten all vocabulary items in the active book
   const allVocab = useMemo<VocabItem[]>(() => {
     if (!textbookData) return [];
     return textbookData.sections.flatMap((sec) =>
@@ -252,27 +386,103 @@ export default function App() {
     );
   }, [textbookData]);
 
+  // Unified vocabulary across active book + all 3 books + built-in compound dictionary
+  const globalAllVocab = useMemo<VocabItem[]>(() => {
+    return [...allVocab, ...crossBookVocab, ...SUPPLEMENTARY_COMPOUND_VOCAB];
+  }, [allVocab, crossBookVocab]);
+
   const allDialogues = useMemo<DialogueLine[]>(() => {
-    return Object.values(LESSON_SUPPLEMENTARY_DATA).flatMap((l) =>
-      l.dialogues.flatMap((d) => d.lines)
-    );
-  }, []);
+    const list: DialogueLine[] = [];
+    const seen = new Set<string>();
+    const pushLine = (line: DialogueLine) => {
+      const cleanH = line.hanzi.replace(/^\d+\.\s*/, '').trim();
+      if (!cleanH || seen.has(cleanH)) return;
+      seen.add(cleanH);
+      list.push({
+        ...line,
+        hanzi: cleanH,
+      });
+    };
+
+    for (const l of Object.values(LESSON_SUPPLEMENTARY_DATA)) {
+      for (const d of l.dialogues) {
+        for (const line of d.lines) {
+          pushLine(line);
+        }
+      }
+      for (const g of l.grammarCallouts) {
+        g.examples.forEach((ex, idx) => {
+          pushLine({
+            id: `${g.id}_ex_${idx}`,
+            page: g.page,
+            hanzi: ex.hanzi,
+            pinyin: ex.pinyin,
+            meaningVi: ex.meaningVi,
+          });
+        });
+      }
+    }
+
+    if (exercisesData) {
+      for (const les of exercisesData.lessons) {
+        const unrolled = expandLessonGroupedExercises(les.exercises);
+        for (const ex of unrolled) {
+          if (
+            (ex.exercise_type === 'luyen_dich_hoi_thoai' ||
+              ex.exercise_type === 'luyen_tap_mau_cau') &&
+            ex.source_hanzi &&
+            ex.sample_sentence_vietnamese
+          ) {
+            pushLine({
+              id: ex.exercise_id,
+              page: EXERCISE_PAGE_MAP[ex.exercise_id] || 1,
+              hanzi: ex.source_hanzi,
+              pinyin: ex.source_pinyin || '',
+              meaningVi: ex.sample_sentence_vietnamese,
+            });
+          } else if (
+            ex.exercise_type === 'dich_viet_trung' &&
+            ex.answer_hanzi &&
+            ex.prompt_vietnamese
+          ) {
+            pushLine({
+              id: ex.exercise_id,
+              page: EXERCISE_PAGE_MAP[ex.exercise_id] || 1,
+              hanzi: ex.answer_hanzi.split('（=')[0].split('/')[0].trim(),
+              pinyin: (ex.answer_pinyin || '').split('(=')[0].split('/')[0].trim(),
+              meaningVi: ex.prompt_vietnamese,
+            });
+          } else if (
+            (ex.exercise_type === 'dat_cau' ||
+              ex.exercise_type === 'luyen_tap_ngu_phap') &&
+            ex.answer_hanzi &&
+            ex.sample_sentence_vietnamese
+          ) {
+            pushLine({
+              id: ex.exercise_id,
+              page: EXERCISE_PAGE_MAP[ex.exercise_id] || 1,
+              hanzi: ex.answer_hanzi,
+              pinyin: ex.answer_pinyin || '',
+              meaningVi: ex.sample_sentence_vietnamese,
+            });
+          }
+        }
+      }
+    }
+
+    return list;
+  }, [textbookData, exercisesData]);
 
   const { vocabSet, sortedVocabKeys } = useMemo(() => {
     const set = new Set<string>();
-    for (const v of allVocab) {
-      const parts = v.hanzi
-        .replace(/\(|\)/g, '')
-        .split('/')
-        .map((p) => p.trim())
-        .filter((p) => p && /^[\u4e00-\u9fa5]+$/.test(p));
-      for (const p of parts) {
-        set.add(p);
+    for (const v of globalAllVocab) {
+      for (const key of extractVocabKeysFromHanzi(v.hanzi)) {
+        set.add(key);
       }
     }
     const sorted = Array.from(set).sort((a, b) => b.length - a.length);
     return { vocabSet: set, sortedVocabKeys: sorted };
-  }, [allVocab]);
+  }, [globalAllVocab]);
 
   const exercisesByLessonId = useMemo<Record<string, ExerciseItem[]>>(() => {
     if (!exercisesData) return {};
@@ -283,19 +493,25 @@ export default function App() {
     return map;
   }, [exercisesData]);
 
-  // Complete merged lessons list for SmartPracticeDashboard (in exact textbook order)
+  // Complete merged lessons list for SmartPracticeDashboard (in exact textbook order, with grouped dialogues/sentences unrolled into individual items)
   const enrichedLessonsExercises = useMemo<LessonExercisesRaw[]>(() => {
     if (!exercisesData) return [];
     return exercisesData.lessons.map((les) => {
+      const unrolledBase = expandLessonGroupedExercises(les.exercises);
       const supp = SUPPLEMENTARY_EXERCISES_BY_LESSON[les.lesson_id] || [];
-      if (supp.length === 0) return les;
+      if (supp.length === 0) {
+        return {
+          ...les,
+          exercises: unrolledBase,
+        };
+      }
       const readingSupp = supp.filter(
         (e) => e.exercise_type === 'luyen_tap_doan_van'
       );
       const datCauSupp = supp.filter((e) => e.exercise_type === 'dat_cau');
       return {
         ...les,
-        exercises: [...readingSupp, ...les.exercises, ...datCauSupp],
+        exercises: [...readingSupp, ...unrolledBase, ...datCauSupp],
       };
     });
   }, [exercisesData]);
@@ -400,7 +616,8 @@ export default function App() {
         id: 'voice_preview',
         hanzi: '你好！欢迎学习汉语教程第一册。',
         pinyin: 'Nǐ hǎo! Huānyíng xuéxí Hànyǔ jiàochéng dì yī cè.',
-        meaningVi: 'Xin chào! Chào mừng bạn học Giáo trình Tiếng Trung Quyển 1.',
+        meaningVi:
+          'Xin chào! Chào mừng bạn học Giáo Trình Hán Ngữ Hoa Sen Quyển 1.',
         speaker: `Thử giọng (${newVoice})`,
       };
       playTrackListFromIndex(
@@ -415,13 +632,14 @@ export default function App() {
 
   const handlePageChange = useCallback(
     (page: number, direction?: 'next' | 'prev') => {
-      const clamped = Math.max(1, Math.min(98, page));
+      const maxPage = textbookData?.total_pages || 98;
+      const clamped = Math.max(1, Math.min(maxPage, page));
       if (direction) {
         bookAudio.playPageFlipSound(pageSoundEnabled);
       }
       setCurrentPage(clamped);
     },
-    [pageSoundEnabled]
+    [pageSoundEnabled, textbookData?.total_pages]
   );
 
   const handleToggleBookmark = useCallback(
@@ -449,7 +667,7 @@ export default function App() {
               lessonId: '',
               lessonTitle: word.lessonTitle,
               page: word.page,
-              tag: customTag || existing?.tag || 'quan_trong',
+              tag: customTag || existing?.tag || 'da_luu',
               personalNote:
                 customNote !== undefined
                   ? customNote
@@ -473,7 +691,7 @@ export default function App() {
             lessonId: '',
             lessonTitle: word.lessonTitle,
             page: word.page,
-            tag: 'quan_trong',
+            tag: 'da_luu',
             personalNote: '',
             createdAt: Date.now(),
           },
@@ -518,7 +736,7 @@ export default function App() {
         <div className="flex items-center gap-3 rounded-2xl border border-stone-200 bg-white px-6 py-4 shadow-xs">
           <Loader2 className="h-5 w-5 animate-spin text-amber-700" />
           <span className="text-sm font-semibold text-stone-800">
-            Đang mở Giáo Trình Tiếng Trung Quyển 1 (98 trang & 529 từ vựng)...
+            Đang mở Giáo Trình Hán Ngữ Hoa Sen {activeBookMeta.label}...
           </span>
         </div>
       </div>
@@ -539,19 +757,59 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F6F4EE] text-stone-900">
-      {/* STRICT 3-ZONE TOP BAR CONTRACT */}
-      <header className="sticky top-0 z-30 flex items-center justify-between gap-4 sm:gap-8 border-b border-stone-200 bg-white/95 px-4 sm:px-6 py-3 backdrop-blur-xs">
-        {/* Zone 1: Single text element wordmark */}
-        <a
-          href="#top"
-          onClick={(e) => {
-            e.preventDefault();
-            setActiveTab('ebook');
-          }}
-          className="font-['Fraunces'] text-base sm:text-lg font-bold tracking-tight text-stone-900 whitespace-nowrap shrink-0"
-        >
-          Giáo Trình Tiếng Trung Q1
-        </a>
+      {/* TOP NAVIGATION BAR */}
+      <header className="sticky top-0 z-30 flex flex-col md:flex-row md:items-center justify-between gap-2 sm:gap-4 border-b border-stone-200 bg-white/95 px-3 sm:px-6 py-2 sm:py-2.5 backdrop-blur-xs">
+        {/* Zone 1: Brand Wordmark + Book Selector (Quyển 1, 2, 3) - Responsive on mobile so Quyển 3 never overflows */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 w-full md:w-auto">
+          <a
+            href="#top"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab('ebook');
+            }}
+            className="font-['Fraunces'] text-base sm:text-lg font-bold tracking-tight text-stone-900 whitespace-nowrap shrink-0"
+          >
+            Giáo Trình Hán Ngữ Hoa Sen
+          </a>
+
+          {/* Book Switcher (Phiên Âm | Quyển 1 | Quyển 2 | Quyển 3) */}
+          <div
+            className="grid grid-cols-4 w-full sm:w-auto sm:inline-flex items-center rounded-xl border border-stone-200 bg-stone-100/90 p-0.5"
+            role="group"
+            aria-label="Chọn phần Phiên Âm hoặc quyển giáo trình"
+          >
+            <button
+              type="button"
+              onClick={() => {
+                setShowPinyinIntro(true);
+                setActiveTab('ebook');
+              }}
+              className={`rounded-lg px-2 sm:px-2.5 py-1 text-xs font-bold transition-all whitespace-nowrap text-center ${
+                showPinyinIntro && activeTab === 'ebook'
+                  ? 'bg-amber-700 text-white shadow-2xs'
+                  : 'text-stone-700 hover:text-stone-900 hover:bg-stone-200/60'
+              }`}
+            >
+              Phiên Âm
+            </button>
+            {(['q1', 'q2', 'q3'] as BookId[]).map((bId) => {
+              const isSelected = !showPinyinIntro && selectedBook === bId;
+              return (
+                <button
+                  key={bId}
+                  onClick={() => handleSelectBook(bId)}
+                  className={`rounded-lg px-2 sm:px-2.5 py-1 text-xs font-bold transition-all whitespace-nowrap text-center ${
+                    isSelected
+                      ? 'bg-amber-700 text-white shadow-2xs'
+                      : 'text-stone-700 hover:text-stone-900 hover:bg-stone-200/60'
+                  }`}
+                >
+                  {BOOKS_CONFIG[bId].shortTitle}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
         {/* Zone 2: 4 concise single-line text navigation links */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-stone-600">
@@ -563,30 +821,39 @@ export default function App() {
                 : ''
             }`}
           >
-            Sách Điện Tử
+            {showPinyinIntro ? 'Phiên Âm & Bút Thuận' : 'Sách Điện Tử'}
           </button>
           <button
-            onClick={() => setActiveTab('ai_practice')}
+            onClick={() => {
+              setShowPinyinIntro(false);
+              setActiveTab('ai_practice');
+            }}
             className={`hover:text-stone-900 transition-colors whitespace-nowrap shrink-0 pb-0.5 ${
               activeTab === 'ai_practice'
                 ? 'text-stone-900 underline decoration-amber-700 decoration-2 underline-offset-4 font-semibold'
                 : ''
             }`}
           >
-            Kiểm Tra Đáp Án
+            Câu Hỏi Và Đáp Án
           </button>
           <button
-            onClick={() => setActiveTab('dictionary_hub')}
+            onClick={() => {
+              setShowPinyinIntro(false);
+              setActiveTab('dictionary_hub');
+            }}
             className={`hover:text-stone-900 transition-colors whitespace-nowrap shrink-0 pb-0.5 ${
               activeTab === 'dictionary_hub'
                 ? 'text-stone-900 underline decoration-amber-700 decoration-2 underline-offset-4 font-semibold'
                 : ''
             }`}
           >
-            Từ Điển Trực Quan (529)
+            Từ Điển Trực Quan ({allVocab.length})
           </button>
           <button
-            onClick={() => setActiveTab('notebook')}
+            onClick={() => {
+              setShowPinyinIntro(false);
+              setActiveTab('notebook');
+            }}
             className={`hover:text-stone-900 transition-colors whitespace-nowrap shrink-0 pb-0.5 ${
               activeTab === 'notebook'
                 ? 'text-stone-900 underline decoration-amber-700 decoration-2 underline-offset-4 font-semibold'
@@ -596,60 +863,22 @@ export default function App() {
             Sổ Tay ({Object.keys(bookmarks).length})
           </button>
         </nav>
-
-        {/* Zone 3: 1 primary action */}
-        <div className="flex items-center gap-3 shrink-0">
-          <button
-            onClick={() => {
-              if (isPlaying) {
-                handleStopAudio();
-              } else if (currentSection) {
-                const pageVocab = textbookData.sections
-                  .flatMap((s) => s.vocabulary)
-                  .filter((v) => v.page === currentPage)
-                  .map((v) => ({
-                    id: `vocab_${currentPage}_${v.index}_${v.hanzi}`,
-                    hanzi: v.hanzi,
-                    pinyin: v.pinyin,
-                    meaningVi: v.meaning_vi,
-                    speaker: 'Từ mới',
-                  }));
-                const pageDialogues = Object.values(LESSON_SUPPLEMENTARY_DATA)
-                  .flatMap((m) => m.dialogues.flatMap((d) => d.lines))
-                  .filter((l) => l.page === currentPage)
-                  .map((l) => ({
-                    id: l.id,
-                    hanzi: l.hanzi,
-                    pinyin: l.pinyin,
-                    meaningVi: l.meaningVi,
-                    speaker: 'Hội thoại',
-                  }));
-                const combined = [...pageVocab, ...pageDialogues];
-                if (combined.length > 0) {
-                  playTrackListFromIndex(combined, 0);
-                } else {
-                  handleSpeakDirect(currentSection.title_cn, false);
-                }
-              }
-            }}
-            className="px-3.5 py-2 text-xs font-semibold text-white bg-amber-700 rounded-lg hover:bg-amber-800 transition-colors whitespace-nowrap shrink-0"
-          >
-            {isPlaying ? 'Dừng Phát Âm' : `Nghe Trang ${currentPage}`}
-          </button>
-        </div>
       </header>
 
       {/* Mobile Workspace Switcher (shown on small screens) */}
       <div className="flex md:hidden items-center gap-1 overflow-x-auto border-b border-stone-200 bg-white px-3 py-2">
         {[
-          { id: 'ebook', label: 'Sách Điện Tử' },
-          { id: 'ai_practice', label: 'Kiểm Tra Đáp Án' },
-          { id: 'dictionary_hub', label: 'Từ Điển (529)' },
+          { id: 'ebook', label: showPinyinIntro ? 'Phiên Âm' : 'Sách Điện Tử' },
+          { id: 'ai_practice', label: 'Câu Hỏi Và Đáp Án' },
+          { id: 'dictionary_hub', label: `Từ Điển (${allVocab.length})` },
           { id: 'notebook', label: `Sổ Tay (${Object.keys(bookmarks).length})` },
         ].map((t) => (
           <button
             key={t.id}
-            onClick={() => setActiveTab(t.id as ActiveWorkspaceTab)}
+            onClick={() => {
+              if (t.id !== 'ebook') setShowPinyinIntro(false);
+              setActiveTab(t.id as ActiveWorkspaceTab);
+            }}
             className={`rounded-lg px-3 py-1.5 text-xs font-medium whitespace-nowrap shrink-0 ${
               activeTab === t.id
                 ? 'bg-stone-900 text-white'
@@ -700,8 +929,21 @@ export default function App() {
           }}
         />
 
-        {/* TAB 1: INTERACTIVE 3D AUDIO E-BOOK READER */}
-        {activeTab === 'ebook' && (
+        {/* TAB 1: PINYIN INTRO (BEFORE BOOK 1) OR INTERACTIVE 3D AUDIO E-BOOK READER */}
+        {activeTab === 'ebook' && showPinyinIntro && (
+          <PinyinSectionView
+            onSpeak={handleSpeakDirect}
+            onWordClick={(hanzi, contextSentence, lessonTitle) =>
+              setDictModalWord({ hanzi, contextSentence, lessonTitle })
+            }
+            onJumpToBook1={() => {
+              setShowPinyinIntro(false);
+              handleSelectBook('q1');
+            }}
+          />
+        )}
+
+        {activeTab === 'ebook' && !showPinyinIntro && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
             {/* Mobile Collapsible TOC Toggle */}
             <div className="lg:hidden">
@@ -712,7 +954,7 @@ export default function App() {
                 <span className="flex items-center gap-2">
                   <BookOpen className="h-4 w-4 text-amber-700" />
                   <span>
-                    Mục lục 13 Bài học ({completedCount}/
+                    Mục lục {activeBookMeta.label} ({completedCount}/
                     {textbookData.sections.length} đã học xong)
                   </span>
                 </span>
@@ -730,13 +972,41 @@ export default function App() {
                 mobileTocOpen ? 'block' : 'hidden'
               } lg:block lg:col-span-3 rounded-2xl border border-stone-200 bg-white p-4 space-y-4`}
             >
-              <div className="border-b border-stone-100 pb-3 space-y-2">
+              <div className="border-b border-stone-100 pb-3 space-y-2.5">
+                {/* Quick Book Switcher inside TOC Sidebar (Phiên Âm | Quyển 1 | Quyển 2 | Quyển 3) */}
+                <div className="grid grid-cols-4 gap-1 rounded-xl bg-stone-100 p-1">
+                  <button
+                    type="button"
+                    onClick={() => setShowPinyinIntro(true)}
+                    className="rounded-lg py-1.5 text-[11px] font-bold text-stone-600 hover:text-stone-900 transition-all"
+                  >
+                    Phiên Âm
+                  </button>
+                  {(['q1', 'q2', 'q3'] as BookId[]).map((bId) => {
+                    const isSelected = selectedBook === bId;
+                    return (
+                      <button
+                        key={bId}
+                        onClick={() => handleSelectBook(bId)}
+                        className={`rounded-lg py-1.5 text-[11px] font-bold transition-all ${
+                          isSelected
+                            ? 'bg-white text-amber-900 shadow-2xs border border-amber-200/80'
+                            : 'text-stone-600 hover:text-stone-900'
+                        }`}
+                      >
+                        {BOOKS_CONFIG[bId].shortTitle}
+                      </button>
+                    );
+                  })}
+                </div>
+
                 <div>
                   <div className="text-xs font-medium text-stone-500">
-                    Mục lục Giáo trình · 98 Trang
+                    Mục lục {activeBookMeta.label} · {textbookData.total_pages}{' '}
+                    Trang
                   </div>
                   <h2 className="font-['Fraunces'] text-base font-bold text-stone-900">
-                    13 Bài Học & Ngữ Pháp
+                    {activeBookMeta.subtitle}
                   </h2>
                   <p className="text-[11px] text-stone-600 mt-0.5 font-medium">
                     Hán ngữ Hoa Sen
@@ -767,11 +1037,38 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="space-y-1.5 max-h-[520px] overflow-y-auto pr-1">
-                {textbookData.sections.map((sec) => {
+              <div className="space-y-1.5 max-h-[520px] overflow-y-auto overflow-x-hidden pr-1">
+                {/* Pinyin Intro Entry right before Bài 1 of Quyển 1 */}
+                {selectedBook === 'q1' && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowPinyinIntro(true);
+                      setMobileTocOpen(false);
+                    }}
+                    className="w-full rounded-xl border border-amber-300 bg-amber-50/70 p-2.5 text-left hover:bg-amber-100/80 transition-colors"
+                  >
+                    <div className="flex items-center justify-between gap-2 text-[11px] font-bold text-amber-900">
+                      <span>Mở đầu (Trước Quyển 1)</span>
+                      <span className="rounded bg-amber-700 px-1.5 py-0.5 text-[10px] text-white">
+                        Pinyin & Bút thuận
+                      </span>
+                    </div>
+                    <div className="mt-0.5 font-['Noto_Sans_SC'] text-xs font-bold text-stone-900">
+                      汉语拼音 · 笔画笔顺
+                    </div>
+                    <div className="text-xs font-semibold text-stone-700">
+                      PHIÊN ÂM TIẾNG TRUNG & CÁCH VIẾT NÉT THUẬN
+                    </div>
+                  </button>
+                )}
+                {textbookData.sections.map((sec, idx) => {
                   const isActive = currentSection?.id === sec.id;
                   const isDone = !!completedLessons[sec.id];
                   const meta = LESSON_SUPPLEMENTARY_DATA[sec.id];
+                  const fallbackLabel = sec.id.includes('từ_vựng')
+                    ? 'Chuyên ngành'
+                    : `Mục ${idx + 1}`;
                   return (
                     <div
                       key={sec.id}
@@ -793,11 +1090,11 @@ export default function App() {
                         }}
                         className="flex-1 min-w-0 text-left"
                       >
-                        <div className="flex items-center justify-between text-[11px] text-stone-500">
-                          <span className="font-semibold text-amber-800">
-                            {meta?.lessonNumberLabel || sec.id}
+                        <div className="flex items-center justify-between gap-2 text-[11px] text-stone-500">
+                          <span className="font-semibold text-amber-800 truncate">
+                            {meta?.lessonNumberLabel || fallbackLabel}
                           </span>
-                          <span className="font-mono tabular-nums">
+                          <span className="shrink-0 font-mono tabular-nums">
                             Tr.{sec.page_start}–{sec.page_end}
                           </span>
                         </div>
@@ -830,7 +1127,7 @@ export default function App() {
                 })}
               </div>
 
-              {/* Quick Jump to Answer Checking */}
+              {/* Quick Jump to Questions & Answers */}
               <div className="border-t border-stone-100 pt-3">
                 <button
                   onClick={() => {
@@ -845,7 +1142,7 @@ export default function App() {
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-stone-900 px-3 py-2.5 text-xs font-semibold text-white hover:bg-stone-800 transition-colors"
                 >
                   <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                  Làm bài & Kiểm tra đáp án bài này
+                  Câu hỏi và đáp án bài này
                 </button>
               </div>
             </aside>
@@ -883,6 +1180,8 @@ export default function App() {
                 onToggleLessonComplete={handleToggleLessonComplete}
                 vocabSet={vocabSet}
                 sortedVocabKeys={sortedVocabKeys}
+                totalPages={textbookData.total_pages}
+                bookLabel={activeBookMeta.label}
               />
             </div>
           </div>
@@ -907,31 +1206,101 @@ export default function App() {
             onWordClick={(hanzi, contextSentence) =>
               setDictModalWord({ hanzi, contextSentence })
             }
+            vocabSet={vocabSet}
+            sortedVocabKeys={sortedVocabKeys}
           />
         )}
 
-        {/* TAB 3: SPECIALIZED VISUAL & CONTEXTUAL DICTIONARY EXPLORER (FULL 529 WORDS) */}
+        {/* TAB 3: SPECIALIZED VISUAL & CONTEXTUAL DICTIONARY EXPLORER */}
         {activeTab === 'dictionary_hub' && (
           <div className="space-y-5">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 rounded-xl border border-stone-200 bg-white p-4 sm:p-5">
               <div>
                 <h2 className="font-['Fraunces'] text-lg sm:text-xl font-bold text-stone-900">
-                  Từ Điển Chuyên Dụng & Hình Ảnh Minh Họa (Hiển thị{' '}
-                  {filteredHubVocab.length} / {allVocab.length} từ)
+                  Từ Điển Trực Quan & Tra Cứu — {activeBookMeta.label} (Hiển
+                  thị {filteredHubVocab.length} / {allVocab.length} từ)
                 </h2>
                 <p className="mt-0.5 text-xs text-stone-600">
-                  Đầy đủ toàn bộ 529 từ vựng từ Bài 1 đến Bài 12 & Ngữ pháp Tổng hợp. Ấn vào bất kỳ thẻ từ nào để xem ví dụ ngữ cảnh, từ đồng nghĩa và phát âm chuẩn.
+                  Đầy đủ toàn bộ {allVocab.length} từ vựng của Giáo Trình Hán
+                  Ngữ Hoa Sen {activeBookMeta.label}. Ấn vào bất kỳ từ nào để
+                  xem ví dụ ngữ cảnh, từ đồng nghĩa và phát âm chuẩn.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5">
+                {/* View Mode Toggle: Có ảnh minh họa vs Dạng danh sách (Không ảnh) */}
+                <div className="inline-flex items-center rounded-lg border border-stone-200 bg-stone-100 p-1 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setDictHubViewMode('visual_grid')}
+                    className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-semibold transition-colors whitespace-nowrap ${
+                      dictHubViewMode === 'visual_grid'
+                        ? 'bg-white text-stone-900 shadow-2xs'
+                        : 'text-stone-600 hover:text-stone-900'
+                    }`}
+                  >
+                    <LayoutGrid className="h-3.5 w-3.5" />
+                    <span>Có ảnh minh họa</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setDictHubViewMode('compact_list')}
+                    className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-semibold transition-colors whitespace-nowrap ${
+                      dictHubViewMode === 'compact_list'
+                        ? 'bg-white text-stone-900 shadow-2xs'
+                        : 'text-stone-600 hover:text-stone-900'
+                    }`}
+                  >
+                    <List className="h-3.5 w-3.5" />
+                    <span>Dạng danh sách</span>
+                  </button>
+                </div>
+
+                {/* Toggle Show/Hide Pinyin & Nghĩa từ vựng in Dictionary */}
+                <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setDictShowPinyin((prev) => !prev)}
+                    className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold transition-colors whitespace-nowrap ${
+                      dictShowPinyin
+                        ? 'border-amber-400 bg-amber-50 text-amber-900'
+                        : 'border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
+                    }`}
+                  >
+                    {dictShowPinyin ? (
+                      <Eye className="h-3.5 w-3.5" />
+                    ) : (
+                      <EyeOff className="h-3.5 w-3.5" />
+                    )}
+                    <span>Pinyin</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setDictShowMeaning((prev) => !prev)}
+                    className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold transition-colors whitespace-nowrap ${
+                      dictShowMeaning
+                        ? 'border-amber-400 bg-amber-50 text-amber-900'
+                        : 'border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
+                    }`}
+                  >
+                    {dictShowMeaning ? (
+                      <Eye className="h-3.5 w-3.5" />
+                    ) : (
+                      <EyeOff className="h-3.5 w-3.5" />
+                    )}
+                    <span>Nghĩa từ vựng</span>
+                  </button>
+                </div>
+
                 <select
                   value={dictHubLessonFilter}
                   onChange={(e) => setDictHubLessonFilter(e.target.value)}
                   className="rounded-lg border border-stone-300 bg-stone-50 px-3 py-2 text-xs font-semibold text-stone-900"
                 >
                   <option value="all">
-                    Tất cả 13 Bài học (Đủ {allVocab.length} từ)
+                    Tất cả {textbookData.sections.length} Mục ({allVocab.length}{' '}
+                    từ)
                   </option>
                   {textbookData.sections.map((sec) => (
                     <option key={sec.id} value={sec.id}>
@@ -940,7 +1309,7 @@ export default function App() {
                   ))}
                 </select>
 
-                <div className="relative w-full sm:w-72">
+                <div className="relative w-full sm:w-64">
                   <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
                   <input
                     type="text"
@@ -953,71 +1322,217 @@ export default function App() {
               </div>
             </div>
 
-            {/* Render ALL matching words across all 529 items */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredHubVocab.map((v, idx) => {
-                const isBookmarked = !!bookmarks[v.hanzi];
-                const cat = detectWordCategory(v.hanzi, v.meaning_vi);
-                return (
-                  <div
-                    key={`${v.lessonId}_${v.index}_${idx}`}
-                    onClick={() =>
-                      setDictModalWord({
-                        hanzi: v.hanzi,
-                        lessonTitle: v.lessonTitle,
-                      })
-                    }
-                    className="cursor-pointer rounded-xl border border-stone-200 bg-white p-4 hover:border-amber-500 transition-all space-y-3"
-                  >
-                    <WordVisualIllustration
-                      hanzi={v.hanzi}
-                      pinyin={v.pinyin}
-                      meaningVi={v.meaning_vi}
-                      category={cat}
-                    />
+            {dictHubViewMode === 'visual_grid' ? (
+              /* MODE 1: VISUAL GRID WITH ILLUSTRATION IMAGES */
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredHubVocab.map((v, idx) => {
+                  const isBookmarked = !!bookmarks[v.hanzi];
+                  const cat = detectWordCategory(v.hanzi, v.meaning_vi);
+                  return (
                     <div
-                      className="flex items-center justify-between pt-1"
-                      onClick={(e) => e.stopPropagation()}
+                      key={`${v.lessonId}_${v.index}_${idx}`}
+                      onClick={() =>
+                        setDictModalWord({
+                          hanzi: v.hanzi,
+                          lessonTitle: v.lessonTitle,
+                        })
+                      }
+                      className="cursor-pointer rounded-xl border border-stone-200 bg-white p-4 hover:border-amber-500 transition-all space-y-3"
                     >
-                      <span className="text-xs text-stone-500">
-                        Từ #{idx + 1} · Trang {v.page} · {v.lessonTitle}
-                      </span>
-                      <div className="flex items-center gap-1.5">
-                        <button
-                          onClick={() => handleSpeakDirect(v.hanzi, false)}
-                          className="inline-flex items-center gap-1 rounded-lg bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-900 hover:bg-amber-100"
-                        >
-                          <Volume2 className="h-3.5 w-3.5" />
-                          Nghe
-                        </button>
-                        <button
-                          onClick={() =>
-                            handleToggleBookmark({
-                              hanzi: v.hanzi,
-                              pinyin: v.pinyin,
-                              meaning_vi: v.meaning_vi,
-                              page: v.page,
-                              lessonTitle: v.lessonTitle || 'Quyển 1',
-                            })
-                          }
-                          className={`flex h-7 w-7 items-center justify-center rounded-lg border ${
-                            isBookmarked
-                              ? 'border-amber-400 bg-amber-50 text-amber-600'
-                              : 'border-stone-200 text-stone-400 hover:text-stone-700'
-                          }`}
-                        >
-                          <Bookmark
-                            className={`h-3.5 w-3.5 ${
-                              isBookmarked ? 'fill-amber-500' : ''
+                      <WordVisualIllustration
+                        hanzi={v.hanzi}
+                        pinyin={v.pinyin}
+                        meaningVi={v.meaning_vi}
+                        category={cat}
+                        showPinyin={dictShowPinyin}
+                        showMeaning={dictShowMeaning}
+                      />
+                      <div
+                        className="flex items-center justify-between pt-1"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <span className="text-xs text-stone-500">
+                          Từ #{idx + 1} · Trang {v.page} · {v.lessonTitle}
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <button
+                            onClick={() => handleSpeakDirect(v.hanzi, false)}
+                            className="inline-flex items-center gap-1 rounded-lg bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-900 hover:bg-amber-100"
+                          >
+                            <Volume2 className="h-3.5 w-3.5" />
+                            Nghe
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleToggleBookmark({
+                                hanzi: v.hanzi,
+                                pinyin: v.pinyin,
+                                meaning_vi: v.meaning_vi,
+                                page: v.page,
+                                lessonTitle:
+                                  v.lessonTitle || activeBookMeta.label,
+                              })
+                            }
+                            className={`flex h-7 w-7 items-center justify-center rounded-lg border ${
+                              isBookmarked
+                                ? 'border-amber-400 bg-amber-50 text-amber-600'
+                                : 'border-stone-200 text-stone-400 hover:text-stone-700'
                             }`}
-                          />
-                        </button>
+                            title={
+                              isBookmarked
+                                ? 'Đã lưu sổ tay (Nhãn Đã lưu)'
+                                : 'Lưu vào sổ tay (Nhãn Đã lưu)'
+                            }
+                          >
+                            <Bookmark
+                              className={`h-3.5 w-3.5 ${
+                                isBookmarked ? 'fill-amber-500' : ''
+                              }`}
+                            />
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            ) : (
+              /* MODE 2: COMPACT LIST VIEW WITHOUT ILLUSTRATION IMAGES */
+              <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-2xs">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-stone-200 bg-stone-50 text-[11px] font-semibold uppercase tracking-wider text-stone-600">
+                        <th className="py-3 pl-4 pr-2 w-12">#</th>
+                        <th className="py-3 px-3">Từ mới</th>
+                        {dictShowPinyin && (
+                          <th className="py-3 px-3">Phiên âm</th>
+                        )}
+                        {dictShowMeaning && (
+                          <th className="py-3 px-3">Nghĩa tiếng Việt</th>
+                        )}
+                        <th className="py-3 px-3 hidden md:table-cell">
+                          Bài học & Trang
+                        </th>
+                        <th className="py-3 pl-2 pr-4 text-right">
+                          Nghe / Hanzii / Lưu
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-100 text-xs sm:text-sm">
+                      {filteredHubVocab.map((v, idx) => {
+                        const isBookmarked = !!bookmarks[v.hanzi];
+                        const hanziiUrl = buildHanziiDictUrl(v.hanzi);
+                        return (
+                          <tr
+                            key={`list_${v.lessonId}_${v.index}_${idx}`}
+                            onClick={() =>
+                              setDictModalWord({
+                                hanzi: v.hanzi,
+                                lessonTitle: v.lessonTitle,
+                              })
+                            }
+                            className={`cursor-pointer transition-colors ${
+                              isBookmarked
+                                ? 'bg-amber-50/45 hover:bg-amber-50/80'
+                                : 'hover:bg-stone-50'
+                            }`}
+                          >
+                            <td className="py-2.5 pl-4 pr-2 font-mono text-xs text-stone-400 tabular-nums">
+                              {idx + 1}.
+                            </td>
+                            <td className="py-2.5 px-3">
+                              <span className="font-['Noto_Sans_SC'] text-base sm:text-lg font-bold text-stone-900 hover:text-amber-800">
+                                {v.hanzi}
+                              </span>
+                            </td>
+                            {dictShowPinyin && (
+                              <td className="py-2.5 px-3 font-mono text-xs sm:text-sm font-semibold text-amber-800">
+                                {v.pinyin}
+                              </td>
+                            )}
+                            {dictShowMeaning && (
+                              <td className="py-2.5 px-3 font-medium text-stone-800">
+                                <div>{v.meaning_vi}</div>
+                                <div className="mt-0.5 text-[11px] text-stone-500 md:hidden">
+                                  Tr.{v.page} · {v.lessonTitle}
+                                </div>
+                              </td>
+                            )}
+                            <td className="py-2.5 px-3 text-xs text-stone-500 hidden md:table-cell">
+                              <span className="font-mono text-stone-700 font-semibold">
+                                Tr.{v.page}
+                              </span>{' '}
+                              · {v.lessonTitle}
+                            </td>
+                            <td
+                              className="py-2.5 pl-2 pr-4 text-right"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="inline-flex items-center justify-end gap-1.5">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    handleSpeakDirect(v.hanzi, false)
+                                  }
+                                  className="inline-flex items-center gap-1 rounded-lg bg-amber-50 border border-amber-200/80 px-2.5 py-1 text-xs font-semibold text-amber-900 hover:bg-amber-100 transition-colors"
+                                  title="Phát âm chuẩn"
+                                >
+                                  <Volume2 className="h-3.5 w-3.5" />
+                                  <span className="hidden sm:inline">Nghe</span>
+                                </button>
+                                <a
+                                  href={hanziiUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) =>
+                                    handleHanziiLinkClick(e, v.hanzi)
+                                  }
+                                  className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-950 hover:bg-amber-100 transition-colors"
+                                  title={`Tra cứu từ "${v.hanzi}" trên Hanzii`}
+                                >
+                                  <span>Hanzii</span>
+                                  <ExternalLink className="h-3 w-3" />
+                                </a>
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    handleToggleBookmark({
+                                      hanzi: v.hanzi,
+                                      pinyin: v.pinyin,
+                                      meaning_vi: v.meaning_vi,
+                                      page: v.page,
+                                      lessonTitle:
+                                        v.lessonTitle || activeBookMeta.label,
+                                    })
+                                  }
+                                  className={`flex h-7 w-7 items-center justify-center rounded-lg border transition-colors ${
+                                    isBookmarked
+                                      ? 'border-amber-400 bg-amber-100 text-amber-700'
+                                      : 'border-stone-200 bg-white text-stone-400 hover:text-stone-700'
+                                  }`}
+                                  title={
+                                    isBookmarked
+                                      ? 'Đã lưu vào Sổ tay (Nhãn Đã lưu)'
+                                      : 'Lưu vào Sổ tay (Nhãn Đã lưu)'
+                                  }
+                                >
+                                  <Bookmark
+                                    className={`h-3.5 w-3.5 ${
+                                      isBookmarked ? 'fill-amber-500' : ''
+                                    }`}
+                                  />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -1063,7 +1578,9 @@ export default function App() {
 
       {/* Footer with Center Name & Author Credit */}
       <footer className="border-t border-stone-200 bg-white py-4 px-6 text-center text-xs text-stone-600">
-        Giáo Trình Tiếng Trung Quyển 1 · Hán ngữ Hoa Sen · Biên soạn: Nguyễn Thị Cẩm Nho · 98 Trang · 529 Từ vựng
+        Giáo Trình Hán Ngữ Hoa Sen {activeBookMeta.label} · Biên soạn: Nguyễn
+        Thị Cẩm Nho · {textbookData.total_pages} Trang · {allVocab.length} Từ
+        vựng
       </footer>
 
       {/* SPECIALIZED CONTEXTUAL & VISUAL DICTIONARY MODAL */}
@@ -1071,7 +1588,7 @@ export default function App() {
         wordHanzi={dictModalWord?.hanzi || null}
         contextSentence={dictModalWord?.contextSentence}
         lessonTitle={dictModalWord?.lessonTitle}
-        allVocab={allVocab}
+        allVocab={globalAllVocab}
         allDialogues={allDialogues}
         bookmarks={bookmarks}
         onToggleBookmark={handleToggleBookmark}

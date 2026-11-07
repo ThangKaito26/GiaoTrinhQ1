@@ -1,9 +1,15 @@
 import { LessonSupplementaryContent, ExerciseItem } from '../types/textbook';
+import {
+  BOOK2_AND_3_EXERCISE_PAGE_MAP,
+  BOOK2_AND_3_SUPPLEMENTARY_EXERCISES,
+  BOOK2_AND_3_SUPPLEMENTARY_DATA,
+} from './book2And3Data';
 
 /**
- * Exact page number in the 98-page PDF where each exercise is printed
+ * Exact page number in the PDF where each exercise is printed (Quyển 1, 2, 3)
  */
 export const EXERCISE_PAGE_MAP: Record<string, number> = {
+  ...BOOK2_AND_3_EXERCISE_PAGE_MAP,
   // Bài 1 (Trang 4: III. 翻译成越语 DỊCH VIỆT SANG TRUNG 1..8)
   q1_b01_ex01: 4,
   q1_b01_ex02: 4,
@@ -24,19 +30,19 @@ export const EXERCISE_PAGE_MAP: Record<string, number> = {
   q1_b02_ex07: 9,
   q1_b02_ex08: 9,
 
-  // Bài 3 (Trang 14: Câu 1..5, Trang 15: Câu 6..7)
+  // Bài 3 (Trang 14: Câu 1..7)
   q1_b03_ex01: 14,
   q1_b03_ex02: 14,
   q1_b03_ex03: 14,
   q1_b03_ex04: 14,
   q1_b03_ex05: 14,
-  q1_b03_ex06: 15,
-  q1_b03_ex07: 15,
+  q1_b03_ex06: 14,
+  q1_b03_ex07: 14,
 
-  // Bài 4 (Trang 20: Câu 1, Trang 21: Câu 2..12)
+  // Bài 4 (Trang 20: Câu 1..3, Trang 21: Câu 4..12)
   q1_b04_ex01: 20,
-  q1_b04_ex02: 21,
-  q1_b04_ex03: 21,
+  q1_b04_ex02: 20,
+  q1_b04_ex03: 20,
   q1_b04_ex04: 21,
   q1_b04_ex05: 21,
   q1_b04_ex06: 21,
@@ -58,31 +64,31 @@ export const EXERCISE_PAGE_MAP: Record<string, number> = {
   q1_b05_ex08: 27,
   q1_b05_ex09: 27,
 
-  // Bài 6 (Trang 35: Câu 1..4, Trang 36: Câu 5..11)
-  q1_b06_ex01: 35,
-  q1_b06_ex02: 35,
-  q1_b06_ex03: 35,
+  // Bài 6 (Trang 34: Câu 1..3, Trang 35: Câu 4..11)
+  q1_b06_ex01: 34,
+  q1_b06_ex02: 34,
+  q1_b06_ex03: 34,
   q1_b06_ex04: 35,
-  q1_b06_ex05: 36,
-  q1_b06_ex06: 36,
-  q1_b06_ex07: 36,
-  q1_b06_ex08: 36,
-  q1_b06_ex09: 36,
-  q1_b06_ex10: 36,
-  q1_b06_ex11: 36,
+  q1_b06_ex05: 35,
+  q1_b06_ex06: 35,
+  q1_b06_ex07: 35,
+  q1_b06_ex08: 35,
+  q1_b06_ex09: 35,
+  q1_b06_ex10: 35,
+  q1_b06_ex11: 35,
 
-  // Bài 7 (Trang 43: Câu 1..7, Trang 44: Câu 8..11)
-  q1_b07_ex01: 43,
-  q1_b07_ex02: 43,
-  q1_b07_ex03: 43,
+  // Bài 7 (Trang 42: Câu 1..3, Trang 43: Câu 4..11)
+  q1_b07_ex01: 42,
+  q1_b07_ex02: 42,
+  q1_b07_ex03: 42,
   q1_b07_ex04: 43,
   q1_b07_ex05: 43,
   q1_b07_ex06: 43,
   q1_b07_ex07: 43,
-  q1_b07_ex08: 44,
-  q1_b07_ex09: 44,
-  q1_b07_ex10: 44,
-  q1_b07_ex11: 44,
+  q1_b07_ex08: 43,
+  q1_b07_ex09: 43,
+  q1_b07_ex10: 43,
+  q1_b07_ex11: 43,
 
   // Bài 8 (Trang 51: Câu 1..9)
   q1_b08_ex01: 51,
@@ -95,81 +101,81 @@ export const EXERCISE_PAGE_MAP: Record<string, number> = {
   q1_b08_ex08: 51,
   q1_b08_ex09: 51,
 
-  // Bài 9 (Trang 59: Câu 1..3, Trang 60: Câu 4..9)
+  // Bài 9 (Trang 59: Câu 1..9)
   q1_b09_ex01: 59,
   q1_b09_ex02: 59,
   q1_b09_ex03: 59,
-  q1_b09_ex04: 60,
-  q1_b09_ex05: 60,
-  q1_b09_ex06: 60,
-  q1_b09_ex07: 60,
-  q1_b09_ex08: 60,
-  q1_b09_ex09: 60,
+  q1_b09_ex04: 59,
+  q1_b09_ex05: 59,
+  q1_b09_ex06: 59,
+  q1_b09_ex07: 59,
+  q1_b09_ex08: 59,
+  q1_b09_ex09: 59,
 
-  // Bài 10 (Trang 69: Bài đọc 课文, Trang 70: IV. 造句 Đặt câu 1..8)
+  // Bài 10 (Trang 69: Bài đọc 课文 + Câu 1..3, Trang 70: Câu 4..8)
   q1_b10_ex00_reading: 69,
-  q1_b10_ex01: 70,
-  q1_b10_ex02: 70,
-  q1_b10_ex03: 70,
+  q1_b10_ex01: 69,
+  q1_b10_ex02: 69,
+  q1_b10_ex03: 69,
   q1_b10_ex04: 70,
   q1_b10_ex05: 70,
   q1_b10_ex06: 70,
   q1_b10_ex07: 70,
   q1_b10_ex08: 70,
 
-  // Bài 11 (Trang 77-78: III. 课文 Đoạn văn 1 & 2, Trang 79: IV. 造句 1..8, Trang 80: 9..10)
+  // Bài 11 (Trang 77: Đoạn 1, Trang 78: Đoạn 2 + Câu 1..4, Trang 79: Câu 5..10)
   q1_b11_ex00_reading1: 77,
   q1_b11_ex00_reading2: 78,
-  q1_b11_ex01: 79,
-  q1_b11_ex02: 79,
-  q1_b11_ex03: 79,
-  q1_b11_ex04: 79,
+  q1_b11_ex01: 78,
+  q1_b11_ex02: 78,
+  q1_b11_ex03: 78,
+  q1_b11_ex04: 78,
   q1_b11_ex05: 79,
   q1_b11_ex06: 79,
   q1_b11_ex07: 79,
   q1_b11_ex08: 79,
-  q1_b11_ex09: 80,
-  q1_b11_ex10: 80,
+  q1_b11_ex09: 79,
+  q1_b11_ex10: 79,
 
-  // Bài Ngữ Pháp Tổng Hợp (Trang 82..87: 20 chủ điểm ngữ pháp)
+  // Bài Ngữ Pháp Tổng Hợp (Trang 82..86: 26 câu phân bổ đều 5-6 câu/trang)
   q1_to_ex01: 82,
   q1_to_ex02: 82,
   q1_to_ex03: 82,
   q1_to_ex04: 82,
   q1_to_ex05: 82,
-  q1_to_ex06: 82,
-  q1_to_ex07: 82,
-  q1_to_ex08: 82,
-  q1_to_ex09: 82,
+  q1_to_ex06: 83,
+  q1_to_ex07: 83,
+  q1_to_ex08: 83,
+  q1_to_ex09: 83,
   q1_to_ex10: 83,
-  q1_to_ex11: 83,
-  q1_to_ex12: 83,
-  q1_to_ex13: 83,
-  q1_to_ex14: 83,
+  q1_to_ex11: 84,
+  q1_to_ex12: 84,
+  q1_to_ex13: 84,
+  q1_to_ex14: 84,
   q1_to_ex15: 84,
-  q1_to_ex16: 84,
-  q1_to_ex17: 84,
-  q1_to_ex18: 84,
-  q1_to_ex19: 84,
-  q1_to_ex20: 84,
-  q1_to_ex21: 85,
-  q1_to_ex22: 85,
-  q1_to_ex23: 85,
+  q1_to_ex16: 85,
+  q1_to_ex17: 85,
+  q1_to_ex18: 85,
+  q1_to_ex19: 85,
+  q1_to_ex20: 85,
+  q1_to_ex21: 86,
+  q1_to_ex22: 86,
+  q1_to_ex23: 86,
   q1_to_ex24: 86,
   q1_to_ex25: 86,
-  q1_to_ex26: 87,
+  q1_to_ex26: 86,
 
-  // Bài 12 (Trang 95: III. 练习 Đoạn 1 & 2, Trang 96: 写短文, Trang 97: IV. 造句 1..7, Trang 98: 8..10)
+  // Bài 12 (Trang 95: Đoạn 1 & 2, Trang 96: 写短文 + Câu 1..2, Trang 97: Câu 3..6, Trang 98: Câu 7..10)
   q1_b12_ex01: 95,
   q1_b12_ex02: 95,
   q1_b12_ex03: 96,
-  q1_b12_ex04: 97,
-  q1_b12_ex05: 97,
+  q1_b12_ex04: 96,
+  q1_b12_ex05: 96,
   q1_b12_ex06: 97,
   q1_b12_ex07: 97,
   q1_b12_ex08: 97,
   q1_b12_ex09: 97,
-  q1_b12_ex10: 97,
+  q1_b12_ex10: 98,
   q1_b12_ex11: 98,
   q1_b12_ex12: 98,
   q1_b12_ex13: 98,
@@ -179,6 +185,7 @@ export const EXERCISE_PAGE_MAP: Record<string, number> = {
  * Additional exercises from pages 69, 77, 78, 80 of the PDF textbook so that not a single item is missing
  */
 export const SUPPLEMENTARY_EXERCISES_BY_LESSON: Record<string, ExerciseItem[]> = {
+  ...BOOK2_AND_3_SUPPLEMENTARY_EXERCISES,
   q1_b10: [
     {
       exercise_id: 'q1_b10_ex00_reading',
@@ -269,6 +276,7 @@ export const SUPPLEMENTARY_EXERCISES_BY_LESSON: Record<string, ExerciseItem[]> =
 };
 
 export const LESSON_SUPPLEMENTARY_DATA: Record<string, LessonSupplementaryContent> = {
+  ...BOOK2_AND_3_SUPPLEMENTARY_DATA,
   bai_01: {
     sectionId: 'bai_01',
     lessonExerciseId: 'q1_b01',
